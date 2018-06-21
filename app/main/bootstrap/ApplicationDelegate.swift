@@ -23,6 +23,9 @@ internal class ApplicationDelegate : NSObject, UIApplicationDelegate {
 		let navigationController = application.navigationController
 		window.rootViewController = navigationController
 		
+		let homeViewController = HomeViewController()
+		navigationController.pushViewController(homeViewController)
+		
 		return true
 	}
 }

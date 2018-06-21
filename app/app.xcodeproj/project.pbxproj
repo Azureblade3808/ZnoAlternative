@@ -7,19 +7,25 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		05F0F7A0B69AE4D2FCE12FD3FA4BC550 /* HomeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 65607C604391DCC650F1FE0D363A5468 /* HomeViewController.swift */; };
 		15CEE4A1DB55BF0DC079F1FB28AE43B5 /* Pods_app.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 35BE96BF4DA7FC87AEC576C7ED807E24 /* Pods_app.framework */; };
 		4EBF72E65A96BFDAF99FA56F850D8E7D /* Bootstrap.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 6D88655E2CD72C3DC5CD5DA383C1FEFA /* Bootstrap.xcassets */; };
+		57655EAA3B75588AAD643A6C1D3DCBB6 /* Colors.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 0EF67151CAFF4EE9E4C5884A48DE8C66 /* Colors.xcassets */; };
 		97F1A78BA5D21A02828C455151F72717 /* ui.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 2DFEA248378C22E650C47EB4E5346C17 /* ui.framework */; };
 		984A4FFFC25D19AB1645485FD2791E5D /* main.swift in Sources */ = {isa = PBXBuildFile; fileRef = 080E45D4C8477EB7620C22556C5652F5 /* main.swift */; };
 		A8E8F0DF9F9E651254903C3BAF7AACD8 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 1F3D3CB7161FE6319C785E86632B1B64 /* LaunchScreen.storyboard */; };
+		C07B269963553D3BA774D284FE7415E1 /* HomeViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 2906CE0D8EBF73EFD1FD72CD4E9AA5B2 /* HomeViewController.xib */; };
 		FBBB735B30A48D8D1A4E54F8E0A43E79 /* ApplicationDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = D4562D8D628EBBE10C43B6BE8F2913DA /* ApplicationDelegate.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
 		080E45D4C8477EB7620C22556C5652F5 /* main.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = main.swift; sourceTree = "<group>"; };
+		0EF67151CAFF4EE9E4C5884A48DE8C66 /* Colors.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Colors.xcassets; sourceTree = "<group>"; };
 		1F3D3CB7161FE6319C785E86632B1B64 /* LaunchScreen.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = LaunchScreen.storyboard; sourceTree = "<group>"; };
+		2906CE0D8EBF73EFD1FD72CD4E9AA5B2 /* HomeViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = HomeViewController.xib; sourceTree = "<group>"; };
 		2DFEA248378C22E650C47EB4E5346C17 /* ui.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; path = ui.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		35BE96BF4DA7FC87AEC576C7ED807E24 /* Pods_app.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_app.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		65607C604391DCC650F1FE0D363A5468 /* HomeViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeViewController.swift; sourceTree = "<group>"; };
 		6D88655E2CD72C3DC5CD5DA383C1FEFA /* Bootstrap.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Bootstrap.xcassets; sourceTree = "<group>"; };
 		B592225F4F92EF4F0C0A6C5300C3D8D8 /* Pods-app.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-app.release.xcconfig"; path = "../Pods/Target Support Files/Pods-app/Pods-app.release.xcconfig"; sourceTree = "<group>"; };
 		D4562D8D628EBBE10C43B6BE8F2913DA /* ApplicationDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ApplicationDelegate.swift; sourceTree = "<group>"; };
@@ -40,13 +46,21 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
-		CADA28AD98BFE4C7878EF1AEFED28F52 /* Pods */ = {
+		4369B12F9D8504DCCC0F593A58E7EB8B /* home */ = {
 			isa = PBXGroup;
 			children = (
-				E6226956E1FE4C9D7123DE968A4988C9 /* Pods-app.debug.xcconfig */,
-				B592225F4F92EF4F0C0A6C5300C3D8D8 /* Pods-app.release.xcconfig */,
+				65607C604391DCC650F1FE0D363A5468 /* HomeViewController.swift */,
+				2906CE0D8EBF73EFD1FD72CD4E9AA5B2 /* HomeViewController.xib */,
 			);
-			name = Pods;
+			path = home;
+			sourceTree = "<group>";
+		};
+		DE83AAFF96AD3922BB94C8269B01801F /* global */ = {
+			isa = PBXGroup;
+			children = (
+				0EF67151CAFF4EE9E4C5884A48DE8C66 /* Colors.xcassets */,
+			);
+			path = global;
 			sourceTree = "<group>";
 		};
 		672F3A4D0EBF82159E50B8D51468C353 /* bootstrap */ = {
@@ -68,15 +82,6 @@
 			name = Products;
 			sourceTree = "<group>";
 		};
-		D1880CB5866AADB312E7EB0489FCA709 /* Frameworks */ = {
-			isa = PBXGroup;
-			children = (
-				35BE96BF4DA7FC87AEC576C7ED807E24 /* Pods_app.framework */,
-				2DFEA248378C22E650C47EB4E5346C17 /* ui.framework */,
-			);
-			name = Frameworks;
-			sourceTree = "<group>";
-		};
 		A31652A4630531686968CFBE86569A78 = {
 			isa = PBXGroup;
 			children = (
@@ -87,10 +92,30 @@
 			);
 			sourceTree = "<group>";
 		};
+		CADA28AD98BFE4C7878EF1AEFED28F52 /* Pods */ = {
+			isa = PBXGroup;
+			children = (
+				E6226956E1FE4C9D7123DE968A4988C9 /* Pods-app.debug.xcconfig */,
+				B592225F4F92EF4F0C0A6C5300C3D8D8 /* Pods-app.release.xcconfig */,
+			);
+			name = Pods;
+			sourceTree = "<group>";
+		};
+		D1880CB5866AADB312E7EB0489FCA709 /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				35BE96BF4DA7FC87AEC576C7ED807E24 /* Pods_app.framework */,
+				2DFEA248378C22E650C47EB4E5346C17 /* ui.framework */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
 		F500D02AA4F5AC38F79EC2E1EE7258C0 /* main */ = {
 			isa = PBXGroup;
 			children = (
 				672F3A4D0EBF82159E50B8D51468C353 /* bootstrap */,
+				DE83AAFF96AD3922BB94C8269B01801F /* global */,
+				4369B12F9D8504DCCC0F593A58E7EB8B /* home */,
 			);
 			path = main;
 			sourceTree = "<group>";
@@ -156,6 +181,8 @@
 			buildActionMask = 2147483647;
 			files = (
 				4EBF72E65A96BFDAF99FA56F850D8E7D /* Bootstrap.xcassets in Resources */,
+				57655EAA3B75588AAD643A6C1D3DCBB6 /* Colors.xcassets in Resources */,
+				C07B269963553D3BA774D284FE7415E1 /* HomeViewController.xib in Resources */,
 				A8E8F0DF9F9E651254903C3BAF7AACD8 /* LaunchScreen.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -189,6 +216,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				FBBB735B30A48D8D1A4E54F8E0A43E79 /* ApplicationDelegate.swift in Sources */,
+				05F0F7A0B69AE4D2FCE12FD3FA4BC550 /* HomeViewController.swift in Sources */,
 				984A4FFFC25D19AB1645485FD2791E5D /* main.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

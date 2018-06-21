@@ -1,0 +1,78 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="14113" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
+    <device id="retina5_9" orientation="portrait">
+        <adaptation id="fullscreen"/>
+    </device>
+    <dependencies>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="14088"/>
+        <capability name="Named colors" minToolsVersion="9.0"/>
+        <capability name="Safe area layout guides" minToolsVersion="9.0"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <objects>
+        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="HomeViewController" customModule="app" customModuleProvider="target">
+            <userDefinedRuntimeAttributes>
+                <userDefinedRuntimeAttribute type="boolean" keyPath="_StatusBar" value="YES"/>
+                <userDefinedRuntimeAttribute type="boolean" keyPath="_Presents" value="NO"/>
+                <userDefinedRuntimeAttribute type="boolean" keyPath="_WhiteStatus" value="YES"/>
+                <userDefinedRuntimeAttribute type="boolean" keyPath="_NavigationBar" value="NO"/>
+                <userDefinedRuntimeAttribute type="boolean" keyPath="_Portrait" value="YES"/>
+                <userDefinedRuntimeAttribute type="boolean" keyPath="_Left" value="YES"/>
+                <userDefinedRuntimeAttribute type="boolean" keyPath="_Right" value="YES"/>
+                <userDefinedRuntimeAttribute type="boolean" keyPath="_UpsideDown" value="YES"/>
+            </userDefinedRuntimeAttributes>
+            <connections>
+                <outlet property="view" destination="i5M-Pr-FkT" id="sfx-zR-JGt"/>
+            </connections>
+        </placeholder>
+        <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
+        <view clearsContextBeforeDrawing="NO" contentMode="scaleToFill" id="i5M-Pr-FkT" userLabel="Root View">
+            <rect key="frame" x="0.0" y="0.0" width="375" height="812"/>
+            <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+            <subviews>
+                <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Hbu-BB-ckV" userLabel="Fake Status Bar" customClass="DummyView" customModule="ui">
+                    <rect key="frame" x="0.0" y="0.0" width="375" height="44"/>
+                    <color key="backgroundColor" name="global_bar_color"/>
+                </view>
+                <navigationBar contentMode="scaleToFill" verticalCompressionResistancePriority="1000" barStyle="black" translucent="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Zj1-fr-wzq">
+                    <rect key="frame" x="0.0" y="44" width="375" height="44"/>
+                    <color key="barTintColor" name="global_bar_color"/>
+                    <textAttributes key="titleTextAttributes">
+                        <color key="textColor" name="global_highlight_color"/>
+                    </textAttributes>
+                    <items>
+                        <navigationItem title="Home" id="HNW-Lb-PWU"/>
+                    </items>
+                </navigationBar>
+                <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="zZQ-HM-5qA" userLabel="Content View" customClass="DummyView" customModule="ui">
+                    <rect key="frame" x="0.0" y="88" width="375" height="690"/>
+                    <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                </view>
+            </subviews>
+            <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+            <constraints>
+                <constraint firstItem="Hbu-BB-ckV" firstAttribute="bottom" secondItem="fnl-2z-Ty3" secondAttribute="top" id="GKd-RO-yXT"/>
+                <constraint firstItem="Hbu-BB-ckV" firstAttribute="left" secondItem="i5M-Pr-FkT" secondAttribute="left" id="Lva-zn-bUj"/>
+                <constraint firstItem="zZQ-HM-5qA" firstAttribute="bottom" secondItem="fnl-2z-Ty3" secondAttribute="bottom" id="OKv-9Q-X1Z"/>
+                <constraint firstItem="Zj1-fr-wzq" firstAttribute="top" secondItem="Hbu-BB-ckV" secondAttribute="bottom" id="OPk-aA-UKO"/>
+                <constraint firstItem="Hbu-BB-ckV" firstAttribute="right" secondItem="i5M-Pr-FkT" secondAttribute="right" id="YmU-Jg-H1H"/>
+                <constraint firstItem="Zj1-fr-wzq" firstAttribute="left" secondItem="i5M-Pr-FkT" secondAttribute="left" id="ZZR-0H-4S6"/>
+                <constraint firstItem="Zj1-fr-wzq" firstAttribute="right" secondItem="i5M-Pr-FkT" secondAttribute="right" id="g4W-ap-D2a"/>
+                <constraint firstItem="zZQ-HM-5qA" firstAttribute="right" secondItem="fnl-2z-Ty3" secondAttribute="right" id="jQy-I6-WP6"/>
+                <constraint firstItem="zZQ-HM-5qA" firstAttribute="left" secondItem="fnl-2z-Ty3" secondAttribute="left" id="pbB-fY-m0s"/>
+                <constraint firstItem="Hbu-BB-ckV" firstAttribute="top" secondItem="i5M-Pr-FkT" secondAttribute="top" id="t6t-mc-6nl"/>
+                <constraint firstItem="zZQ-HM-5qA" firstAttribute="top" secondItem="Zj1-fr-wzq" secondAttribute="bottom" id="uZQ-Ss-kxu"/>
+            </constraints>
+            <viewLayoutGuide key="safeArea" id="fnl-2z-Ty3"/>
+            <point key="canvasLocation" x="24.5" y="52"/>
+        </view>
+    </objects>
+    <resources>
+        <namedColor name="global_bar_color">
+            <color red="0.22699999809265137" green="0.22699999809265137" blue="0.22699999809265137" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+        </namedColor>
+        <namedColor name="global_highlight_color">
+            <color red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+        </namedColor>
+    </resources>
+</document>
