@@ -55,14 +55,6 @@
 			path = home;
 			sourceTree = "<group>";
 		};
-		DE83AAFF96AD3922BB94C8269B01801F /* global */ = {
-			isa = PBXGroup;
-			children = (
-				0EF67151CAFF4EE9E4C5884A48DE8C66 /* Colors.xcassets */,
-			);
-			path = global;
-			sourceTree = "<group>";
-		};
 		672F3A4D0EBF82159E50B8D51468C353 /* bootstrap */ = {
 			isa = PBXGroup;
 			children = (
@@ -108,6 +100,14 @@
 				2DFEA248378C22E650C47EB4E5346C17 /* ui.framework */,
 			);
 			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		DE83AAFF96AD3922BB94C8269B01801F /* global */ = {
+			isa = PBXGroup;
+			children = (
+				0EF67151CAFF4EE9E4C5884A48DE8C66 /* Colors.xcassets */,
+			);
+			path = global;
 			sourceTree = "<group>";
 		};
 		F500D02AA4F5AC38F79EC2E1EE7258C0 /* main */ = {
@@ -230,8 +230,9 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CLANG_ENABLE_MODULES = YES;
+				CODE_SIGN_IDENTITY = "";
 				CODE_SIGN_STYLE = Automatic;
-				DEVELOPMENT_TEAM = UBTP437Y3Q;
+				DEVELOPMENT_TEAM = "";
 				INFOPLIST_FILE = main/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 11.0;
 				LD_RUNPATH_SEARCH_PATHS = (
@@ -305,8 +306,9 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CLANG_ENABLE_MODULES = YES;
+				CODE_SIGN_IDENTITY = "";
 				CODE_SIGN_STYLE = Automatic;
-				DEVELOPMENT_TEAM = UBTP437Y3Q;
+				DEVELOPMENT_TEAM = "";
 				INFOPLIST_FILE = main/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 11.0;
 				LD_RUNPATH_SEARCH_PATHS = (
