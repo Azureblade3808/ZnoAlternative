@@ -14,7 +14,7 @@
                <EnvironmentBuildable>
                   <BuildableReference
                      BuildableIdentifier = "primary"
-                     BlueprintIdentifier = "49FF057A20DB54E600D09D46"
+                     BlueprintIdentifier = "ADE4021F53F6D0BDD766D0160C64B2C4"
                      BuildableName = "app.app"
                      BlueprintName = "app"
                      ReferencedContainer = "container:app.xcodeproj">
@@ -32,7 +32,7 @@
             buildForAnalyzing = "YES">
             <BuildableReference
                BuildableIdentifier = "primary"
-               BlueprintIdentifier = "49FF057A20DB54E600D09D46"
+               BlueprintIdentifier = "ADE4021F53F6D0BDD766D0160C64B2C4"
                BuildableName = "app.app"
                BlueprintName = "app"
                ReferencedContainer = "container:app.xcodeproj">
@@ -50,7 +50,7 @@
       <MacroExpansion>
          <BuildableReference
             BuildableIdentifier = "primary"
-            BlueprintIdentifier = "49FF057A20DB54E600D09D46"
+            BlueprintIdentifier = "ADE4021F53F6D0BDD766D0160C64B2C4"
             BuildableName = "app.app"
             BlueprintName = "app"
             ReferencedContainer = "container:app.xcodeproj">
@@ -73,7 +73,7 @@
          runnableDebuggingMode = "0">
          <BuildableReference
             BuildableIdentifier = "primary"
-            BlueprintIdentifier = "49FF057A20DB54E600D09D46"
+            BlueprintIdentifier = "ADE4021F53F6D0BDD766D0160C64B2C4"
             BuildableName = "app.app"
             BlueprintName = "app"
             ReferencedContainer = "container:app.xcodeproj">
@@ -92,7 +92,7 @@
          runnableDebuggingMode = "0">
          <BuildableReference
             BuildableIdentifier = "primary"
-            BlueprintIdentifier = "49FF057A20DB54E600D09D46"
+            BlueprintIdentifier = "ADE4021F53F6D0BDD766D0160C64B2C4"
             BuildableName = "app.app"
             BlueprintName = "app"
             ReferencedContainer = "container:app.xcodeproj">

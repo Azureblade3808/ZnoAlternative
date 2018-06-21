@@ -10,3 +10,19 @@ target 'app' do
 	use_frameworks!
 	inhibit_all_warnings!
 end
+
+# project 'ui'
+
+target 'ui' do
+	project 'ui/ui'
+	
+	platform :ios, '11.0'
+	
+	use_frameworks!
+	inhibit_all_warnings!
+	
+	target 'ui tests' do
+		pod 'Nimble'
+		pod 'Quick'
+	end
+end
