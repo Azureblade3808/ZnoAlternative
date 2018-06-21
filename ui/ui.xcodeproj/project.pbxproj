@@ -77,6 +77,14 @@
 			name = Products;
 			sourceTree = "<group>";
 		};
+		1335414BB1D3E4D565FDA2DA4BD125A8 /* custom views */ = {
+			isa = PBXGroup;
+			children = (
+				C048BACB29CA4F22AA346740E4565C84 /* DummyViewSpec.swift */,
+			);
+			path = "custom views";
+			sourceTree = "<group>";
+		};
 		22BFA074EFE544A7603C9459194969A2 /* main */ = {
 			isa = PBXGroup;
 			children = (
@@ -93,14 +101,6 @@
 				F6431AD33762796A95CC0B2B51E096A9 /* kernel */,
 			);
 			path = tests;
-			sourceTree = "<group>";
-		};
-		1335414BB1D3E4D565FDA2DA4BD125A8 /* custom views */ = {
-			isa = PBXGroup;
-			children = (
-				C048BACB29CA4F22AA346740E4565C84 /* DummyViewSpec.swift */,
-			);
-			path = "custom views";
 			sourceTree = "<group>";
 		};
 		54F0C2397E3FC25AD7AD4DE688BFA43A /* Pods */ = {
@@ -295,11 +295,13 @@
 				"${SRCROOT}/../Pods/Target Support Files/Pods-ui tests/Pods-ui tests-frameworks.sh",
 				"${BUILT_PRODUCTS_DIR}/Nimble/Nimble.framework",
 				"${BUILT_PRODUCTS_DIR}/Quick/Quick.framework",
+				"${BUILT_PRODUCTS_DIR}/KMSOrientationPatch/KMSOrientationPatch.framework",
 			);
 			name = "[CP] Embed Pods Frameworks";
 			outputPaths = (
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Nimble.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Quick.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/KMSOrientationPatch.framework",
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;

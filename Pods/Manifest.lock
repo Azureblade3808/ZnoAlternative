@@ -1,20 +1,24 @@
 PODS:
+  - KMSOrientationPatch (1.1.0)
   - Nimble (7.1.2)
   - Quick (1.3.0)
 
 DEPENDENCIES:
+  - KMSOrientationPatch
   - Nimble
   - Quick
 
 SPEC REPOS:
   https://github.com/cocoapods/specs.git:
+    - KMSOrientationPatch
     - Nimble
     - Quick
 
 SPEC CHECKSUMS:
+  KMSOrientationPatch: dbd70cdc8bd2102e75369d8ca2c70253f8ef547d
   Nimble: 3835ba9f459daa6b347f8a8e110aaae8ca1920a8
   Quick: 03278013f71aa05fe9ecabc94fbcc6835f1ee76f
 
-PODFILE CHECKSUM: 47d4fbb5caf20bf7f96f98c11c4930ccd48c6fca
+PODFILE CHECKSUM: e73b253d088787b709e9708a82daed8de0c5e3a5
 
-COCOAPODS: 1.5.3
+COCOAPODS: 1.5.2

@@ -1,0 +1,6 @@
+framework module KMSOrientationPatch {
+  umbrella header "KMSOrientationPatch-umbrella.h"
+
+  export *
+  module * { export * }
+}

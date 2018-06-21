@@ -20,6 +20,7 @@
 //	OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
 //	SOFTWARE.
 
+import KMSOrientationPatch
 import UIKit
 
 /// A customizable view controller.
@@ -211,6 +212,8 @@ open class ViewController : UIViewController {
 				navigationController.setNavigationBarHidden(settings.prefersNavigationBarHidden, animated: animated)
 			}
 		}
+		
+		UIDevice.attemptRotationToSupportedOrientations()
 	}
 	
 	// MARK: Embedded
