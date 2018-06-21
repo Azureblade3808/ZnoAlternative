@@ -22,7 +22,7 @@
 
 import UIKit
 
-/// A view which does NOT responds to touches itself. In most cases, it acts as
+/// A view which does NOT respond to touches itself. In most cases, it acts as
 /// an transparent anchor.
 open class DummyView : UIView {
 	override
