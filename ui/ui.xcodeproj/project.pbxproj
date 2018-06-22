@@ -9,6 +9,7 @@
 /* Begin PBXBuildFile section */
 		1A886D1D69796AE27CC495497446BA94 /* NavigationControllerSpec.swift in Sources */ = {isa = PBXBuildFile; fileRef = 60521DEBBF516B896CEDA3FDB183771B /* NavigationControllerSpec.swift */; };
 		1AD8C5AEC032A5D94D5AF96D3B4BF540 /* ui.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = AEE2A70F816B71CD36E6124946B50ACD /* ui.framework */; };
+		265EAC8120DD451B002E30E7 /* UIView + IB Support.swift in Sources */ = {isa = PBXBuildFile; fileRef = 265EAC8020DD451B002E30E7 /* UIView + IB Support.swift */; };
 		29B61133782FCE3D4B1530794576E88B /* DummyView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3EFA3AEEBC76C5EC7BE5116761A21219 /* DummyView.swift */; };
 		6D704040ABF73F688D0646C15E34689E /* DummyViewSpec.swift in Sources */ = {isa = PBXBuildFile; fileRef = C048BACB29CA4F22AA346740E4565C84 /* DummyViewSpec.swift */; };
 		996F5AC91B30FD6B8724EC459D58496C /* ViewControllerSpec.swift in Sources */ = {isa = PBXBuildFile; fileRef = DBD9619AFD886B421A65BD98ECDA4BC5 /* ViewControllerSpec.swift */; };
@@ -30,6 +31,7 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		265EAC8020DD451B002E30E7 /* UIView + IB Support.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIView + IB Support.swift"; sourceTree = "<group>"; };
 		3E9C47AB43EF53C88E497A8EBCAFCE4E /* Pods_ui_tests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_ui_tests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		3EFA3AEEBC76C5EC7BE5116761A21219 /* DummyView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DummyView.swift; sourceTree = "<group>"; };
 		558C8D75680348D232F861AB4E436B81 /* NavigationController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NavigationController.swift; sourceTree = "<group>"; };
@@ -88,10 +90,19 @@
 		22BFA074EFE544A7603C9459194969A2 /* main */ = {
 			isa = PBXGroup;
 			children = (
+				265EAC7F20DD44E4002E30E7 /* extensions */,
 				7164FB81D0B38BFFB760C55A72981122 /* custom views */,
 				45274EC6E22BA1083D1E038F2959753B /* kernel */,
 			);
 			path = main;
+			sourceTree = "<group>";
+		};
+		265EAC7F20DD44E4002E30E7 /* extensions */ = {
+			isa = PBXGroup;
+			children = (
+				265EAC8020DD451B002E30E7 /* UIView + IB Support.swift */,
+			);
+			path = extensions;
 			sourceTree = "<group>";
 		};
 		2EF215EB770EE33CB93BB39C26B4D3F5 /* tests */ = {
@@ -345,6 +356,7 @@
 			files = (
 				BB9213998D9859BF3CA135CEEF8CC9AA /* Application.swift in Sources */,
 				29B61133782FCE3D4B1530794576E88B /* DummyView.swift in Sources */,
+				265EAC8120DD451B002E30E7 /* UIView + IB Support.swift in Sources */,
 				BB932CEC66D60C0616F8391423CB4F8B /* NavigationController.swift in Sources */,
 				BBC9A7E27F0F225611A9F7FE819A71DC /* ViewController.swift in Sources */,
 			);
