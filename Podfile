@@ -9,6 +9,8 @@ target 'app' do
 	
 	use_frameworks!
 	inhibit_all_warnings!
+	
+	pod 'KMSOrientationPatch'
 end
 
 # project 'ui'
