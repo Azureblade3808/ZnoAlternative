@@ -71,6 +71,11 @@ open class NavigationController : UINavigationController {
 	}
 	
 	override
+	open var topViewController: UIViewController? {
+		return viewControllers.last
+	}
+	
+	override
 	open var viewControllers: [UIViewController] {
 		get {
 			return targetState?.viewControllers ?? super.viewControllers
@@ -114,7 +119,7 @@ open class NavigationController : UINavigationController {
 	open func popViewController(animated: Bool = false) -> UIViewController? {
 		if let formerTargetState = targetState {
 			var viewControllers = formerTargetState.viewControllers
-			guard viewControllers.count > 1 else { return nil }
+			assert(viewControllers.count > 1)
 			
 			let poppedViewController = viewControllers.removeLast()
 			
@@ -143,7 +148,7 @@ open class NavigationController : UINavigationController {
 	open func popToRootViewController(animated: Bool = false) -> [UIViewController]? {
 		if let formerTargetState = targetState {
 			var viewControllers = formerTargetState.viewControllers
-			guard viewControllers.count > 1 else { return [] }
+			assert(viewControllers.count > 1)
 			
 			let poppedViewControllers = Array(viewControllers[1...])
 			viewControllers = [viewControllers[0]]
