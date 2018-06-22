@@ -89,7 +89,7 @@
 			isa = PBXGroup;
 			children = (
 				7164FB81D0B38BFFB760C55A72981122 /* custom views */,
-				8A43FEB88E98B108D12E45CB2859F610 /* kernal */,
+				8A43FEB88E98B108D12E45CB2859F610 /* kernel */,
 			);
 			path = main;
 			sourceTree = "<group>";
@@ -122,14 +122,14 @@
 			path = "custom views";
 			sourceTree = "<group>";
 		};
-		8A43FEB88E98B108D12E45CB2859F610 /* kernal */ = {
+		8A43FEB88E98B108D12E45CB2859F610 /* kernel */ = {
 			isa = PBXGroup;
 			children = (
 				8549EC811639BBDEC2C52C640392AD5B /* Application.swift */,
 				D0AB58AF39388E28420CD308CCB9B82C /* NavigationController.swift */,
 				F71996D45FD2D2981D717DFBBDBB35F3 /* ViewController.swift */,
 			);
-			path = kernal;
+			path = kernel;
 			sourceTree = "<group>";
 		};
 		AA0BE700794107D2C8AECACCE6C1ADE1 = {
