@@ -225,14 +225,14 @@ open class ViewController : UIViewController {
 	}
 	
 	public struct Settings {
-		var openingStyle: OpeningStyle = .push
+		public var openingStyle: OpeningStyle = .push
 		
-		var prefersStatusBarHidden: Bool = false
+		public var prefersStatusBarHidden: Bool = false
 		
-		var preferredStatusBarStyle: UIStatusBarStyle = .default
+		public var preferredStatusBarStyle: UIStatusBarStyle = .default
 		
-		var prefersNavigationBarHidden: Bool = false
+		public var prefersNavigationBarHidden: Bool = false
 		
-		var supportedInterfaceOrientations: UIInterfaceOrientationMask = .all
+		public var supportedInterfaceOrientations: UIInterfaceOrientationMask = .all
 	}
 }
