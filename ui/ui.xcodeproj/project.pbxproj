@@ -17,7 +17,6 @@
 		BB932CEC66D60C0616F8391423CB4F8B /* NavigationController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 558C8D75680348D232F861AB4E436B81 /* NavigationController.swift */; };
 		BBC9A7E27F0F225611A9F7FE819A71DC /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C82EE9B1CF408FCD9C7A8EC87B27C960 /* ViewController.swift */; };
 		EA0802EE1FA0A50EAE7CD55AE0463049 /* Pods_ui_tests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 3E9C47AB43EF53C88E497A8EBCAFCE4E /* Pods_ui_tests.framework */; };
-		EB7A5DC32A3CF3B6BE635990D3877276 /* ApplicationSpec.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3FD74F30888F33E5C6177A68481A2590 /* ApplicationSpec.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -33,7 +32,6 @@
 /* Begin PBXFileReference section */
 		3E9C47AB43EF53C88E497A8EBCAFCE4E /* Pods_ui_tests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_ui_tests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		3EFA3AEEBC76C5EC7BE5116761A21219 /* DummyView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DummyView.swift; sourceTree = "<group>"; };
-		3FD74F30888F33E5C6177A68481A2590 /* ApplicationSpec.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ApplicationSpec.swift; sourceTree = "<group>"; };
 		558C8D75680348D232F861AB4E436B81 /* NavigationController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NavigationController.swift; sourceTree = "<group>"; };
 		5F9F9062ADD038E46EBFB88529353D49 /* Pods-ui tests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-ui tests.debug.xcconfig"; path = "../Pods/Target Support Files/Pods-ui tests/Pods-ui tests.debug.xcconfig"; sourceTree = "<group>"; };
 		60521DEBBF516B896CEDA3FDB183771B /* NavigationControllerSpec.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NavigationControllerSpec.swift; sourceTree = "<group>"; };
@@ -157,7 +155,6 @@
 		F6431AD33762796A95CC0B2B51E096A9 /* kernel */ = {
 			isa = PBXGroup;
 			children = (
-				3FD74F30888F33E5C6177A68481A2590 /* ApplicationSpec.swift */,
 				60521DEBBF516B896CEDA3FDB183771B /* NavigationControllerSpec.swift */,
 				DBD9619AFD886B421A65BD98ECDA4BC5 /* ViewControllerSpec.swift */,
 			);
@@ -336,7 +333,6 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				EB7A5DC32A3CF3B6BE635990D3877276 /* ApplicationSpec.swift in Sources */,
 				6D704040ABF73F688D0646C15E34689E /* DummyViewSpec.swift in Sources */,
 				1A886D1D69796AE27CC495497446BA94 /* NavigationControllerSpec.swift in Sources */,
 				996F5AC91B30FD6B8724EC459D58496C /* ViewControllerSpec.swift in Sources */,
