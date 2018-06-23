@@ -117,61 +117,61 @@ open class NavigationController : UINavigationController {
 	@discardableResult
 	override
 	open func popViewController(animated: Bool = false) -> UIViewController? {
+		let poppedViewController: UIViewController
+		
 		if let formerTargetState = targetState {
 			var viewControllers = formerTargetState.viewControllers
 			assert(viewControllers.count > 1)
 			
-			let poppedViewController = viewControllers.removeLast()
+			poppedViewController = viewControllers.removeLast()
 			
 			let animated = animated || formerTargetState.animated
 			
 			targetState = (viewControllers, animated)
-			
-			return poppedViewController
 		}
 		else {
 			var viewControllers = super.viewControllers
 			guard viewControllers.count > 1 else { return nil }
 			
-			let poppedViewController = viewControllers.removeLast()
+			poppedViewController = viewControllers.removeLast()
 			
 			targetState = (viewControllers, animated)
 			
 			scheduleUpdatingState()
-			
-			return poppedViewController
 		}
+		
+		return poppedViewController
 	}
 	
 	@discardableResult
 	override
 	open func popToRootViewController(animated: Bool = false) -> [UIViewController]? {
+		let poppedViewControllers: [UIViewController]?
+		
 		if let formerTargetState = targetState {
 			var viewControllers = formerTargetState.viewControllers
 			assert(viewControllers.count > 1)
 			
-			let poppedViewControllers = Array(viewControllers[1...])
+			poppedViewControllers = Array(viewControllers[1...])
 			viewControllers = [viewControllers[0]]
 			
 			let animated = animated || formerTargetState.animated
 			
 			targetState = (viewControllers, animated)
-			
-			return poppedViewControllers
 		}
 		else {
 			var viewControllers = super.viewControllers
 			guard viewControllers.count > 1 else { return [] }
 			
-			let poppedViewControllers = Array(viewControllers[1...])
+			poppedViewControllers = Array(viewControllers[1...])
 			viewControllers = [viewControllers[0]]
 			
 			targetState = (viewControllers, animated)
 			
 			scheduleUpdatingState()
-			
-			return poppedViewControllers
 		}
+		
+		return poppedViewControllers
 	}
 	
 	override

@@ -27,12 +27,9 @@ extension UIView {
 	@available(*, unavailable, message: "Restricted for Interface Builder. Use `layer.borderColor` instead.")
 	private var _BorderColor: UIColor? {
 		get {
-			if let cgColor = layer.borderColor {
-				return UIColor(cgColor: cgColor)
-			}
-			else {
-				return nil
-			}
+			guard let cgColor = layer.borderColor else { return nil }
+			
+			return UIColor(cgColor: cgColor)
 		}
 		
 		set {
@@ -68,12 +65,9 @@ extension UIView {
 	@available(*, unavailable, message: "Restricted for Interface Builder. Use `layer.shadowColor` instead.")
 	private var _ShadowColor: UIColor? {
 		get {
-			if let cgColor = layer.shadowColor {
-				return UIColor(cgColor: cgColor)
-			}
-			else {
-				return nil
-			}
+			guard let cgColor = layer.shadowColor else { return nil }
+			
+			return UIColor(cgColor: cgColor)
 		}
 		
 		set {
