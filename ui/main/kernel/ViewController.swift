@@ -34,7 +34,7 @@ open class ViewController : UIViewController {
 	/// Whether this view controller should be presented when it is opened.
 	@IBInspectable
 	@available(*, unavailable, message: "Restricted for Interface Builder. Use `settings` instead")
-	public var _Presents: Bool {
+	private var _Presents: Bool {
 		get {
 			return settings.openingStyle == .present
 		}
@@ -47,7 +47,7 @@ open class ViewController : UIViewController {
 	/// Whether this view controller should display with a status bar.
 	@IBInspectable
 	@available(*, unavailable, message: "Restricted for Interface Builder. Use `settings` instead")
-	public var _StatusBar: Bool {
+	private var _StatusBar: Bool {
 		get {
 			return !settings.prefersStatusBarHidden
 		}
@@ -61,7 +61,7 @@ open class ViewController : UIViewController {
 	/// `UIStatusBar.lightContent`.
 	@IBInspectable
 	@available(*, unavailable, message: "Restricted for Interface Builder. Use `settings` instead")
-	public var _WhiteStatus: Bool {
+	private var _WhiteStatus: Bool {
 		get {
 			return settings.preferredStatusBarStyle == .lightContent
 		}
@@ -75,7 +75,7 @@ open class ViewController : UIViewController {
 	/// navigation controller.
 	@IBInspectable
 	@available(*, unavailable, message: "Restricted for Interface Builder. Use `settings` instead")
-	public var _NavigationBar: Bool {
+	private var _NavigationBar: Bool {
 		get {
 			return !settings.prefersNavigationBarHidden
 		}
@@ -88,7 +88,7 @@ open class ViewController : UIViewController {
 	/// Whether this view controller supports `.portrait` interface orientation.
 	@IBInspectable
 	@available(*, unavailable, message: "Restricted for Interface Builder. Use `settings` instead")
-	public var _Portrait: Bool {
+	private var _Portrait: Bool {
 		get { return settings.supportedInterfaceOrientations.contains(.portrait) }
 		
 		set {
@@ -104,7 +104,7 @@ open class ViewController : UIViewController {
 	/// Whether this view controller supports `.landscapeLeft` interface orientation.
 	@IBInspectable
 	@available(*, unavailable, message: "Restricted for Interface Builder. Use `settings` instead")
-	public var _Left: Bool {
+	private var _Left: Bool {
 		get { return settings.supportedInterfaceOrientations.contains(.landscapeLeft) }
 		
 		set {
@@ -120,7 +120,7 @@ open class ViewController : UIViewController {
 	/// Whether this view controller supports `.landscapeRight` interface orientation.
 	@IBInspectable
 	@available(*, unavailable, message: "Restricted for Interface Builder. Use `settings` instead")
-	public var _Right: Bool {
+	private var _Right: Bool {
 		get { return settings.supportedInterfaceOrientations.contains(.landscapeRight) }
 		
 		set {
@@ -136,7 +136,7 @@ open class ViewController : UIViewController {
 	/// Whether this view controller supports `.portraitUpsideDown` interface orientation.
 	@IBInspectable
 	@available(*, unavailable, message: "Restricted for Interface Builder. Use `settings` instead")
-	public var _UpsideDown: Bool {
+	private var _UpsideDown: Bool {
 		get { return settings.supportedInterfaceOrientations.contains(.portraitUpsideDown) }
 		
 		set {

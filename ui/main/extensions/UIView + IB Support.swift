@@ -25,7 +25,7 @@ import UIKit
 extension UIView {
 	@IBInspectable
 	@available(*, unavailable, message: "Restricted for Interface Builder. Use `layer.borderColor` instead.")
-	public var _BorderColor: UIColor? {
+	private var _BorderColor: UIColor? {
 		get {
 			if let cgColor = layer.borderColor {
 				return UIColor(cgColor: cgColor)
@@ -42,7 +42,7 @@ extension UIView {
 	
 	@IBInspectable
 	@available(*, unavailable, message: "Restricted for Interface Builder. Use `layer.borderWidth` instead.")
-	public var _BorderWidth: CGFloat {
+	private var _BorderWidth: CGFloat {
 		get {
 			return layer.borderWidth
 		}
@@ -54,7 +54,7 @@ extension UIView {
 	
 	@IBInspectable
 	@available(*, unavailable, message: "Restricted for Interface Builder. Use `layer.cornerRadius` instead.")
-	public var _CornerRadius: CGFloat {
+	private var _CornerRadius: CGFloat {
 		get {
 			return layer.cornerRadius
 		}
@@ -66,7 +66,7 @@ extension UIView {
 	
 	@IBInspectable
 	@available(*, unavailable, message: "Restricted for Interface Builder. Use `layer.shadowColor` instead.")
-	public var _ShadowColor: UIColor? {
+	private var _ShadowColor: UIColor? {
 		get {
 			if let cgColor = layer.shadowColor {
 				return UIColor(cgColor: cgColor)
@@ -83,7 +83,7 @@ extension UIView {
 	
 	@IBInspectable
 	@available(*, unavailable, message: "Restricted for Interface Builder. Use `layer.shadowOffset` instead.")
-	public var _ShadowOffset: CGSize {
+	private var _ShadowOffset: CGSize {
 		get {
 			return layer.shadowOffset
 		}
@@ -95,7 +95,7 @@ extension UIView {
 	
 	@IBInspectable
 	@available(*, unavailable, message: "Restricted for Interface Builder. Use `layer.shadowOpacity` instead.")
-	public var _ShadowOpacity: Float {
+	private var _ShadowOpacity: Float {
 		get {
 			return layer.shadowOpacity
 		}
@@ -107,7 +107,7 @@ extension UIView {
 	
 	@IBInspectable
 	@available(*, unavailable, message: "Restricted for Interface Builder. Use `layer.shadowRadius` instead.")
-	public var _ShadowRadius: CGFloat {
+	private var _ShadowRadius: CGFloat {
 		get {
 			return layer.shadowRadius
 		}
