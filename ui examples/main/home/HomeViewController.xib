@@ -34,20 +34,27 @@
                     <rect key="frame" x="0.0" y="0.0" width="375" height="812"/>
                     <subviews>
                         <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" translatesAutoresizingMaskIntoConstraints="NO" id="1em-5r-bDi">
-                            <rect key="frame" x="0.0" y="0.0" width="375" height="60"/>
+                            <rect key="frame" x="0.0" y="0.0" width="375" height="90"/>
                             <subviews>
-                                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="ZBX-sf-mCg">
+                                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="sx9-B9-z9M">
                                     <rect key="frame" x="0.0" y="0.0" width="375" height="30"/>
-                                    <state key="normal" title="`NavigationController` Example"/>
+                                    <state key="normal" title="Annotion View"/>
                                     <connections>
-                                        <action selector="handleNavigationControllerExampleButton" destination="-1" eventType="touchUpInside" id="IfZ-XR-XB3"/>
+                                        <action selector="handleAnnotionViewExampleButton" destination="-1" eventType="touchUpInside" id="wRD-6j-mwb"/>
                                     </connections>
                                 </button>
                                 <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="W7m-BK-mqx">
                                     <rect key="frame" x="0.0" y="30" width="375" height="30"/>
-                                    <state key="normal" title="`DummyView` Example"/>
+                                    <state key="normal" title="Dummy View"/>
                                     <connections>
                                         <action selector="handleDummyViewExampleButton" destination="-1" eventType="touchUpInside" id="xia-QZ-M8L"/>
+                                    </connections>
+                                </button>
+                                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="ZBX-sf-mCg">
+                                    <rect key="frame" x="0.0" y="60" width="375" height="30"/>
+                                    <state key="normal" title="Navigation Controller"/>
+                                    <connections>
+                                        <action selector="handleNavigationControllerExampleButton" destination="-1" eventType="touchUpInside" id="IfZ-XR-XB3"/>
                                     </connections>
                                 </button>
                             </subviews>

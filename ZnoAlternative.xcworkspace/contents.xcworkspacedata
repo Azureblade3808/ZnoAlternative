@@ -8,12 +8,9 @@
       location = "group:ui/ui.xcodeproj">
    </FileRef>
    <FileRef
-      location = "group:/Users/kirisame/Documents/projects/cocoa/ZnoAlternative/ui example/ui examples.xcodeproj">
+      location = "group:ui examples/ui examples.xcodeproj">
    </FileRef>
    <FileRef
       location = "group:Pods/Pods.xcodeproj">
-   </FileRef>
-   <FileRef
-      location = "group:ui example/ui example.xcodeproj">
    </FileRef>
 </Workspace>

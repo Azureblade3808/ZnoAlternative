@@ -8,9 +8,12 @@
 
 /* Begin PBXBuildFile section */
 		07D0E7B5590351EB0F513FAAACBF1AA7 /* NavigationControllerExampleViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 65E07E3D094B0EF4964565A826D4C970 /* NavigationControllerExampleViewController.swift */; };
+		14D0ECB90AE388FE15D8EBD2 /* Pods_ui_examples.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A202B0AF7222506A300ADE4A /* Pods_ui_examples.framework */; };
 		18B2951E427328C837E408F04F31877F /* DummyViewExampleViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 452874266193D3CBE141B0034D44AF8B /* DummyViewExampleViewController.xib */; };
 		251DE50EBFE332042893DB2F8FA96BED /* HomeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2340BCBB0A5CB22AC784FCE8589AC5D4 /* HomeViewController.swift */; };
 		423B5B24330E87063C878A5177E4034B /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = D4534B81427A6915162B97B580AFFC8D /* LaunchScreen.storyboard */; };
+		4972522920E0DE2E00333FA5 /* AnnotionViewExampleViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4972522720E0DE2E00333FA5 /* AnnotionViewExampleViewController.swift */; };
+		4972522A20E0DE2E00333FA5 /* AnnotionViewExampleViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 4972522820E0DE2E00333FA5 /* AnnotionViewExampleViewController.xib */; };
 		505CCEBCC85F510B18F713841AB6D82D /* Pods_ui_example.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 536D8966221975F4E147187F9A71C94B /* Pods_ui_example.framework */; };
 		5BA59AC5DCFD9497B076F32E05F12A3C /* HomeViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = B70CE70DAFFE4F0329B707F6A6174B24 /* HomeViewController.xib */; };
 		7020B8DB39470E1FA4A7F0D17A5F3797 /* ui.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 7F56DE1CB950BCE31F4AFD787670869B /* ui.framework */; };
@@ -23,19 +26,24 @@
 
 /* Begin PBXFileReference section */
 		0377BE8AA21524608C1A40EC74E0FC0C /* DummyViewExampleViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DummyViewExampleViewController.swift; sourceTree = "<group>"; };
+		14D4D6973002549941C1C772 /* Pods-ui examples.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-ui examples.debug.xcconfig"; path = "../Pods/Target Support Files/Pods-ui examples/Pods-ui examples.debug.xcconfig"; sourceTree = "<group>"; };
 		1DFBB4AB507BD88FE81FFDAF7AF3D9D6 /* Pods-ui example.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-ui example.release.xcconfig"; path = "../Pods/Target Support Files/Pods-ui example/Pods-ui example.release.xcconfig"; sourceTree = "<group>"; };
 		1E7C78A4A55D25D02EA5BE54307B8D96 /* NavigationControllerExampleViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = NavigationControllerExampleViewController.xib; sourceTree = "<group>"; };
 		21FCD41E80D7B484339E28CEBB867799 /* Pods-ui example.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-ui example.debug.xcconfig"; path = "../Pods/Target Support Files/Pods-ui example/Pods-ui example.debug.xcconfig"; sourceTree = "<group>"; };
 		2340BCBB0A5CB22AC784FCE8589AC5D4 /* HomeViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeViewController.swift; sourceTree = "<group>"; };
 		452874266193D3CBE141B0034D44AF8B /* DummyViewExampleViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = DummyViewExampleViewController.xib; sourceTree = "<group>"; };
+		4972522720E0DE2E00333FA5 /* AnnotionViewExampleViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AnnotionViewExampleViewController.swift; sourceTree = "<group>"; };
+		4972522820E0DE2E00333FA5 /* AnnotionViewExampleViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = AnnotionViewExampleViewController.xib; sourceTree = "<group>"; };
 		536D8966221975F4E147187F9A71C94B /* Pods_ui_example.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_ui_example.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		65E07E3D094B0EF4964565A826D4C970 /* NavigationControllerExampleViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NavigationControllerExampleViewController.swift; sourceTree = "<group>"; };
 		7F56DE1CB950BCE31F4AFD787670869B /* ui.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; path = ui.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		7F729D7473AC0AB10279BB120963C7BD /* Bootstrap.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Bootstrap.xcassets; sourceTree = "<group>"; };
 		9461965601659ABD362820F0B9C1B748 /* main.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = main.swift; sourceTree = "<group>"; };
 		9FD352E414512900C6F4488367F549F5 /* ui examples.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "ui examples.app"; sourceTree = BUILT_PRODUCTS_DIR; };
+		A202B0AF7222506A300ADE4A /* Pods_ui_examples.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_ui_examples.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		B70CE70DAFFE4F0329B707F6A6174B24 /* HomeViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = HomeViewController.xib; sourceTree = "<group>"; };
 		D4534B81427A6915162B97B580AFFC8D /* LaunchScreen.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = LaunchScreen.storyboard; sourceTree = "<group>"; };
+		DDB27D925F319BC531C1ECAA /* Pods-ui examples.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-ui examples.release.xcconfig"; path = "../Pods/Target Support Files/Pods-ui examples/Pods-ui examples.release.xcconfig"; sourceTree = "<group>"; };
 		EB96F5E4E8EF26F796021A90ADEAD130 /* ApplicationDelegate.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ApplicationDelegate.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -46,6 +54,7 @@
 			files = (
 				505CCEBCC85F510B18F713841AB6D82D /* Pods_ui_example.framework in Frameworks */,
 				7020B8DB39470E1FA4A7F0D17A5F3797 /* ui.framework in Frameworks */,
+				14D0ECB90AE388FE15D8EBD2 /* Pods_ui_examples.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -68,8 +77,18 @@
 			children = (
 				536D8966221975F4E147187F9A71C94B /* Pods_ui_example.framework */,
 				7F56DE1CB950BCE31F4AFD787670869B /* ui.framework */,
+				A202B0AF7222506A300ADE4A /* Pods_ui_examples.framework */,
 			);
 			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		4972522620E0DDFA00333FA5 /* annotion view */ = {
+			isa = PBXGroup;
+			children = (
+				4972522720E0DE2E00333FA5 /* AnnotionViewExampleViewController.swift */,
+				4972522820E0DE2E00333FA5 /* AnnotionViewExampleViewController.xib */,
+			);
+			path = "annotion view";
 			sourceTree = "<group>";
 		};
 		5F16A5FA060162F04ED58C7673B972E0 /* navigation controller */ = {
@@ -114,6 +133,8 @@
 			children = (
 				21FCD41E80D7B484339E28CEBB867799 /* Pods-ui example.debug.xcconfig */,
 				1DFBB4AB507BD88FE81FFDAF7AF3D9D6 /* Pods-ui example.release.xcconfig */,
+				14D4D6973002549941C1C772 /* Pods-ui examples.debug.xcconfig */,
+				DDB27D925F319BC531C1ECAA /* Pods-ui examples.release.xcconfig */,
 			);
 			name = Pods;
 			sourceTree = "<group>";
@@ -139,6 +160,7 @@
 		F48B472F4B8C8B6792961B47649CBFE4 /* examples */ = {
 			isa = PBXGroup;
 			children = (
+				4972522620E0DDFA00333FA5 /* annotion view */,
 				738DA64C8EBDF74EDF74066D0D544430 /* dummy view */,
 				5F16A5FA060162F04ED58C7673B972E0 /* navigation controller */,
 			);
@@ -156,7 +178,6 @@
 				118474D1FF19553A57315EBEFB2175F3 /* Sources */,
 				936175F3F5C0FAA44A3707915F2C7D4C /* Frameworks */,
 				40A51E0A083185EDD1A10FE4CFCAB71D /* Resources */,
-				39F06218E0FE2577AA925ED6ACD74407 /* [CP] Embed Pods Frameworks */,
 			);
 			buildRules = (
 			);
@@ -208,6 +229,7 @@
 			files = (
 				EC3847779B13FA821FA0209F7F674DE4 /* Bootstrap.xcassets in Resources */,
 				18B2951E427328C837E408F04F31877F /* DummyViewExampleViewController.xib in Resources */,
+				4972522A20E0DE2E00333FA5 /* AnnotionViewExampleViewController.xib in Resources */,
 				5BA59AC5DCFD9497B076F32E05F12A3C /* HomeViewController.xib in Resources */,
 				423B5B24330E87063C878A5177E4034B /* LaunchScreen.storyboard in Resources */,
 				7D0C668C0159EEE67AC6F37C37E2BF38 /* NavigationControllerExampleViewController.xib in Resources */,
@@ -217,24 +239,6 @@
 /* End PBXResourcesBuildPhase section */
 
 /* Begin PBXShellScriptBuildPhase section */
-		39F06218E0FE2577AA925ED6ACD74407 /* [CP] Embed Pods Frameworks */ = {
-			isa = PBXShellScriptBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			inputPaths = (
-				"${SRCROOT}/../Pods/Target Support Files/Pods-ui example/Pods-ui example-frameworks.sh",
-				"${BUILT_PRODUCTS_DIR}/KMSOrientationPatch/KMSOrientationPatch.framework",
-			);
-			name = "[CP] Embed Pods Frameworks";
-			outputPaths = (
-				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/KMSOrientationPatch.framework",
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-			shellPath = /bin/sh;
-			shellScript = "\"${SRCROOT}/../Pods/Target Support Files/Pods-ui example/Pods-ui example-frameworks.sh\"\n";
-			showEnvVarsInLog = 0;
-		};
 		A14F99A6282C127D0F7C105E8300DAE4 /* [CP] Check Pods Manifest.lock */ = {
 			isa = PBXShellScriptBuildPhase;
 			buildActionMask = 2147483647;
@@ -246,7 +250,7 @@
 			);
 			name = "[CP] Check Pods Manifest.lock";
 			outputPaths = (
-				"$(DERIVED_FILE_DIR)/Pods-ui example-checkManifestLockResult.txt",
+				"$(DERIVED_FILE_DIR)/Pods-ui examples-checkManifestLockResult.txt",
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
@@ -264,6 +268,7 @@
 				81F8670B8D497B31CE4F090C21B9B945 /* DummyViewExampleViewController.swift in Sources */,
 				251DE50EBFE332042893DB2F8FA96BED /* HomeViewController.swift in Sources */,
 				07D0E7B5590351EB0F513FAAACBF1AA7 /* NavigationControllerExampleViewController.swift in Sources */,
+				4972522920E0DE2E00333FA5 /* AnnotionViewExampleViewController.swift in Sources */,
 				B63AD54B9F5E2B31B58E06FEA52D10F5 /* main.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -327,7 +332,7 @@
 		};
 		3020301FBBB44053E78FD62FA25CB195 /* Release */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = 1DFBB4AB507BD88FE81FFDAF7AF3D9D6 /* Pods-ui example.release.xcconfig */;
+			baseConfigurationReference = DDB27D925F319BC531C1ECAA /* Pods-ui examples.release.xcconfig */;
 			buildSettings = {
 				CLANG_ENABLE_MODULES = YES;
 				CODE_SIGN_IDENTITY = "";
@@ -347,7 +352,7 @@
 		};
 		3673E605F3B6E8B7141C90EF50D51E2E /* Debug */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = 21FCD41E80D7B484339E28CEBB867799 /* Pods-ui example.debug.xcconfig */;
+			baseConfigurationReference = 14D4D6973002549941C1C772 /* Pods-ui examples.debug.xcconfig */;
 			buildSettings = {
 				CLANG_ENABLE_MODULES = YES;
 				CODE_SIGN_IDENTITY = "";

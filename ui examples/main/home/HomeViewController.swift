@@ -14,14 +14,17 @@ internal class HomeViewController : ViewController {
 	// MARK: Interface Builder
 	
 	@IBAction
-	private func handleNavigationControllerExampleButton() {
-		let viewController = NavigationControllerExampleViewController()
-		viewController.open(animated: true)
+	private func handleAnnotionViewExampleButton() {
+		AnnotionViewExampleViewController().open(animated: true)
 	}
 	
 	@IBAction
 	private func handleDummyViewExampleButton() {
-		let viewController = DummyViewExampleViewController()
-		viewController.open(animated: true)
+		DummyViewExampleViewController().open(animated: true)
+	}
+
+	@IBAction
+	private func handleNavigationControllerExampleButton() {
+		NavigationControllerExampleViewController().open(animated: true)
 	}
 }

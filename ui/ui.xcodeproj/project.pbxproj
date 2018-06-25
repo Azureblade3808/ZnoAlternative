@@ -12,12 +12,14 @@
 		29B61133782FCE3D4B1530794576E88B /* DummyView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3EFA3AEEBC76C5EC7BE5116761A21219 /* DummyView.swift */; };
 		4BCF79FD8CAD98488E248003893FFDB4 /* UIViewExtensionSpec.swift in Sources */ = {isa = PBXBuildFile; fileRef = 32F5B608926AE9890F5CAF66B11A5703 /* UIViewExtensionSpec.swift */; };
 		6D704040ABF73F688D0646C15E34689E /* DummyViewSpec.swift in Sources */ = {isa = PBXBuildFile; fileRef = C048BACB29CA4F22AA346740E4565C84 /* DummyViewSpec.swift */; };
+		79CAB76B24CF9F9A45CC85405DFC3A09 /* AnnotionView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 17E4F2D118D2542F35FF836CC0B861B1 /* AnnotionView.swift */; };
 		996F5AC91B30FD6B8724EC459D58496C /* ViewControllerSpec.swift in Sources */ = {isa = PBXBuildFile; fileRef = DBD9619AFD886B421A65BD98ECDA4BC5 /* ViewControllerSpec.swift */; };
 		A995D2654EED281F83F9CEA0A2409FB1 /* Pods_ui.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = F5EBFC2F18F4B09C691739A38D5E40E1 /* Pods_ui.framework */; };
 		B4BCA10ABB847068CF407A0A07BC6D58 /* UIView + IB Support.swift in Sources */ = {isa = PBXBuildFile; fileRef = 672D0AFE82B59EC2FEA77CE1A4AAA1EA /* UIView + IB Support.swift */; };
 		BB9213998D9859BF3CA135CEEF8CC9AA /* Application.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7E181BE13AF5A7148FF63886D5D95F5F /* Application.swift */; };
 		BB932CEC66D60C0616F8391423CB4F8B /* NavigationController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 558C8D75680348D232F861AB4E436B81 /* NavigationController.swift */; };
 		BBC9A7E27F0F225611A9F7FE819A71DC /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C82EE9B1CF408FCD9C7A8EC87B27C960 /* ViewController.swift */; };
+		CE231FABC8B6E4B64C04527BE405FC0D /* UIDevice + Orientation Patch.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3C9496E430A390F83FDF95FCE2C2CE5F /* UIDevice + Orientation Patch.swift */; };
 		EA0802EE1FA0A50EAE7CD55AE0463049 /* Pods_ui_tests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 3E9C47AB43EF53C88E497A8EBCAFCE4E /* Pods_ui_tests.framework */; };
 /* End PBXBuildFile section */
 
@@ -32,7 +34,9 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		17E4F2D118D2542F35FF836CC0B861B1 /* AnnotionView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AnnotionView.swift; sourceTree = "<group>"; };
 		32F5B608926AE9890F5CAF66B11A5703 /* UIViewExtensionSpec.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UIViewExtensionSpec.swift; sourceTree = "<group>"; };
+		3C9496E430A390F83FDF95FCE2C2CE5F /* UIDevice + Orientation Patch.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIDevice + Orientation Patch.swift"; sourceTree = "<group>"; };
 		3E9C47AB43EF53C88E497A8EBCAFCE4E /* Pods_ui_tests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_ui_tests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		3EFA3AEEBC76C5EC7BE5116761A21219 /* DummyView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DummyView.swift; sourceTree = "<group>"; };
 		558C8D75680348D232F861AB4E436B81 /* NavigationController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NavigationController.swift; sourceTree = "<group>"; };
@@ -99,22 +103,6 @@
 			path = main;
 			sourceTree = "<group>";
 		};
-		718BCA35F30C8E18A545F87940A024C0 /* extensions */ = {
-			isa = PBXGroup;
-			children = (
-				672D0AFE82B59EC2FEA77CE1A4AAA1EA /* UIView + IB Support.swift */,
-			);
-			path = extensions;
-			sourceTree = "<group>";
-		};
-		5BE4926A82B886017F327DFF1D08E57F /* extensions */ = {
-			isa = PBXGroup;
-			children = (
-				32F5B608926AE9890F5CAF66B11A5703 /* UIViewExtensionSpec.swift */,
-			);
-			path = extensions;
-			sourceTree = "<group>";
-		};
 		2EF215EB770EE33CB93BB39C26B4D3F5 /* tests */ = {
 			isa = PBXGroup;
 			children = (
@@ -146,12 +134,30 @@
 			name = Pods;
 			sourceTree = "<group>";
 		};
+		5BE4926A82B886017F327DFF1D08E57F /* extensions */ = {
+			isa = PBXGroup;
+			children = (
+				32F5B608926AE9890F5CAF66B11A5703 /* UIViewExtensionSpec.swift */,
+			);
+			path = extensions;
+			sourceTree = "<group>";
+		};
 		7164FB81D0B38BFFB760C55A72981122 /* custom views */ = {
 			isa = PBXGroup;
 			children = (
+				17E4F2D118D2542F35FF836CC0B861B1 /* AnnotionView.swift */,
 				3EFA3AEEBC76C5EC7BE5116761A21219 /* DummyView.swift */,
 			);
 			path = "custom views";
+			sourceTree = "<group>";
+		};
+		718BCA35F30C8E18A545F87940A024C0 /* extensions */ = {
+			isa = PBXGroup;
+			children = (
+				3C9496E430A390F83FDF95FCE2C2CE5F /* UIDevice + Orientation Patch.swift */,
+				672D0AFE82B59EC2FEA77CE1A4AAA1EA /* UIView + IB Support.swift */,
+			);
+			path = extensions;
 			sourceTree = "<group>";
 		};
 		AA0BE700794107D2C8AECACCE6C1ADE1 = {
@@ -317,13 +323,11 @@
 				"${SRCROOT}/../Pods/Target Support Files/Pods-ui tests/Pods-ui tests-frameworks.sh",
 				"${BUILT_PRODUCTS_DIR}/Nimble/Nimble.framework",
 				"${BUILT_PRODUCTS_DIR}/Quick/Quick.framework",
-				"${BUILT_PRODUCTS_DIR}/KMSOrientationPatch/KMSOrientationPatch.framework",
 			);
 			name = "[CP] Embed Pods Frameworks";
 			outputPaths = (
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Nimble.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Quick.framework",
-				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/KMSOrientationPatch.framework",
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
@@ -366,9 +370,11 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				79CAB76B24CF9F9A45CC85405DFC3A09 /* AnnotionView.swift in Sources */,
 				BB9213998D9859BF3CA135CEEF8CC9AA /* Application.swift in Sources */,
 				29B61133782FCE3D4B1530794576E88B /* DummyView.swift in Sources */,
 				BB932CEC66D60C0616F8391423CB4F8B /* NavigationController.swift in Sources */,
+				CE231FABC8B6E4B64C04527BE405FC0D /* UIDevice + Orientation Patch.swift in Sources */,
 				B4BCA10ABB847068CF407A0A07BC6D58 /* UIView + IB Support.swift in Sources */,
 				BBC9A7E27F0F225611A9F7FE819A71DC /* ViewController.swift in Sources */,
 			);

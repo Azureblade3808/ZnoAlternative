@@ -9,8 +9,6 @@ target 'app' do
 	
 	use_frameworks!
 	inhibit_all_warnings!
-	
-	pod 'KMSOrientationPatch'
 end
 
 # project 'ui'
@@ -22,8 +20,6 @@ target 'ui' do
 	
 	use_frameworks!
 	inhibit_all_warnings!
-	
-	pod 'KMSOrientationPatch'
 end
 
 target 'ui tests' do
@@ -47,6 +43,4 @@ target 'ui examples' do
 	
 	use_frameworks!
 	inhibit_all_warnings!
-	
-	pod 'KMSOrientationPatch'
 end
