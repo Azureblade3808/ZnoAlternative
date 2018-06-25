@@ -186,7 +186,28 @@ open class ViewController : UIViewController {
 		}
 	}
 	
+	// MARK: Private
+	
+	private func setup() {
+		// Force loading view from NIB.
+		_ = view
+	}
+	
 	// MARK: Override - UIViewController
+	
+	override
+	public init(nibName: String?, bundle: Bundle?) {
+		super.init(nibName: nibName, bundle: bundle)
+		
+		setup()
+	}
+	
+	required
+	public init?(coder: NSCoder) {
+		super.init(coder: coder)
+		
+		setup()
+	}
 	
 	override
 	open var prefersStatusBarHidden: Bool {
