@@ -58,29 +58,32 @@ open class NavigationController : UINavigationController {
 	
 	internal private(set) var pendingTransition: (viewControllers: [UIViewController], animated: Bool)? = nil
 	
+	private var pendingTransitionTimer: Timer? = nil
+	
 	internal func scheduleTransition(_ viewControllers: [UIViewController], _ animated: Bool) {
-		precondition(RunLoop.current == RunLoop.main)
-		
-		if pendingTransition == nil {
-			RunLoop.main.perform(inModes: [.commonModes, .UITrackingRunLoopMode]) { [weak self] in
-				guard let `self` = self else { return }
-				
+		if pendingTransitionTimer == nil {
+			let timer = Timer(timeInterval: 0, repeats: false) { _ in
 				self.applyPendingTransition()
 			}
+			for mode: RunLoopMode in [.commonModes, .UITrackingRunLoopMode] {
+				RunLoop.current.add(timer, forMode: mode)
+			}
+			pendingTransitionTimer = timer
 		}
 		
 		pendingTransition = (viewControllers, animated)
 	}
 	
 	internal func applyPendingTransition() {
-		precondition(RunLoop.current == RunLoop.main)
+		if let pendingTransition = pendingTransition {
+			super.setViewControllers(pendingTransition.viewControllers, animated: pendingTransition.animated)
+			self.pendingTransition = nil
+		}
 		
-		guard let (viewControllers, animated) = pendingTransition else { return }
-		
-		RunLoop.main.cancelPerformSelectors(withTarget: self)
-		pendingTransition = nil
-		
-		super.setViewControllers(viewControllers, animated: animated)
+		if let pendingTransitionTimer = pendingTransitionTimer {
+			pendingTransitionTimer.invalidate()
+			self.pendingTransitionTimer = nil
+		}
 	}
 	
 	override
