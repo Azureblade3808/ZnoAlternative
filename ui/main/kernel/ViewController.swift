@@ -31,9 +31,22 @@ open class ViewController : UIViewController {
 	
 	// MARK: Interface Builder
 	
+	/// Title.
+	@IBInspectable
+	@available(*, unavailable, message: "Restricted for Interface Builder. Use `title` instead.")
+	private var _Title: String? {
+		get {
+			return title
+		}
+		
+		set {
+			title = newValue
+		}
+	}
+	
 	/// Whether this view controller should be presented when it is opened.
 	@IBInspectable
-	@available(*, unavailable, message: "Restricted for Interface Builder. Use `settings` instead")
+	@available(*, unavailable, message: "Restricted for Interface Builder. Use `settings` instead.")
 	private var _Presents: Bool {
 		get {
 			return settings.openingStyle == .present
@@ -46,7 +59,7 @@ open class ViewController : UIViewController {
 	
 	/// Whether this view controller should display with a status bar.
 	@IBInspectable
-	@available(*, unavailable, message: "Restricted for Interface Builder. Use `settings` instead")
+	@available(*, unavailable, message: "Restricted for Interface Builder. Use `settings` instead.")
 	private var _StatusBar: Bool {
 		get {
 			return !settings.prefersStatusBarHidden
@@ -60,7 +73,7 @@ open class ViewController : UIViewController {
 	/// Whether the style of status bar for this view controller should be
 	/// `UIStatusBar.lightContent`.
 	@IBInspectable
-	@available(*, unavailable, message: "Restricted for Interface Builder. Use `settings` instead")
+	@available(*, unavailable, message: "Restricted for Interface Builder. Use `settings` instead.")
 	private var _WhiteStatus: Bool {
 		get {
 			return settings.preferredStatusBarStyle == .lightContent
@@ -74,7 +87,7 @@ open class ViewController : UIViewController {
 	/// Whether this view controller should keep the navigation bar in its
 	/// navigation controller.
 	@IBInspectable
-	@available(*, unavailable, message: "Restricted for Interface Builder. Use `settings` instead")
+	@available(*, unavailable, message: "Restricted for Interface Builder. Use `settings` instead.")
 	private var _NavigationBar: Bool {
 		get {
 			return !settings.prefersNavigationBarHidden
@@ -87,7 +100,7 @@ open class ViewController : UIViewController {
 	
 	/// Whether this view controller supports `.portrait` interface orientation.
 	@IBInspectable
-	@available(*, unavailable, message: "Restricted for Interface Builder. Use `settings` instead")
+	@available(*, unavailable, message: "Restricted for Interface Builder. Use `settings` instead.")
 	private var _Portrait: Bool {
 		get { return settings.supportedInterfaceOrientations.contains(.portrait) }
 		
@@ -103,7 +116,7 @@ open class ViewController : UIViewController {
 	
 	/// Whether this view controller supports `.landscapeLeft` interface orientation.
 	@IBInspectable
-	@available(*, unavailable, message: "Restricted for Interface Builder. Use `settings` instead")
+	@available(*, unavailable, message: "Restricted for Interface Builder. Use `settings` instead.")
 	private var _Left: Bool {
 		get { return settings.supportedInterfaceOrientations.contains(.landscapeLeft) }
 		
@@ -119,7 +132,7 @@ open class ViewController : UIViewController {
 	
 	/// Whether this view controller supports `.landscapeRight` interface orientation.
 	@IBInspectable
-	@available(*, unavailable, message: "Restricted for Interface Builder. Use `settings` instead")
+	@available(*, unavailable, message: "Restricted for Interface Builder. Use `settings` instead.")
 	private var _Right: Bool {
 		get { return settings.supportedInterfaceOrientations.contains(.landscapeRight) }
 		
@@ -135,7 +148,7 @@ open class ViewController : UIViewController {
 	
 	/// Whether this view controller supports `.portraitUpsideDown` interface orientation.
 	@IBInspectable
-	@available(*, unavailable, message: "Restricted for Interface Builder. Use `settings` instead")
+	@available(*, unavailable, message: "Restricted for Interface Builder. Use `settings` instead.")
 	private var _UpsideDown: Bool {
 		get { return settings.supportedInterfaceOrientations.contains(.portraitUpsideDown) }
 		
