@@ -38,106 +38,83 @@ open class NavigationController : UINavigationController {
 		return topViewController?.supportedInterfaceOrientations ?? .all
 	}
 	
-	// MARK: Fix for Push/Pop Sequence
+	// MARK: Fix for Transition Sequence
 	
-	// When a UINavigationController received multiple Push/Pop requests in a row,
+	// When a UINavigationController received multiple transition requests in a row,
 	// its behavior(mostly animation) could be wrong and vary between different
 	// versions of iOS.
 	
 	// In order to split the responsibility of transitioning between workflows,
-	// we are making following fixes, rules of which are --
-	// 1. A transition request launched in one run loop WILL NOT be executed in
-	//    the same run loop, unless it is causing the initialization(setting
-	//    the root view controller). Transition requests in the same run loop
-	//    will be gathered and executed at once in the next run loop.
-	// 2. Pending transition requests DO affect property "viewControllers".
-	// 3. If at least ONE transition requests in a sequence adopts animation,
-	//    the final execution adopts animation.
+	// we are making fixes, which follow rules --
+	// 1. A transition request launched in one run loop will NOT be executed
+	//    immediately. Transition requests in the same run loop will be gathered
+	//    and executed at once in the next run loop.
+	// 2. If AT LEAST ONE transition request in a sequence adopts animation, the
+	//    final execution adopts animation.
+	// 3. `pushViewController(animated:)`, `popViewController(animated:)`,
+	//    `popToViewController(_:animated:)`, `popToRootViewController(animated:)`,
+	//    `setViewControllers(_:animated:)` are affected, while `viewControllers`
+	//    is NOT affected.
 	
-	private var targetState: (viewControllers: [UIViewController], animated: Bool)? = nil
+	internal private(set) var pendingTransition: (viewControllers: [UIViewController], animated: Bool)? = nil
 	
-	private func scheduleUpdatingState() {
-		RunLoop.current.perform(inModes: [.commonModes, .UITrackingRunLoopMode]) {
-			self.updateState()
-		}
-	}
-	
-	private func updateState() {
-		if let (viewControllers, animated) = targetState {
-			super.setViewControllers(viewControllers, animated: animated)
+	internal func scheduleTransition(_ viewControllers: [UIViewController], _ animated: Bool) {
+		precondition(RunLoop.current == RunLoop.main)
+		
+		if pendingTransition == nil {
+			RunLoop.main.perform(inModes: [.commonModes, .UITrackingRunLoopMode]) { [weak self] in
+				guard let `self` = self else { return }
+				
+				self.applyPendingTransition()
+			}
 		}
 		
-		targetState = nil
+		pendingTransition = (viewControllers, animated)
 	}
 	
-	override
-	open var topViewController: UIViewController? {
-		return viewControllers.last
+	internal func applyPendingTransition() {
+		precondition(RunLoop.current == RunLoop.main)
+		
+		guard let (viewControllers, animated) = pendingTransition else { return }
+		
+		RunLoop.main.cancelPerformSelectors(withTarget: self)
+		pendingTransition = nil
+		
+		super.setViewControllers(viewControllers, animated: animated)
 	}
 	
 	override
 	open var viewControllers: [UIViewController] {
 		get {
-			return targetState?.viewControllers ?? super.viewControllers
+			return super.viewControllers
 		}
 		
 		set {
-			setViewControllers(newValue, animated: false)
+			super.setViewControllers(newValue, animated: false)
 		}
 	}
 	
 	override
-	open func pushViewController(_ viewController: UIViewController, animated: Bool = false) {
-		if super.viewControllers.isEmpty {
-			assert(targetState == nil)
-			
-			super.setViewControllers([viewController], animated: false)
-			
-			return
-		}
-		
-		if let formerTargetState = targetState {
-			var viewControllers = formerTargetState.viewControllers
-			viewControllers.append(viewController)
-			
-			let animated = animated || formerTargetState.animated
-			
-			targetState = (viewControllers, animated)
-		}
-		else {
-			var viewControllers = super.viewControllers
-			viewControllers.append(viewController)
-			
-			targetState = (viewControllers, animated)
-			
-			scheduleUpdatingState()
-		}
+	open func pushViewController(_ viewController: UIViewController, animated: Bool) {
+		var viewControllers = pendingTransition?.viewControllers ?? super.viewControllers
+		viewControllers.append(viewController)
+		let animated = animated || pendingTransition?.animated ?? false
+		scheduleTransition(viewControllers, animated)
 	}
 	
 	@discardableResult
 	override
-	open func popViewController(animated: Bool = false) -> UIViewController? {
-		let poppedViewController: UIViewController
+	open func popViewController(animated: Bool) -> UIViewController? {
+		let poppedViewController: UIViewController?
 		
-		if let formerTargetState = targetState {
-			var viewControllers = formerTargetState.viewControllers
-			assert(viewControllers.count > 1)
-			
+		var viewControllers = pendingTransition?.viewControllers ?? super.viewControllers
+		if viewControllers.count > 1 {
 			poppedViewController = viewControllers.removeLast()
-			
-			let animated = animated || formerTargetState.animated
-			
-			targetState = (viewControllers, animated)
+			let animated = animated || pendingTransition?.animated ?? false
+			scheduleTransition(viewControllers, animated)
 		}
 		else {
-			var viewControllers = super.viewControllers
-			guard viewControllers.count > 1 else { return nil }
-			
-			poppedViewController = viewControllers.removeLast()
-			
-			targetState = (viewControllers, animated)
-			
-			scheduleUpdatingState()
+			poppedViewController = nil
 		}
 		
 		return poppedViewController
@@ -145,54 +122,45 @@ open class NavigationController : UINavigationController {
 	
 	@discardableResult
 	override
-	open func popToRootViewController(animated: Bool = false) -> [UIViewController]? {
+	open func popToViewController(_ viewController: UIViewController, animated: Bool) -> [UIViewController]? {
 		let poppedViewControllers: [UIViewController]?
 		
-		if let formerTargetState = targetState {
-			var viewControllers = formerTargetState.viewControllers
-			assert(viewControllers.count > 1)
-			
-			poppedViewControllers = Array(viewControllers[1...])
-			viewControllers = [viewControllers[0]]
-			
-			let animated = animated || formerTargetState.animated
-			
-			targetState = (viewControllers, animated)
+		var viewControllers = pendingTransition?.viewControllers ?? super.viewControllers
+		if let index = viewControllers.index(of: viewController) {
+			poppedViewControllers = Array(viewControllers[(index + 1)...])
+			viewControllers = Array(viewControllers[...index])
+			let animated = animated || pendingTransition?.animated ?? false
+			scheduleTransition(viewControllers, animated)
 		}
 		else {
-			var viewControllers = super.viewControllers
-			guard viewControllers.count > 1 else { return [] }
-			
+			poppedViewControllers = nil
+		}
+		
+		return poppedViewControllers
+	}
+	
+	@discardableResult
+	override
+	open func popToRootViewController(animated: Bool) -> [UIViewController]? {
+		let poppedViewControllers: [UIViewController]?
+		
+		var viewControllers = pendingTransition?.viewControllers ?? super.viewControllers
+		if !viewControllers.isEmpty {
 			poppedViewControllers = Array(viewControllers[1...])
 			viewControllers = [viewControllers[0]]
-			
-			targetState = (viewControllers, animated)
-			
-			scheduleUpdatingState()
+			let animated = animated || pendingTransition?.animated ?? false
+			scheduleTransition(viewControllers, animated)
+		}
+		else {
+			poppedViewControllers = nil
 		}
 		
 		return poppedViewControllers
 	}
 	
 	override
-	open func setViewControllers(_ viewControllers: [UIViewController], animated: Bool = false) {
-		if super.viewControllers.isEmpty {
-			assert(targetState == nil)
-			
-			super.setViewControllers(viewControllers, animated: false)
-			
-			return
-		}
-		
-		if let formerTargetState = targetState {
-			let animated = animated || formerTargetState.animated
-			
-			targetState = (viewControllers, animated)
-		}
-		else {
-			targetState = (viewControllers, animated)
-			
-			scheduleUpdatingState()
-		}
+	open func setViewControllers(_ viewControllers: [UIViewController], animated: Bool) {
+		let animated = animated || pendingTransition?.animated ?? false
+		scheduleTransition(viewControllers, animated)
 	}
 }

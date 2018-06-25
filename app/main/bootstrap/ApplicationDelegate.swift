@@ -24,7 +24,7 @@ internal class ApplicationDelegate : NSObject, UIApplicationDelegate {
 		window.rootViewController = navigationController
 		
 		let homeViewController = HomeViewController()
-		navigationController.pushViewController(homeViewController)
+		navigationController.pushViewController(homeViewController, animated: false)
 		
 		return true
 	}
