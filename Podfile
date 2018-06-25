@@ -37,3 +37,16 @@ target 'ui tests' do
 	pod 'Nimble'
 	pod 'Quick'
 end
+
+# project 'ui examples'
+
+target 'ui examples' do
+	project 'ui examples/ui examples'
+	
+	platform :ios, '11.0'
+	
+	use_frameworks!
+	inhibit_all_warnings!
+	
+	pod 'KMSOrientationPatch'
+end
