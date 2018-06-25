@@ -21,12 +21,40 @@ internal class ViewControllerSpec : QuickSpec {
 				viewController = ViewController()
 			}
 			
-			describe("`settings.openingStyle`") {
-				it("is `.push` by default") {
-					expect(viewController.settings.openingStyle) == .push
+			describe("`_Title`") {
+				it("should link with `title`") {
+					let getTitle: () -> String? = {
+						return viewController.value(forKey: "_Title") as! String?
+					}
+					
+					let setTitle: (String?) -> Void = {
+						viewController.setValue($0, forKey: "_Title")
+					}
+					
+					expect(getTitle() == viewController.title).to(beTrue())
+					
+					viewController.title = "A"
+					expect(getTitle()) == "A"
+					
+					viewController.title = "B"
+					expect(getTitle()) == "B"
+					
+					viewController.title = nil
+					expect(getTitle()).to(beNil())
+					
+					setTitle("A")
+					expect(viewController.title) == "A"
+					
+					setTitle("B")
+					expect(viewController.title) == "B"
+					
+					setTitle(nil)
+					expect(viewController.title).to(beNil())
 				}
-				
-				it("should link with `_Presents`") {
+			}
+			
+			describe("_Presents") {
+				it("should link with `settings.openingStyle`") {
 					let getPresents: () -> Bool = {
 						return viewController.value(forKey: "_Presents") as! Bool
 					}
@@ -51,22 +79,8 @@ internal class ViewControllerSpec : QuickSpec {
 				}
 			}
 			
-			describe("`settings.prefersStatusBarHidden`") {
-				it("is `false` by default") {
-					expect(viewController.settings.prefersStatusBarHidden).to(beFalse())
-				}
-				
-				it("should affect `prefersStatusBarHidden`") {
-					expect(viewController.prefersStatusBarHidden) == viewController.settings.prefersStatusBarHidden
-					
-					viewController.settings.prefersStatusBarHidden = true
-					expect(viewController.prefersStatusBarHidden).to(beTrue())
-					
-					viewController.settings.prefersStatusBarHidden = false
-					expect(viewController.prefersStatusBarHidden).to(beFalse())
-				}
-				
-				it("should link with `_StatusBar`") {
+			describe("`_StatusBar`") {
+				it("should link with `settings.prefersStatusBarHidden`") {
 					let getStatusBar: () -> Bool = {
 						return viewController.value(forKey: "_StatusBar") as! Bool
 					}
@@ -91,22 +105,8 @@ internal class ViewControllerSpec : QuickSpec {
 				}
 			}
 			
-			describe("`settings.preferredStatusBarStyle`") {
-				it("is `.default` by default") {
-					expect(viewController.settings.preferredStatusBarStyle) == .default
-				}
-				
-				it("should affect `preferredStatusBarStyle") {
-					expect(viewController.preferredStatusBarStyle) == viewController.settings.preferredStatusBarStyle
-					
-					viewController.settings.preferredStatusBarStyle = .lightContent
-					expect(viewController.preferredStatusBarStyle) == .lightContent
-					
-					viewController.settings.preferredStatusBarStyle = .default
-					expect(viewController.preferredStatusBarStyle) == .default
-				}
-				
-				it("should link with `_WhiteStatus`") {
+			describe("`_WhiteStatus`") {
+				it("should link with `settings.preferredStatusBarStyle`") {
 					let getWhiteStatus: () -> Bool = {
 						return viewController.value(forKey: "_WhiteStatus") as! Bool
 					}
@@ -128,6 +128,174 @@ internal class ViewControllerSpec : QuickSpec {
 					
 					setWhiteStatus(false)
 					expect(viewController.settings.preferredStatusBarStyle) == .default
+				}
+			}
+			
+			describe("`_NaviagationBar`") {
+				it("should link with `settings.prefersNavigationBarHidden`") {
+					let getNavigationBar: () -> Bool = {
+						return viewController.value(forKey: "_NavigationBar") as! Bool
+					}
+					
+					let setNavigationBar: (Bool) -> Void = {
+						viewController.setValue($0, forKey: "_NavigationBar")
+					}
+					
+					expect(getNavigationBar() == !viewController.settings.prefersNavigationBarHidden).to(beTrue())
+					
+					viewController.settings.prefersNavigationBarHidden = true
+					expect(getNavigationBar()).to(beFalse())
+					
+					viewController.settings.prefersNavigationBarHidden = false
+					expect(getNavigationBar()).to(beTrue())
+					
+					setNavigationBar(true)
+					expect(viewController.settings.prefersNavigationBarHidden).to(beFalse())
+					
+					setNavigationBar(false)
+					expect(viewController.settings.prefersNavigationBarHidden).to(beTrue())
+				}
+			}
+			
+			describe("`_Portrait`") {
+				it("should link with `settings.supportedInterfaceOrientations`") {
+					let getPortrait: () -> Bool = {
+						return viewController.value(forKey: "_Portrait") as! Bool
+					}
+					
+					let setPortrait: (Bool) -> Void = {
+						viewController.setValue($0, forKey: "_Portrait")
+					}
+					
+					expect(getPortrait() == viewController.settings.supportedInterfaceOrientations.contains(.portrait)).to(beTrue())
+					
+					viewController.settings.supportedInterfaceOrientations.insert(.portrait)
+					expect(getPortrait()).to(beTrue())
+					
+					viewController.settings.supportedInterfaceOrientations.remove(.portrait)
+					expect(getPortrait()).to(beFalse())
+					
+					setPortrait(true)
+					expect(getPortrait()).to(beTrue())
+					
+					setPortrait(false)
+					expect(getPortrait()).to(beFalse())
+				}
+			}
+			
+			describe("`_Left`") {
+				it("should link with `settings.supportedInterfaceOrientations`") {
+					let getLeft: () -> Bool = {
+						return viewController.value(forKey: "_Left") as! Bool
+					}
+					
+					let setLeft: (Bool) -> Void = {
+						viewController.setValue($0, forKey: "_Left")
+					}
+					
+					expect(getLeft() == viewController.settings.supportedInterfaceOrientations.contains(.landscapeLeft)).to(beTrue())
+					
+					viewController.settings.supportedInterfaceOrientations.insert(.landscapeLeft)
+					expect(getLeft()).to(beTrue())
+					
+					viewController.settings.supportedInterfaceOrientations.remove(.landscapeLeft)
+					expect(getLeft()).to(beFalse())
+					
+					setLeft(true)
+					expect(getLeft()).to(beTrue())
+					
+					setLeft(false)
+					expect(getLeft()).to(beFalse())
+				}
+			}
+			
+			describe("`_Right`") {
+				it("should link with `settings.supportedInterfaceOrientations`") {
+					let getRight: () -> Bool = {
+						return viewController.value(forKey: "_Right") as! Bool
+					}
+					
+					let setRight: (Bool) -> Void = {
+						viewController.setValue($0, forKey: "_Right")
+					}
+					
+					expect(getRight() == viewController.settings.supportedInterfaceOrientations.contains(.landscapeRight)).to(beTrue())
+					
+					viewController.settings.supportedInterfaceOrientations.insert(.landscapeRight)
+					expect(getRight()).to(beTrue())
+					
+					viewController.settings.supportedInterfaceOrientations.remove(.landscapeRight)
+					expect(getRight()).to(beFalse())
+					
+					setRight(true)
+					expect(getRight()).to(beTrue())
+					
+					setRight(false)
+					expect(getRight()).to(beFalse())
+				}
+			}
+			
+			describe("`_UpsideDown`") {
+				it("should link with `settings.supportedInterfaceOrientations`") {
+					let getUpsideDown: () -> Bool = {
+						return viewController.value(forKey: "_UpsideDown") as! Bool
+					}
+					
+					let setUpsideDown: (Bool) -> Void = {
+						viewController.setValue($0, forKey: "_UpsideDown")
+					}
+					
+					expect(getUpsideDown() == viewController.settings.supportedInterfaceOrientations.contains(.portraitUpsideDown)).to(beTrue())
+					
+					viewController.settings.supportedInterfaceOrientations.insert(.portraitUpsideDown)
+					expect(getUpsideDown()).to(beTrue())
+					
+					viewController.settings.supportedInterfaceOrientations.remove(.portraitUpsideDown)
+					expect(getUpsideDown()).to(beFalse())
+					
+					setUpsideDown(true)
+					expect(getUpsideDown()).to(beTrue())
+					
+					setUpsideDown(false)
+					expect(getUpsideDown()).to(beFalse())
+				}
+			}
+
+			describe("`settings.openingStyle`") {
+				it("is `.push` by default") {
+					expect(viewController.settings.openingStyle) == .push
+				}
+			}
+			
+			describe("`settings.prefersStatusBarHidden`") {
+				it("is `false` by default") {
+					expect(viewController.settings.prefersStatusBarHidden).to(beFalse())
+				}
+				
+				it("should affect `prefersStatusBarHidden`") {
+					expect(viewController.prefersStatusBarHidden) == viewController.settings.prefersStatusBarHidden
+					
+					viewController.settings.prefersStatusBarHidden = true
+					expect(viewController.prefersStatusBarHidden).to(beTrue())
+					
+					viewController.settings.prefersStatusBarHidden = false
+					expect(viewController.prefersStatusBarHidden).to(beFalse())
+				}
+			}
+			
+			describe("`settings.preferredStatusBarStyle`") {
+				it("is `.default` by default") {
+					expect(viewController.settings.preferredStatusBarStyle) == .default
+				}
+				
+				it("should affect `preferredStatusBarStyle") {
+					expect(viewController.preferredStatusBarStyle) == viewController.settings.preferredStatusBarStyle
+					
+					viewController.settings.preferredStatusBarStyle = .lightContent
+					expect(viewController.preferredStatusBarStyle) == .lightContent
+					
+					viewController.settings.preferredStatusBarStyle = .default
+					expect(viewController.preferredStatusBarStyle) == .default
 				}
 			}
 			
@@ -163,30 +331,6 @@ internal class ViewControllerSpec : QuickSpec {
 					viewController.viewDidAppear(true)
 					expect(navigationController.navigationBar.isHidden).toEventually(beFalse())
 				}
-				
-				it("should affect `_NavigationBar`") {
-					let getNavigationBar: () -> Bool = {
-						return viewController.value(forKey: "_NavigationBar") as! Bool
-					}
-					
-					let setNavigationBar: (Bool) -> Void = {
-						viewController.setValue($0, forKey: "_NavigationBar")
-					}
-					
-					expect(getNavigationBar() == !viewController.settings.prefersNavigationBarHidden).to(beTrue())
-					
-					viewController.settings.prefersNavigationBarHidden = true
-					expect(getNavigationBar()).to(beFalse())
-					
-					viewController.settings.prefersNavigationBarHidden = false
-					expect(getNavigationBar()).to(beTrue())
-					
-					setNavigationBar(true)
-					expect(viewController.settings.prefersNavigationBarHidden).to(beFalse())
-					
-					setNavigationBar(false)
-					expect(viewController.settings.prefersNavigationBarHidden).to(beTrue())
-				}
 			}
 			
 			describe("`settings.supportedInterfaceOrientations`") {
@@ -208,93 +352,6 @@ internal class ViewControllerSpec : QuickSpec {
 					
 					viewController.settings.supportedInterfaceOrientations = .all
 					expect(viewController.supportedInterfaceOrientations) == .all
-				}
-				
-				it("should link with `_Portrait`, `_Left`, `_Right`, `_UpsideDown`") {
-					let getPortrait: () -> Bool = {
-						return viewController.value(forKey: "_Portrait") as! Bool
-					}
-					
-					let setPortrait: (Bool) -> Void = {
-						viewController.setValue($0, forKey: "_Portrait")
-					}
-					
-					let getLeft: () -> Bool = {
-						return viewController.value(forKey: "_Left") as! Bool
-					}
-					
-					let setLeft: (Bool) -> Void = {
-						viewController.setValue($0, forKey: "_Left")
-					}
-					
-					let getRight: () -> Bool = {
-						return viewController.value(forKey: "_Right") as! Bool
-					}
-					
-					let setRight: (Bool) -> Void = {
-						viewController.setValue($0, forKey: "_Right")
-					}
-					
-					let getUpsideDown: () -> Bool = {
-						return viewController.value(forKey: "_UpsideDown") as! Bool
-					}
-					
-					let setUpsideDown: (Bool) -> Void = {
-						viewController.setValue($0, forKey: "_UpsideDown")
-					}
-					
-					expect(getPortrait() == viewController.settings.supportedInterfaceOrientations.contains(.portrait)).to(beTrue())
-					expect(getLeft() == viewController.settings.supportedInterfaceOrientations.contains(.landscapeLeft)).to(beTrue())
-					expect(getRight() == viewController.settings.supportedInterfaceOrientations.contains(.landscapeRight)).to(beTrue())
-					expect(getUpsideDown() == viewController.settings.supportedInterfaceOrientations.contains(.portraitUpsideDown)).to(beTrue())
-					
-					viewController.settings.supportedInterfaceOrientations = .portrait
-					expect(getPortrait()).to(beTrue())
-					expect(getLeft()).to(beFalse())
-					expect(getRight()).to(beFalse())
-					expect(getUpsideDown()).to(beFalse())
-					
-					viewController.settings.supportedInterfaceOrientations = .allButUpsideDown
-					expect(getPortrait()).to(beTrue())
-					expect(getLeft()).to(beTrue())
-					expect(getRight()).to(beTrue())
-					expect(getUpsideDown()).to(beFalse())
-					
-					viewController.settings.supportedInterfaceOrientations = .landscape
-					expect(getPortrait()).to(beFalse())
-					expect(getLeft()).to(beTrue())
-					expect(getRight()).to(beTrue())
-					expect(getUpsideDown()).to(beFalse())
-					
-					viewController.settings.supportedInterfaceOrientations = .all
-					expect(getPortrait()).to(beTrue())
-					expect(getLeft()).to(beTrue())
-					expect(getRight()).to(beTrue())
-					expect(getUpsideDown()).to(beTrue())
-					
-					setPortrait(true)
-					setLeft(false)
-					setRight(false)
-					setUpsideDown(false)
-					expect(viewController.settings.supportedInterfaceOrientations) == .portrait
-					
-					setPortrait(true)
-					setLeft(true)
-					setRight(true)
-					setUpsideDown(false)
-					expect(viewController.settings.supportedInterfaceOrientations) == .allButUpsideDown
-					
-					setPortrait(false)
-					setLeft(true)
-					setRight(true)
-					setUpsideDown(false)
-					expect(viewController.settings.supportedInterfaceOrientations) == .landscape
-					
-					setPortrait(true)
-					setLeft(true)
-					setRight(true)
-					setUpsideDown(true)
-					expect(viewController.settings.supportedInterfaceOrientations) == .all
 				}
 			}
 		}
