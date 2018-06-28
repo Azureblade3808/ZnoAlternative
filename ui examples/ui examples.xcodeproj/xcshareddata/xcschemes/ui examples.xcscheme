@@ -14,7 +14,7 @@
                <EnvironmentBuildable>
                   <BuildableReference
                      BuildableIdentifier = "primary"
-                     BlueprintIdentifier = "3354604ABFF2A2E1FEB61A8D0B173638"
+                     BlueprintIdentifier = "38758E399E64536F45EC9BDB02A6FD2B"
                      BuildableName = "ui examples.app"
                      BlueprintName = "ui examples"
                      ReferencedContainer = "container:ui examples.xcodeproj">
@@ -32,7 +32,7 @@
             buildForAnalyzing = "YES">
             <BuildableReference
                BuildableIdentifier = "primary"
-               BlueprintIdentifier = "3354604ABFF2A2E1FEB61A8D0B173638"
+               BlueprintIdentifier = "38758E399E64536F45EC9BDB02A6FD2B"
                BuildableName = "ui examples.app"
                BlueprintName = "ui examples"
                ReferencedContainer = "container:ui examples.xcodeproj">
@@ -50,7 +50,7 @@
       <MacroExpansion>
          <BuildableReference
             BuildableIdentifier = "primary"
-            BlueprintIdentifier = "3354604ABFF2A2E1FEB61A8D0B173638"
+            BlueprintIdentifier = "38758E399E64536F45EC9BDB02A6FD2B"
             BuildableName = "ui examples.app"
             BlueprintName = "ui examples"
             ReferencedContainer = "container:ui examples.xcodeproj">
@@ -73,7 +73,7 @@
          runnableDebuggingMode = "0">
          <BuildableReference
             BuildableIdentifier = "primary"
-            BlueprintIdentifier = "3354604ABFF2A2E1FEB61A8D0B173638"
+            BlueprintIdentifier = "38758E399E64536F45EC9BDB02A6FD2B"
             BuildableName = "ui examples.app"
             BlueprintName = "ui examples"
             ReferencedContainer = "container:ui examples.xcodeproj">
@@ -92,7 +92,7 @@
          runnableDebuggingMode = "0">
          <BuildableReference
             BuildableIdentifier = "primary"
-            BlueprintIdentifier = "3354604ABFF2A2E1FEB61A8D0B173638"
+            BlueprintIdentifier = "38758E399E64536F45EC9BDB02A6FD2B"
             BuildableName = "ui examples.app"
             BlueprintName = "ui examples"
             ReferencedContainer = "container:ui examples.xcodeproj">
