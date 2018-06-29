@@ -14,6 +14,7 @@
 		5CB159274BA386E1E961CE10BDA35255 /* NavigationController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CCCB699DE103E886D97981E284B33DFF /* NavigationController.swift */; };
 		5E10F29CA368B100F91653DA1DFF6BA4 /* DummyViewSpec.swift in Sources */ = {isa = PBXBuildFile; fileRef = 088A5E1BCCFEEAFD7C09C4778FFC554F /* DummyViewSpec.swift */; };
 		61B2A4DB8458F67E4C1B5C7D7A2C9D90 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C7529F795197F5F921445DF81E25B6C7 /* ViewController.swift */; };
+		865C4E992EBF0D13835B6FA1511C5CB7 /* NSLayoutConstraintExtensionSpec.swift in Sources */ = {isa = PBXBuildFile; fileRef = 37B78DC5554D22FDA31B93C3B7B03AA1 /* NSLayoutConstraintExtensionSpec.swift */; };
 		8A97F6576064DD5F43BF583185DF6DFB /* UIViewExtensionSpec.swift in Sources */ = {isa = PBXBuildFile; fileRef = 325788023A086F45F0428FBB49116E9C /* UIViewExtensionSpec.swift */; };
 		8F23AB45F47D534AD3AB4A41BF31425B /* NSLayoutConstraint+MutableMultiplier.swift in Sources */ = {isa = PBXBuildFile; fileRef = 54C01191982D033D29DE9F10696A3E60 /* NSLayoutConstraint+MutableMultiplier.swift */; };
 		A2BB1EFD3F125F0889D7D82C30BC421F /* AnnotionView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1E6BBFFB4580A7862E16E8B9D3B55DD2 /* AnnotionView.swift */; };
@@ -38,6 +39,7 @@
 		088A5E1BCCFEEAFD7C09C4778FFC554F /* DummyViewSpec.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DummyViewSpec.swift; sourceTree = "<group>"; };
 		1E6BBFFB4580A7862E16E8B9D3B55DD2 /* AnnotionView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AnnotionView.swift; sourceTree = "<group>"; };
 		325788023A086F45F0428FBB49116E9C /* UIViewExtensionSpec.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UIViewExtensionSpec.swift; sourceTree = "<group>"; };
+		37B78DC5554D22FDA31B93C3B7B03AA1 /* NSLayoutConstraintExtensionSpec.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NSLayoutConstraintExtensionSpec.swift; sourceTree = "<group>"; };
 		3E9C47AB43EF53C88E497A8EBCAFCE4E /* Pods_ui_tests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_ui_tests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		54C01191982D033D29DE9F10696A3E60 /* NSLayoutConstraint+MutableMultiplier.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "NSLayoutConstraint+MutableMultiplier.swift"; sourceTree = "<group>"; };
 		5CD4CF5CC3B4128050403094C9F7F48A /* NavigationControllerSpec.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NavigationControllerSpec.swift; sourceTree = "<group>"; };
@@ -135,6 +137,7 @@
 		9C8B6F6EAA956AD5A2C34CFBDF90EFEF /* extensions */ = {
 			isa = PBXGroup;
 			children = (
+				37B78DC5554D22FDA31B93C3B7B03AA1 /* NSLayoutConstraintExtensionSpec.swift */,
 				325788023A086F45F0428FBB49116E9C /* UIViewExtensionSpec.swift */,
 			);
 			path = extensions;
@@ -384,6 +387,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				5E10F29CA368B100F91653DA1DFF6BA4 /* DummyViewSpec.swift in Sources */,
+				865C4E992EBF0D13835B6FA1511C5CB7 /* NSLayoutConstraintExtensionSpec.swift in Sources */,
 				A717E6EC4E4916C3B6AEC35785DC9ABC /* NavigationControllerSpec.swift in Sources */,
 				8A97F6576064DD5F43BF583185DF6DFB /* UIViewExtensionSpec.swift in Sources */,
 				5016E8467E129BA67660DF9C6088148E /* ViewControllerSpec.swift in Sources */,

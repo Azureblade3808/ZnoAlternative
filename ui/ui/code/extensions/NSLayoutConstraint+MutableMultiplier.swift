@@ -52,20 +52,33 @@ extension NSLayoutConstraint {
 		set {
 			if let oldReplica = replica {
 				if newValue != oldReplica.multiplier {
-					let newReplica = createReplica(multiplier: newValue)
-					self.replica = newReplica
+					let tailReplica: NSLayoutConstraint = {
+						var replica = oldReplica
+						while let nextReplica = replica.replica {
+							replica = nextReplica
+						}
+						return replica
+					} ()
+					tailReplica.isActive = false
 					
-					NSLayoutConstraint.deactivate([oldReplica])
-					NSLayoutConstraint.activate([newReplica])
+					if newValue == multiplier {
+						isActive = true
+						replica = nil
+					}
+					else {
+						let newReplica = createReplica(multiplier: newValue)
+						newReplica.isActive = true
+						replica = newReplica
+					}
 				}
 			}
 			else {
 				if newValue != multiplier {
-					let replica = createReplica(multiplier: newValue)
-					self.replica = replica
+					isActive = false
 					
-					NSLayoutConstraint.deactivate([self])
-					NSLayoutConstraint.activate([replica])
+					let newReplica = createReplica(multiplier: newValue)
+					newReplica.isActive = true
+					replica = newReplica
 				}
 			}
 		}
@@ -97,36 +110,48 @@ extension NSLayoutConstraint {
 		// Setup two-way bindings for mutable properties.
 		if true {
 			reactive.makeBindingTarget {
+				guard $0.constant != $1 else { return }
+				
 				$0.constant = $1
 			} <~ (
-				replica.reactive.producer(forKeyPath: #keyPath(constant)).map { $0 as! CGFloat }.skipRepeats().skip(first: 1)
+				replica.reactive.signal(forKeyPath: #keyPath(constant)).map { $0 as! CGFloat }
 			)
 			replica.reactive.makeBindingTarget {
+				guard $0.constant != $1 else { return }
+				
 				$0.constant = $1
 			} <~ (
-				reactive.producer(forKeyPath: #keyPath(constant)).map { $0 as! CGFloat }.skipRepeats().skip(first: 1)
+				reactive.signal(forKeyPath: #keyPath(constant)).map { $0 as! CGFloat }
 			)
 			
 			reactive.makeBindingTarget {
+				guard $0.identifier != $1 else { return }
+				
 				$0.identifier = $1
 			} <~ (
-				replica.reactive.producer(forKeyPath: #keyPath(identifier)).map { $0 as! String? }.skipRepeats().skip(first: 1)
+				replica.reactive.signal(forKeyPath: #keyPath(identifier)).map { $0 as! String? }
 			)
 			replica.reactive.makeBindingTarget {
+				guard $0.identifier != $1 else { return }
+				
 				$0.identifier = $1
 			} <~ (
-				reactive.producer(forKeyPath: #keyPath(identifier)).map { $0 as! String? }.skipRepeats().skip(first: 1)
+				reactive.signal(forKeyPath: #keyPath(identifier)).map { $0 as! String? }
 			)
 			
 			reactive.makeBindingTarget {
+				guard $0.priority != $1 else { return }
+				
 				$0.priority = $1
 			} <~ (
-				replica.reactive.producer(forKeyPath: #keyPath(priority)).map { $0 as! UILayoutPriority }.skipRepeats().skip(first: 1)
+				replica.reactive.signal(forKeyPath: #keyPath(priority)).map { $0 as! UILayoutPriority }
 			)
 			replica.reactive.makeBindingTarget {
+				guard $0.priority != $1 else { return }
+				
 				$0.priority = $1
 			} <~ (
-				reactive.producer(forKeyPath: #keyPath(priority)).map { $0 as! UILayoutPriority }.skipRepeats().skip(first: 1)
+				reactive.signal(forKeyPath: #keyPath(priority)).map { $0 as! UILayoutPriority }
 			)
 		}
 		
