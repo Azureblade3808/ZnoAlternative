@@ -10,13 +10,27 @@
 		08A8A4BF2E18B05D5FDB505FEACCB33E /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = DB346A844222AF4EE8791109D9397B54 /* LaunchScreen.storyboard */; };
 		15CEE4A1DB55BF0DC079F1FB28AE43B5 /* Pods_app.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 35BE96BF4DA7FC87AEC576C7ED807E24 /* Pods_app.framework */; };
 		47D8A61BE8DEF0FBC152F016FB4CA058 /* HomeViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = F4360721408D445D4EDF7FC0161F0171 /* HomeViewController.xib */; };
+		6D6413DA67EE0E40B0FED041A2403534 /* ui.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 2DFEA248378C22E650C47EB4E5346C17 /* ui.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 		85E857AA8A677A394361462FA52C0714 /* Bootstrap.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 550C64DC38E63094D0CBB097326D1D53 /* Bootstrap.xcassets */; };
 		8A8C4D204D6124B23FD787E7FC42F78C /* main.swift in Sources */ = {isa = PBXBuildFile; fileRef = CD40FF75F348F7AED0CB2C08A396EB22 /* main.swift */; };
-		97F1A78BA5D21A02828C455151F72717 /* ui.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 2DFEA248378C22E650C47EB4E5346C17 /* ui.framework */; };
 		A934471150E6D5C26B0D19EE1AC45F07 /* Colors.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = AFFA7189B98A4A499FE7B38B50C0CE98 /* Colors.xcassets */; };
 		AA2958C8EBF88D3C65502717454032FE /* ApplicationDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 32DE8F73665AD10CA3D020F99AD4635F /* ApplicationDelegate.swift */; };
 		FC991B87FE4E31A874ACA569DEC3573F /* HomeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 751093176E975551A17577C28B73D248 /* HomeViewController.swift */; };
 /* End PBXBuildFile section */
+
+/* Begin PBXCopyFilesBuildPhase section */
+		5A8BFA6CECCA4DF98EF52D43617E7F96 /* Embed Frameworks */ = {
+			isa = PBXCopyFilesBuildPhase;
+			buildActionMask = 2147483647;
+			dstPath = "";
+			dstSubfolderSpec = 10;
+			files = (
+				6D6413DA67EE0E40B0FED041A2403534 /* ui.framework in Embed Frameworks */,
+			);
+			name = "Embed Frameworks";
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXCopyFilesBuildPhase section */
 
 /* Begin PBXFileReference section */
 		2DFEA248378C22E650C47EB4E5346C17 /* ui.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; path = ui.framework; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -39,7 +53,6 @@
 			buildActionMask = 2147483647;
 			files = (
 				15CEE4A1DB55BF0DC079F1FB28AE43B5 /* Pods_app.framework in Frameworks */,
-				97F1A78BA5D21A02828C455151F72717 /* ui.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -140,6 +153,7 @@
 				F5BD629B73D2D3518471FA6D786C3A02 /* Frameworks */,
 				EC711B1B36067BE6E4745B2C76D9A1F1 /* Resources */,
 				C3607985A4F13377057CB65E9951BD7D /* [CP] Embed Pods Frameworks */,
+				5A8BFA6CECCA4DF98EF52D43617E7F96 /* Embed Frameworks */,
 			);
 			buildRules = (
 			);
