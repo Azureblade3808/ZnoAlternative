@@ -37,7 +37,8 @@ extension NSLayoutConstraint {
 	/// The receiver is active.
 	///
 	/// - postcondition:
-	/// The receiver is replaced with a replica constraint, so it is inactive.
+	/// The receiver may be replaced with a replica constraint, so it may be
+	/// inactive.
 	///
 	/// - note:
 	/// `NSLayoutConstraint.multiplier` is readonly. Adjusting the multiplier
