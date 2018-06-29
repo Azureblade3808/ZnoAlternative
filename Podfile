@@ -9,6 +9,9 @@ target 'app' do
 	
 	use_frameworks!
 	inhibit_all_warnings!
+	
+	pod 'KMSOrientationPatch'
+	pod 'ReactiveCocoa'
 end
 
 # project 'ui'
@@ -20,18 +23,16 @@ target 'ui' do
 	
 	use_frameworks!
 	inhibit_all_warnings!
-end
-
-target 'ui tests' do
-	project 'ui/ui'
 	
-	platform :ios, '11.0'
+	pod 'KMSOrientationPatch'
+	pod 'ReactiveCocoa'
 	
-	use_frameworks!
-	inhibit_all_warnings!
-	
-	pod 'Nimble'
-	pod 'Quick'
+	target 'ui tests' do
+		inherit! :search_paths
+		
+		pod 'Nimble'
+		pod 'Quick'
+	end
 end
 
 # project 'ui examples'
@@ -43,4 +44,7 @@ target 'ui examples' do
 	
 	use_frameworks!
 	inhibit_all_warnings!
+	
+	pod 'KMSOrientationPatch'
+	pod 'ReactiveCocoa'
 end

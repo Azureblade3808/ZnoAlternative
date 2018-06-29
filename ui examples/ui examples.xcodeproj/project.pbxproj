@@ -56,6 +56,16 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		074AA3015B2E1895B636177475AB6194 /* examples */ = {
+			isa = PBXGroup;
+			children = (
+				778D132612D5F5A737A6A1C4CE21F66A /* annotion view */,
+				8CC7CAD1F911AA485496F51D107C9486 /* dummy view */,
+				43A64EF2441D936F1DEEE88C853A7843 /* navigation controller */,
+			);
+			path = examples;
+			sourceTree = "<group>";
+		};
 		27F2E0A9F98F33DAB383C16FBE1548C2 /* ui examples */ = {
 			isa = PBXGroup;
 			children = (
@@ -83,16 +93,6 @@
 			name = Frameworks;
 			sourceTree = "<group>";
 		};
-		CFB3C9BC02873FAB08C611CF3EAAF1DA /* code */ = {
-			isa = PBXGroup;
-			children = (
-				A66D12C0E0FF7CFDC6A681030262EE1C /* bootstrap */,
-				074AA3015B2E1895B636177475AB6194 /* examples */,
-				4BD26B2F5E56B31C7349AE5B63C70DC5 /* home */,
-			);
-			path = code;
-			sourceTree = "<group>";
-		};
 		43A64EF2441D936F1DEEE88C853A7843 /* navigation controller */ = {
 			isa = PBXGroup;
 			children = (
@@ -102,32 +102,13 @@
 			path = "navigation controller";
 			sourceTree = "<group>";
 		};
-		A66D12C0E0FF7CFDC6A681030262EE1C /* bootstrap */ = {
+		4BD26B2F5E56B31C7349AE5B63C70DC5 /* home */ = {
 			isa = PBXGroup;
 			children = (
-				0E9B75013AFC65C0AFAAA968E06BB059 /* ApplicationDelegate.swift */,
-				B0A54D2F8E53F1A9EE9BB800F6D19AF8 /* Bootstrap.xcassets */,
-				9165AE5D387C529B2C4F65884C1602B8 /* LaunchScreen.storyboard */,
-				37C72A17D2F3B676F114145A1C41C143 /* main.swift */,
+				5C7009555496C6FBE77F810651A26F3B /* HomeViewController.swift */,
+				19D0052ECA99A431045F1E0690F3C8EF /* HomeViewController.xib */,
 			);
-			path = bootstrap;
-			sourceTree = "<group>";
-		};
-		96FD599793855D9D321C73756F56C738 /* Pods */ = {
-			isa = PBXGroup;
-			children = (
-				F9A8CB768E49F8B72ADFBAA3E802303A /* Pods-ui examples.debug.xcconfig */,
-				5AA4BFFCDB9B844C9201CA8E40023259 /* Pods-ui examples.release.xcconfig */,
-			);
-			name = Pods;
-			sourceTree = "<group>";
-		};
-		A05966B0E0A6BA304A5F7C321456C07E /* Products */ = {
-			isa = PBXGroup;
-			children = (
-				889C8667271F554C9D171017DCDD44D5 /* ui examples.app */,
-			);
-			name = Products;
+			path = home;
 			sourceTree = "<group>";
 		};
 		778D132612D5F5A737A6A1C4CE21F66A /* annotion view */ = {
@@ -148,23 +129,42 @@
 			path = "dummy view";
 			sourceTree = "<group>";
 		};
-		4BD26B2F5E56B31C7349AE5B63C70DC5 /* home */ = {
+		96FD599793855D9D321C73756F56C738 /* Pods */ = {
 			isa = PBXGroup;
 			children = (
-				5C7009555496C6FBE77F810651A26F3B /* HomeViewController.swift */,
-				19D0052ECA99A431045F1E0690F3C8EF /* HomeViewController.xib */,
+				F9A8CB768E49F8B72ADFBAA3E802303A /* Pods-ui examples.debug.xcconfig */,
+				5AA4BFFCDB9B844C9201CA8E40023259 /* Pods-ui examples.release.xcconfig */,
 			);
-			path = home;
+			name = Pods;
 			sourceTree = "<group>";
 		};
-		074AA3015B2E1895B636177475AB6194 /* examples */ = {
+		A05966B0E0A6BA304A5F7C321456C07E /* Products */ = {
 			isa = PBXGroup;
 			children = (
-				778D132612D5F5A737A6A1C4CE21F66A /* annotion view */,
-				8CC7CAD1F911AA485496F51D107C9486 /* dummy view */,
-				43A64EF2441D936F1DEEE88C853A7843 /* navigation controller */,
+				889C8667271F554C9D171017DCDD44D5 /* ui examples.app */,
 			);
-			path = examples;
+			name = Products;
+			sourceTree = "<group>";
+		};
+		A66D12C0E0FF7CFDC6A681030262EE1C /* bootstrap */ = {
+			isa = PBXGroup;
+			children = (
+				0E9B75013AFC65C0AFAAA968E06BB059 /* ApplicationDelegate.swift */,
+				B0A54D2F8E53F1A9EE9BB800F6D19AF8 /* Bootstrap.xcassets */,
+				9165AE5D387C529B2C4F65884C1602B8 /* LaunchScreen.storyboard */,
+				37C72A17D2F3B676F114145A1C41C143 /* main.swift */,
+			);
+			path = bootstrap;
+			sourceTree = "<group>";
+		};
+		CFB3C9BC02873FAB08C611CF3EAAF1DA /* code */ = {
+			isa = PBXGroup;
+			children = (
+				A66D12C0E0FF7CFDC6A681030262EE1C /* bootstrap */,
+				074AA3015B2E1895B636177475AB6194 /* examples */,
+				4BD26B2F5E56B31C7349AE5B63C70DC5 /* home */,
+			);
+			path = code;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -178,6 +178,7 @@
 				4446A5635FF80D8DF27ACD7F38718BEC /* Sources */,
 				EDE1CA3809CE7B3ECBC70ED5EBB736D4 /* Frameworks */,
 				2488CBBF0FE55A3F9410710A0B3DFABE /* Resources */,
+				AAAA5C822CFC26DCFE2EFBED84C27C50 /* [CP] Embed Pods Frameworks */,
 			);
 			buildRules = (
 			);
@@ -239,6 +240,30 @@
 /* End PBXResourcesBuildPhase section */
 
 /* Begin PBXShellScriptBuildPhase section */
+		AAAA5C822CFC26DCFE2EFBED84C27C50 /* [CP] Embed Pods Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+				"${SRCROOT}/../Pods/Target Support Files/Pods-ui examples/Pods-ui examples-frameworks.sh",
+				"${BUILT_PRODUCTS_DIR}/KMSOrientationPatch/KMSOrientationPatch.framework",
+				"${BUILT_PRODUCTS_DIR}/ReactiveCocoa/ReactiveCocoa.framework",
+				"${BUILT_PRODUCTS_DIR}/ReactiveSwift/ReactiveSwift.framework",
+				"${BUILT_PRODUCTS_DIR}/Result/Result.framework",
+			);
+			name = "[CP] Embed Pods Frameworks";
+			outputPaths = (
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/KMSOrientationPatch.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/ReactiveCocoa.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/ReactiveSwift.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Result.framework",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/../Pods/Target Support Files/Pods-ui examples/Pods-ui examples-frameworks.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
 		D71C87696C933EDD520FF2F3EBD8F09D /* [CP] Check Pods Manifest.lock */ = {
 			isa = PBXShellScriptBuildPhase;
 			buildActionMask = 2147483647;
