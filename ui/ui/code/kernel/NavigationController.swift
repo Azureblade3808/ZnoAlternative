@@ -53,9 +53,13 @@ open class NavigationController : UINavigationController {
 	//    final execution adopts animation.
 	// 3. `pushViewController(animated:)`, `popViewController(animated:)`,
 	//    `popToViewController(_:animated:)`, `popToRootViewController(animated:)`,
-	//    `setViewControllers(_:animated:)` are affected, while `viewControllers`
-	//    is NOT affected.
-	
+	//    `setViewControllers(_:animated:)` requests are gathered.
+	// 4. A `viewControllers.setter` request should be executed immediately if
+	//    there is no pending transition at that point or should be gathered
+	//    otherwise.
+	// 5. `viewControllers.getter` should reflect status of the pending transition
+	//    if it exists.
+
 	internal private(set) var pendingTransition: (viewControllers: [UIViewController], animated: Bool)? = nil
 	
 	private var pendingTransitionTimer: Timer? = nil
@@ -89,11 +93,16 @@ open class NavigationController : UINavigationController {
 	override
 	open var viewControllers: [UIViewController] {
 		get {
-			return super.viewControllers
+			return pendingTransition?.viewControllers ?? super.viewControllers
 		}
 		
 		set {
-			super.setViewControllers(newValue, animated: false)
+			if pendingTransition != nil {
+				scheduleTransition(newValue, false)
+			}
+			else {
+				super.setViewControllers(newValue, animated: false)
+			}
 		}
 	}
 	
