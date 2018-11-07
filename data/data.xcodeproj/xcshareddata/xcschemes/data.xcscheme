@@ -14,10 +14,10 @@
                <EnvironmentBuildable>
                   <BuildableReference
                      BuildableIdentifier = "primary"
-                     BlueprintIdentifier = "ADE4021F53F6D0BDD766D0160C64B2C4"
-                     BuildableName = "app.app"
-                     BlueprintName = "app"
-                     ReferencedContainer = "container:app.xcodeproj">
+                     BlueprintIdentifier = "F8224F8BC96F7874CE6FF8A055E00B00"
+                     BuildableName = "data.framework"
+                     BlueprintName = "data"
+                     ReferencedContainer = "container:data.xcodeproj">
                   </BuildableReference>
                </EnvironmentBuildable>
             </ActionContent>
@@ -32,10 +32,10 @@
             buildForAnalyzing = "YES">
             <BuildableReference
                BuildableIdentifier = "primary"
-               BlueprintIdentifier = "ADE4021F53F6D0BDD766D0160C64B2C4"
-               BuildableName = "app.app"
-               BlueprintName = "app"
-               ReferencedContainer = "container:app.xcodeproj">
+               BlueprintIdentifier = "F8224F8BC96F7874CE6FF8A055E00B00"
+               BuildableName = "data.framework"
+               BlueprintName = "data"
+               ReferencedContainer = "container:data.xcodeproj">
             </BuildableReference>
          </BuildActionEntry>
       </BuildActionEntries>
@@ -44,16 +44,27 @@
       buildConfiguration = "Debug"
       selectedDebuggerIdentifier = "Xcode.DebuggerFoundation.Debugger.LLDB"
       selectedLauncherIdentifier = "Xcode.DebuggerFoundation.Launcher.LLDB"
+      codeCoverageEnabled = "YES"
       shouldUseLaunchSchemeArgsEnv = "YES">
       <Testables>
+         <TestableReference
+            skipped = "NO">
+            <BuildableReference
+               BuildableIdentifier = "primary"
+               BlueprintIdentifier = "6B919851DB4483FAE9A68261B0A6DC7C"
+               BuildableName = "data tests.xctest"
+               BlueprintName = "data tests"
+               ReferencedContainer = "container:data.xcodeproj">
+            </BuildableReference>
+         </TestableReference>
       </Testables>
       <MacroExpansion>
          <BuildableReference
             BuildableIdentifier = "primary"
-            BlueprintIdentifier = "ADE4021F53F6D0BDD766D0160C64B2C4"
-            BuildableName = "app.app"
-            BlueprintName = "app"
-            ReferencedContainer = "container:app.xcodeproj">
+            BlueprintIdentifier = "F8224F8BC96F7874CE6FF8A055E00B00"
+            BuildableName = "data.framework"
+            BlueprintName = "data"
+            ReferencedContainer = "container:data.xcodeproj">
          </BuildableReference>
       </MacroExpansion>
       <AdditionalOptions>
@@ -69,16 +80,15 @@
       debugDocumentVersioning = "YES"
       debugServiceExtension = "internal"
       allowLocationSimulation = "YES">
-      <BuildableProductRunnable
-         runnableDebuggingMode = "0">
+      <MacroExpansion>
          <BuildableReference
             BuildableIdentifier = "primary"
-            BlueprintIdentifier = "ADE4021F53F6D0BDD766D0160C64B2C4"
-            BuildableName = "app.app"
-            BlueprintName = "app"
-            ReferencedContainer = "container:app.xcodeproj">
+            BlueprintIdentifier = "F8224F8BC96F7874CE6FF8A055E00B00"
+            BuildableName = "data.framework"
+            BlueprintName = "data"
+            ReferencedContainer = "container:data.xcodeproj">
          </BuildableReference>
-      </BuildableProductRunnable>
+      </MacroExpansion>
       <AdditionalOptions>
       </AdditionalOptions>
    </LaunchAction>
@@ -88,16 +98,15 @@
       savedToolIdentifier = ""
       useCustomWorkingDirectory = "NO"
       debugDocumentVersioning = "YES">
-      <BuildableProductRunnable
-         runnableDebuggingMode = "0">
+      <MacroExpansion>
          <BuildableReference
             BuildableIdentifier = "primary"
-            BlueprintIdentifier = "ADE4021F53F6D0BDD766D0160C64B2C4"
-            BuildableName = "app.app"
-            BlueprintName = "app"
-            ReferencedContainer = "container:app.xcodeproj">
+            BlueprintIdentifier = "F8224F8BC96F7874CE6FF8A055E00B00"
+            BuildableName = "data.framework"
+            BlueprintName = "data"
+            ReferencedContainer = "container:data.xcodeproj">
          </BuildableReference>
-      </BuildableProductRunnable>
+      </MacroExpansion>
    </ProfileAction>
    <AnalyzeAction
       buildConfiguration = "Debug">

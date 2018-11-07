@@ -3,7 +3,7 @@
 	archiveVersion = 1;
 	classes = {
 	};
-	objectVersion = 50;
+	objectVersion = 51;
 	objects = {
 
 /* Begin PBXBuildFile section */
@@ -191,7 +191,7 @@
 				4446A5635FF80D8DF27ACD7F38718BEC /* Sources */,
 				EDE1CA3809CE7B3ECBC70ED5EBB736D4 /* Frameworks */,
 				2488CBBF0FE55A3F9410710A0B3DFABE /* Resources */,
-				AAAA5C822CFC26DCFE2EFBED84C27C50 /* [CP] Embed Pods Frameworks */,
+				4B646FD8E78F01736DB70082352C3F36 /* [CP] Embed Pods Frameworks */,
 				1B707F73B61010C70A59DC29CD445186 /* Embed Frameworks */,
 			);
 			buildRules = (
@@ -220,7 +220,7 @@
 				};
 			};
 			buildConfigurationList = 5766C97203B99E86F0A3A150349D77DD /* Build configuration list for PBXProject "ui examples" */;
-			compatibilityVersion = "Xcode 9.3";
+			compatibilityVersion = "Xcode 10.0";
 			developmentRegion = en;
 			hasScannedForEncodings = 0;
 			knownRegions = (
@@ -254,13 +254,13 @@
 /* End PBXResourcesBuildPhase section */
 
 /* Begin PBXShellScriptBuildPhase section */
-		AAAA5C822CFC26DCFE2EFBED84C27C50 /* [CP] Embed Pods Frameworks */ = {
+		4B646FD8E78F01736DB70082352C3F36 /* [CP] Embed Pods Frameworks */ = {
 			isa = PBXShellScriptBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
 			);
 			inputPaths = (
-				"${SRCROOT}/../Pods/Target Support Files/Pods-ui examples/Pods-ui examples-frameworks.sh",
+				"${PODS_ROOT}/Target Support Files/Pods-ui examples/Pods-ui examples-frameworks.sh",
 				"${BUILT_PRODUCTS_DIR}/KMSOrientationPatch/KMSOrientationPatch.framework",
 				"${BUILT_PRODUCTS_DIR}/ReactiveCocoa/ReactiveCocoa.framework",
 				"${BUILT_PRODUCTS_DIR}/ReactiveSwift/ReactiveSwift.framework",
@@ -275,7 +275,7 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
-			shellScript = "\"${SRCROOT}/../Pods/Target Support Files/Pods-ui examples/Pods-ui examples-frameworks.sh\"\n";
+			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-ui examples/Pods-ui examples-frameworks.sh\"\n";
 			showEnvVarsInLog = 0;
 		};
 		D71C87696C933EDD520FF2F3EBD8F09D /* [CP] Check Pods Manifest.lock */ = {
@@ -330,7 +330,7 @@
 				);
 				PRODUCT_BUNDLE_IDENTIFIER = "com.zno.client.ui-examples.Main";
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				SWIFT_VERSION = 4.0;
+				SWIFT_VERSION = 4.2;
 				TARGETED_DEVICE_FAMILY = "1,2";
 			};
 			name = Release;
@@ -465,7 +465,7 @@
 				PRODUCT_BUNDLE_IDENTIFIER = "com.zno.client.ui-examples.Main";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
-				SWIFT_VERSION = 4.0;
+				SWIFT_VERSION = 4.2;
 				TARGETED_DEVICE_FAMILY = "1,2";
 			};
 			name = Debug;

@@ -27,7 +27,7 @@ open class NavigationController : UINavigationController {
 	// MARK: Override - UINavigationController
 	
 	override
-	open var childViewControllerForStatusBarStyle: UIViewController? {
+	open var childForStatusBarStyle: UIViewController? {
 		return topViewController
 	}
 	
@@ -69,7 +69,7 @@ open class NavigationController : UINavigationController {
 			let timer = Timer(timeInterval: 0, repeats: false) { _ in
 				self.applyPendingTransition()
 			}
-			for mode: RunLoopMode in [.commonModes, .UITrackingRunLoopMode] {
+			for mode: RunLoop.Mode in [RunLoop.Mode.common, RunLoop.Mode.tracking] {
 				RunLoop.current.add(timer, forMode: mode)
 			}
 			pendingTransitionTimer = timer

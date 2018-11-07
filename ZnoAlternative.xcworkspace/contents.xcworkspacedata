@@ -5,6 +5,12 @@
       location = "group:app/app.xcodeproj">
    </FileRef>
    <FileRef
+      location = "group:data/data.xcodeproj">
+   </FileRef>
+   <FileRef
+      location = "group:product spec/product spec.xcodeproj">
+   </FileRef>
+   <FileRef
       location = "group:ui/ui.xcodeproj">
    </FileRef>
    <FileRef

@@ -13,7 +13,7 @@ import ui
 internal class ApplicationDelegate : NSObject, UIApplicationDelegate {
 	internal func application(
 		_ application: UIApplication,
-		didFinishLaunchingWithOptions launchOptions: [UIApplicationLaunchOptionsKey : Any]? = nil
+		didFinishLaunchingWithOptions launchOptions: [UIApplication.LaunchOptionsKey : Any]? = nil
 	) -> Bool {
 		let application = application as! Application
 		

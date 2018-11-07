@@ -14,6 +14,44 @@ target 'app' do
 	pod 'ReactiveCocoa'
 end
 
+# project 'data'
+
+target 'data' do
+	project 'data/data'
+	
+	platform :ios, '11.0'
+	
+	use_frameworks!
+	inhibit_all_warnings!
+	
+	target 'data tests' do
+		inherit! :complete
+		
+		pod 'Nimble'
+		pod 'Quick'
+	end
+end
+
+# project 'product spec'
+
+target 'product spec' do
+	project 'product spec/product spec'
+	
+	platform :ios, '11.0'
+	
+	use_frameworks!
+	inhibit_all_warnings!
+	
+	pod 'KMSXmlProcessor'
+	
+	target 'product spec tests' do
+		inherit! :complete
+		
+		pod 'Nimble'
+		pod 'Quick'
+	end
+end
+
 # project 'ui'
 
 target 'ui' do
@@ -28,7 +66,7 @@ target 'ui' do
 	pod 'ReactiveCocoa'
 	
 	target 'ui tests' do
-		inherit! :search_paths
+		inherit! :complete
 		
 		pod 'Nimble'
 		pod 'Quick'

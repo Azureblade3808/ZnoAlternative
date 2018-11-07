@@ -28,22 +28,22 @@ internal class NavigationControllerSpec : QuickSpec {
 					let secondViewController = UIViewController()
 					
 					expect(navigationController.viewControllers) == []
-					expect(navigationController.childViewControllerForStatusBarStyle).to(beNil())
+					expect(navigationController.childForStatusBarStyle).to(beNil())
 					
 					navigationController.pushViewController(firstViewController, animated: false)
 					navigationController.applyPendingTransition()
 					expect(navigationController.viewControllers) == [firstViewController]
-					expect(navigationController.childViewControllerForStatusBarStyle) == firstViewController
+					expect(navigationController.childForStatusBarStyle) == firstViewController
 					
 					navigationController.pushViewController(secondViewController, animated: false)
 					navigationController.applyPendingTransition()
 					expect(navigationController.viewControllers) == [firstViewController, secondViewController]
-					expect(navigationController.childViewControllerForStatusBarStyle) == secondViewController
+					expect(navigationController.childForStatusBarStyle) == secondViewController
 					
 					navigationController.popViewController(animated: false)
 					navigationController.applyPendingTransition()
 					expect(navigationController.viewControllers) == [firstViewController]
-					expect(navigationController.childViewControllerForStatusBarStyle) == firstViewController
+					expect(navigationController.childForStatusBarStyle) == firstViewController
 				}
 			}
 			
@@ -64,7 +64,7 @@ internal class NavigationControllerSpec : QuickSpec {
 					thirdViewController.settings.supportedInterfaceOrientations = .all
 					
 					expect(navigationController.viewControllers) == []
-					expect(navigationController.childViewControllers) == []
+					expect(navigationController.children) == []
 					
 					navigationController.pushViewController(firstViewController, animated: false)
 					navigationController.applyPendingTransition()
@@ -98,11 +98,11 @@ internal class NavigationControllerSpec : QuickSpec {
 					let viewController = UIViewController()
 					
 					expect(navigationController.viewControllers) == []
-					expect(navigationController.childViewControllers) == []
+					expect(navigationController.children) == []
 					
 					navigationController.viewControllers = [viewController]
 					expect(navigationController.viewControllers) == [viewController]
-					expect(navigationController.childViewControllers) == [viewController]
+					expect(navigationController.children) == [viewController]
 				}
 				
 				it("should execute after a moment if there is a pending transition") {
@@ -110,24 +110,24 @@ internal class NavigationControllerSpec : QuickSpec {
 					let secondViewController = UIViewController()
 					
 					expect(navigationController.viewControllers) == []
-					expect(navigationController.childViewControllers) == []
+					expect(navigationController.children) == []
 					
 					navigationController.pushViewController(firstViewController, animated: false)
 					expect(navigationController.viewControllers) == [firstViewController]
 					navigationController.applyPendingTransition()
-					expect(navigationController.childViewControllers) == [firstViewController]
+					expect(navigationController.children) == [firstViewController]
 					
 					navigationController.pushViewController(secondViewController, animated: false)
 					expect(navigationController.viewControllers) == [firstViewController, secondViewController]
-					expect(navigationController.childViewControllers) == [firstViewController]
+					expect(navigationController.children) == [firstViewController]
 					
 					navigationController.viewControllers = []
 					expect(navigationController.viewControllers) == []
-					expect(navigationController.childViewControllers) == [firstViewController]
+					expect(navigationController.children) == [firstViewController]
 					
 					waitUntil { done in
 						RunLoop.current.perform {
-							expect(navigationController.childViewControllers) == []
+							expect(navigationController.children) == []
 							done()
 						}
 					}
@@ -140,19 +140,19 @@ internal class NavigationControllerSpec : QuickSpec {
 					let secondViewController = UIViewController()
 					
 					expect(navigationController.viewControllers) == []
-					expect(navigationController.childViewControllers) == []
+					expect(navigationController.children) == []
 					
 					navigationController.pushViewController(firstViewController, animated: false)
 					expect(navigationController.viewControllers) == [firstViewController]
-					expect(navigationController.childViewControllers) == []
+					expect(navigationController.children) == []
 					
 					navigationController.pushViewController(secondViewController, animated: false)
 					expect(navigationController.viewControllers) == [firstViewController, secondViewController]
-					expect(navigationController.childViewControllers) == []
+					expect(navigationController.children) == []
 					
 					waitUntil { done in
 						RunLoop.current.perform {
-							expect(navigationController.childViewControllers) == [firstViewController, secondViewController]
+							expect(navigationController.children) == [firstViewController, secondViewController]
 							done()
 						}
 					}
@@ -164,22 +164,22 @@ internal class NavigationControllerSpec : QuickSpec {
 					let viewController = UIViewController()
 					
 					expect(navigationController.viewControllers) == []
-					expect(navigationController.childViewControllers) == []
+					expect(navigationController.children) == []
 					
 					expect(navigationController.popViewController(animated: false)).to(beNil())
 					expect(navigationController.viewControllers) == []
 					navigationController.applyPendingTransition()
-					expect(navigationController.childViewControllers) == []
+					expect(navigationController.children) == []
 					
 					navigationController.viewControllers = [viewController]
 					expect(navigationController.viewControllers) == [viewController]
 					navigationController.applyPendingTransition()
-					expect(navigationController.childViewControllers) == [viewController]
+					expect(navigationController.children) == [viewController]
 					
 					expect(navigationController.popViewController(animated: false)).to(beNil())
 					expect(navigationController.viewControllers) == [viewController]
 					navigationController.applyPendingTransition()
-					expect(navigationController.childViewControllers) == [viewController]
+					expect(navigationController.children) == [viewController]
 				}
 				
 				it("should return the top view controller and execute after a moment if there are at least two child view controllers") {
@@ -187,20 +187,20 @@ internal class NavigationControllerSpec : QuickSpec {
 					let secondViewController = UIViewController()
 					
 					expect(navigationController.viewControllers) == []
-					expect(navigationController.childViewControllers) == []
+					expect(navigationController.children) == []
 					
 					navigationController.viewControllers = [firstViewController, secondViewController]
 					expect(navigationController.viewControllers) == [firstViewController, secondViewController]
 					navigationController.applyPendingTransition()
-					expect(navigationController.childViewControllers) == [firstViewController, secondViewController]
+					expect(navigationController.children) == [firstViewController, secondViewController]
 					
 					expect(navigationController.popViewController(animated: false)) == secondViewController
 					expect(navigationController.viewControllers) == [firstViewController]
-					expect(navigationController.childViewControllers) == [firstViewController, secondViewController]
+					expect(navigationController.children) == [firstViewController, secondViewController]
 					
 					waitUntil { done in
 						RunLoop.current.perform {
-							expect(navigationController.childViewControllers) == [firstViewController]
+							expect(navigationController.children) == [firstViewController]
 							done()
 						}
 					}
@@ -213,12 +213,12 @@ internal class NavigationControllerSpec : QuickSpec {
 					let secondViewController = UIViewController()
 					
 					expect(navigationController.viewControllers) == []
-					expect(navigationController.childViewControllers) == []
+					expect(navigationController.children) == []
 					
 					expect(navigationController.popToViewController(firstViewController, animated: false)).to(beNil())
 					expect(navigationController.viewControllers) == []
 					navigationController.applyPendingTransition()
-					expect(navigationController.childViewControllers) == []
+					expect(navigationController.children) == []
 					
 					navigationController.viewControllers = [firstViewController]
 					expect(navigationController.viewControllers) == [firstViewController]
@@ -226,7 +226,7 @@ internal class NavigationControllerSpec : QuickSpec {
 					expect(navigationController.popToViewController(secondViewController, animated: false)).to(beNil())
 					expect(navigationController.viewControllers) == [firstViewController]
 					navigationController.applyPendingTransition()
-					expect(navigationController.childViewControllers) == [firstViewController]
+					expect(navigationController.children) == [firstViewController]
 				}
 				
 				it("should do nothing return an empty array if the given view controller is at the top") {
@@ -234,7 +234,7 @@ internal class NavigationControllerSpec : QuickSpec {
 					let secondViewController = UIViewController()
 					
 					expect(navigationController.viewControllers) == []
-					expect(navigationController.childViewControllers) == []
+					expect(navigationController.children) == []
 
 					navigationController.viewControllers = [firstViewController]
 					expect(navigationController.viewControllers) == [firstViewController]
@@ -242,7 +242,7 @@ internal class NavigationControllerSpec : QuickSpec {
 					expect(navigationController.popToViewController(firstViewController, animated: false)) == []
 					expect(navigationController.viewControllers) == [firstViewController]
 					navigationController.applyPendingTransition()
-					expect(navigationController.childViewControllers) == [firstViewController]
+					expect(navigationController.children) == [firstViewController]
 					
 					navigationController.viewControllers = [firstViewController, secondViewController]
 					expect(navigationController.viewControllers) == [firstViewController, secondViewController]
@@ -259,7 +259,7 @@ internal class NavigationControllerSpec : QuickSpec {
 					let thirdViewController = UIViewController()
 					
 					expect(navigationController.viewControllers) == []
-					expect(navigationController.childViewControllers) == []
+					expect(navigationController.children) == []
 					
 					navigationController.viewControllers = [firstViewController, secondViewController, thirdViewController]
 					expect(navigationController.viewControllers) == [firstViewController, secondViewController, thirdViewController]
@@ -268,11 +268,11 @@ internal class NavigationControllerSpec : QuickSpec {
 					
 					expect(navigationController.popToViewController(firstViewController, animated: false)) == [secondViewController, thirdViewController]
 					expect(navigationController.viewControllers) == [firstViewController]
-					expect(navigationController.childViewControllers) == [firstViewController, secondViewController, thirdViewController]
+					expect(navigationController.children) == [firstViewController, secondViewController, thirdViewController]
 					
 					waitUntil { done in
 						RunLoop.current.perform {
-							expect(navigationController.childViewControllers) == [firstViewController]
+							expect(navigationController.children) == [firstViewController]
 							done()
 						}
 					}
@@ -282,29 +282,29 @@ internal class NavigationControllerSpec : QuickSpec {
 			describe("`popToRootViewController(animated:)`") {
 				it("should do nothing and return `nil` if there is no child view controller") {
 					expect(navigationController.viewControllers) == []
-					expect(navigationController.childViewControllers) == []
+					expect(navigationController.children) == []
 					
 					expect(navigationController.popToRootViewController(animated: false)).to(beNil())
 					expect(navigationController.viewControllers) == []
 					navigationController.applyPendingTransition()
-					expect(navigationController.childViewControllers) == []
+					expect(navigationController.children) == []
 				}
 				
 				it("should do nothing and return an empty array if there is only one child view controller") {
 					let viewController = UIViewController()
 					
 					expect(navigationController.viewControllers) == []
-					expect(navigationController.childViewControllers) == []
+					expect(navigationController.children) == []
 					
 					navigationController.viewControllers = [viewController]
 					expect(navigationController.viewControllers) == [viewController]
 					navigationController.applyPendingTransition()
-					expect(navigationController.childViewControllers) == [viewController]
+					expect(navigationController.children) == [viewController]
 					
 					expect(navigationController.popToRootViewController(animated: false)) == []
 					expect(navigationController.viewControllers) == [viewController]
 					navigationController.applyPendingTransition()
-					expect(navigationController.childViewControllers) == [viewController]
+					expect(navigationController.children) == [viewController]
 				}
 				
 				it("should return an array of popped view controllers and execute after a moment if there is at least two child view controllers") {
@@ -313,20 +313,20 @@ internal class NavigationControllerSpec : QuickSpec {
 					let thirdViewController = UIViewController()
 					
 					expect(navigationController.viewControllers) == []
-					expect(navigationController.childViewControllers) == []
+					expect(navigationController.children) == []
 					
 					navigationController.viewControllers = [firstViewController, secondViewController, thirdViewController]
 					expect(navigationController.viewControllers) == [firstViewController, secondViewController, thirdViewController]
 					navigationController.applyPendingTransition()
-					expect(navigationController.childViewControllers) == [firstViewController, secondViewController, thirdViewController]
+					expect(navigationController.children) == [firstViewController, secondViewController, thirdViewController]
 					
 					expect(navigationController.popToRootViewController(animated: false)) == [secondViewController, thirdViewController]
 					expect(navigationController.viewControllers) == [firstViewController]
-					expect(navigationController.childViewControllers) == [firstViewController, secondViewController, thirdViewController]
+					expect(navigationController.children) == [firstViewController, secondViewController, thirdViewController]
 					
 					waitUntil { done in
 						RunLoop.current.perform {
-							expect(navigationController.childViewControllers) == [firstViewController]
+							expect(navigationController.children) == [firstViewController]
 							done()
 						}
 					}
@@ -338,15 +338,15 @@ internal class NavigationControllerSpec : QuickSpec {
 					let viewController = UIViewController()
 					
 					expect(navigationController.viewControllers) == []
-					expect(navigationController.childViewControllers) == []
+					expect(navigationController.children) == []
 
 					navigationController.setViewControllers([viewController], animated: false)
 					expect(navigationController.viewControllers) == [viewController]
-					expect(navigationController.childViewControllers) == []
+					expect(navigationController.children) == []
 					
 					waitUntil { done in
 						RunLoop.current.perform {
-							expect(navigationController.childViewControllers) == [viewController]
+							expect(navigationController.children) == [viewController]
 							done()
 						}
 					}
