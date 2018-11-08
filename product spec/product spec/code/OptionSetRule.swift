@@ -50,7 +50,7 @@ fileprivate let regex0 = try! NSRegularExpression(pattern: "([\\w]+)\\s*:\\s*(\\
 fileprivate let regex1 = try! NSRegularExpression(pattern: "\\w+")
 
 extension OptionSetRule {
-	internal init(string: String) {
+	public init(string: String) {
 		for capturedGroups in string.capturedGroupsInMatches(for: regex0) {
 			let groupId = capturedGroups[1]
 			let optionIds = capturedGroups[2].substrings(for: regex1)

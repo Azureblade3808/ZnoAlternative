@@ -14,10 +14,10 @@
                <EnvironmentBuildable>
                   <BuildableReference
                      BuildableIdentifier = "primary"
-                     BlueprintIdentifier = "F8224F8BC96F7874CE6FF8A055E00B00"
-                     BuildableName = "data.framework"
-                     BlueprintName = "data"
-                     ReferencedContainer = "container:data.xcodeproj">
+                     BlueprintIdentifier = "49057D572133CFA800792781"
+                     BuildableName = "product_spec.framework"
+                     BlueprintName = "product spec"
+                     ReferencedContainer = "container:product spec.xcodeproj">
                   </BuildableReference>
                </EnvironmentBuildable>
             </ActionContent>
@@ -32,10 +32,10 @@
             buildForAnalyzing = "YES">
             <BuildableReference
                BuildableIdentifier = "primary"
-               BlueprintIdentifier = "F8224F8BC96F7874CE6FF8A055E00B00"
-               BuildableName = "data.framework"
-               BlueprintName = "data"
-               ReferencedContainer = "container:data.xcodeproj">
+               BlueprintIdentifier = "49057D572133CFA800792781"
+               BuildableName = "product_spec.framework"
+               BlueprintName = "product spec"
+               ReferencedContainer = "container:product spec.xcodeproj">
             </BuildableReference>
          </BuildActionEntry>
       </BuildActionEntries>
@@ -51,20 +51,20 @@
             skipped = "NO">
             <BuildableReference
                BuildableIdentifier = "primary"
-               BlueprintIdentifier = "6B919851DB4483FAE9A68261B0A6DC7C"
-               BuildableName = "data tests.xctest"
-               BlueprintName = "data tests"
-               ReferencedContainer = "container:data.xcodeproj">
+               BlueprintIdentifier = "49057D602133CFA800792781"
+               BuildableName = "product spec tests.xctest"
+               BlueprintName = "product spec tests"
+               ReferencedContainer = "container:product spec.xcodeproj">
             </BuildableReference>
          </TestableReference>
       </Testables>
       <MacroExpansion>
          <BuildableReference
             BuildableIdentifier = "primary"
-            BlueprintIdentifier = "F8224F8BC96F7874CE6FF8A055E00B00"
-            BuildableName = "data.framework"
-            BlueprintName = "data"
-            ReferencedContainer = "container:data.xcodeproj">
+            BlueprintIdentifier = "49057D572133CFA800792781"
+            BuildableName = "product_spec.framework"
+            BlueprintName = "product spec"
+            ReferencedContainer = "container:product spec.xcodeproj">
          </BuildableReference>
       </MacroExpansion>
       <AdditionalOptions>
@@ -83,10 +83,10 @@
       <MacroExpansion>
          <BuildableReference
             BuildableIdentifier = "primary"
-            BlueprintIdentifier = "F8224F8BC96F7874CE6FF8A055E00B00"
-            BuildableName = "data.framework"
-            BlueprintName = "data"
-            ReferencedContainer = "container:data.xcodeproj">
+            BlueprintIdentifier = "49057D572133CFA800792781"
+            BuildableName = "product_spec.framework"
+            BlueprintName = "product spec"
+            ReferencedContainer = "container:product spec.xcodeproj">
          </BuildableReference>
       </MacroExpansion>
       <AdditionalOptions>
@@ -101,10 +101,10 @@
       <MacroExpansion>
          <BuildableReference
             BuildableIdentifier = "primary"
-            BlueprintIdentifier = "F8224F8BC96F7874CE6FF8A055E00B00"
-            BuildableName = "data.framework"
-            BlueprintName = "data"
-            ReferencedContainer = "container:data.xcodeproj">
+            BlueprintIdentifier = "49057D572133CFA800792781"
+            BuildableName = "product_spec.framework"
+            BlueprintName = "product spec"
+            ReferencedContainer = "container:product spec.xcodeproj">
          </BuildableReference>
       </MacroExpansion>
    </ProfileAction>

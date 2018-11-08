@@ -1,7 +1,7 @@
 import KMSXmlProcessor
 
 /// 选项，用于描述产品的状态。
-public final class Option {
+public final class Option : CustomStringConvertible, Equatable {
 	/// 所处选项组的ID。
 	public internal(set) var groupId: String = ""
 	
@@ -10,6 +10,18 @@ public final class Option {
 	
 	/// 标题，描述性文本。
 	public internal(set) var title: String = ""
+	
+	// MARK: Conform - CustomStringConvertible
+	
+	public var description: String {
+		return "\(groupId).\(id)"
+	}
+}
+
+// MARK: -
+
+public func ==(a: Option, b: Option) -> Bool {
+	return a === b
 }
 
 // MARK: -

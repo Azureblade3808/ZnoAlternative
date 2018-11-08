@@ -154,30 +154,30 @@ extension Manual {
 // MARK: -
 
 extension Manual {
-	public convenience init(named name: String, in bundle: Bundle? = .main) {
+	public convenience init(named name: String, in bundle: Bundle? = nil) {
 		self.init()
 		
 		let bundle = bundle ?? .main
-		let xml = try! XmlElement(data: try! Data(contentsOf: bundle.url(forResource: name, withExtension: ".xml")!))
+		let xml = try! XmlElement(data: try! Data(contentsOf: bundle.url(forResource: name, withExtension: "xml")!))
 		
-		self.version = xml.attributeOrChildText(name: "version")!
+		version = xml.attributeOrChildText(name: "version")!
 		
-		self.optionGroups = xml.children(name: "option-group").map { OptionGroup(xml: $0) }
+		optionGroups = xml.children(name: "option-group").map { OptionGroup(xml: $0) }
 		
-		self.booleanMaps = xml.children(name: "parameter-boolean").map { BooleanMap(xml: $0) }
+		booleanMaps = xml.children(name: "parameter-boolean").map { BooleanMap(xml: $0) }
 		
-		self.integerMaps = xml.children(name: "parameter-integer").map { IntegerMap(xml: $0) }
+		integerMaps = xml.children(name: "parameter-integer").map { IntegerMap(xml: $0) }
 		
-		self.floatMaps = xml.children(name: "parameter-float").map { FloatMap(xml: $0) }
+		floatMaps = xml.children(name: "parameter-float").map { FloatMap(xml: $0) }
 		
-		self.stringMaps = xml.children(name: "parameter-string").map { StringMap(xml: $0) }
+		stringMaps = xml.children(name: "parameter-string").map { StringMap(xml: $0) }
 		
-		self.sizeMaps = xml.children(name: "parameter-size").map { SizeMap(xml: $0) }
+		sizeMaps = xml.children(name: "parameter-size").map { SizeMap(xml: $0) }
 		
-		self.paddingMaps = xml.children(name: "parameter-padding").map { PaddingMap(xml: $0) }
+		paddingMaps = xml.children(name: "parameter-padding").map { PaddingMap(xml: $0) }
 		
-		self.colorMaps = xml.children(name: "parameter-color").map { ColorMap(xml: $0) }
+		colorMaps = xml.children(name: "parameter-color").map { ColorMap(xml: $0) }
 		
-		self.imageMaps = xml.children(name: "parameter-image").map { ImageMap(xml: $0, bundle: bundle) }
+		imageMaps = xml.children(name: "parameter-image").map { ImageMap(xml: $0, bundle: bundle) }
 	}
 }

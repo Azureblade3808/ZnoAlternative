@@ -1,15 +1,15 @@
 import Foundation
 
 extension String {
-	public var boolValue: Bool? {
+	internal var boolValue: Bool? {
 		return Bool(self)
 	}
 	
-	public var intValue: Int? {
+	internal var intValue: Int? {
 		return Int(self)
 	}
 	
-	public var doubleValue: Double? {
+	internal var doubleValue: Double? {
 		return Double(self)
 	}
 	
@@ -19,7 +19,7 @@ extension String {
 	/// 	- regex: 正则表达式。其中定义的捕获组对于结果没有作用。
 	///
 	/// - returns: 子字符串组成的数组。
-	public func substrings(for regex: NSRegularExpression) -> [String] {
+	internal func substrings(for regex: NSRegularExpression) -> [String] {
 		let matches = regex.matches(in: self, range: NSRange(location: 0, length: count))
 		let substrings: [String] = matches.map { result in
 			let range = Range(result.range(at: 0), in: self)!
@@ -37,7 +37,7 @@ extension String {
 	/// 	- regex: 正则表达式。
 	///
 	/// - returns: 子字符串组成的二维数组。
-	public func capturedGroupsInMatches(for regex: NSRegularExpression) -> [[String]] {
+	internal func capturedGroupsInMatches(for regex: NSRegularExpression) -> [[String]] {
 		let matches = regex.matches(in: self, range: NSRange(location: 0, length: count))
 		let capturedGroupsInMatches: [[String]] = matches.map { result in
 			var capturedGroups: [String] = []

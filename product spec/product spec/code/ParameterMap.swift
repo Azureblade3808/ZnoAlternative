@@ -3,12 +3,24 @@ import KMSXmlProcessor
 import data
 
 /// 参数表。
-public class ParameterMap<Value> {
+public class ParameterMap<Value> : CustomStringConvertible, Equatable {
 	/// ID。
 	public internal(set) var id: String = ""
 	
 	/// 内部表。
 	public internal(set) var innerMap: OptionSetMap = OptionSetMap<Value>()
+	
+	// MARK: Conform - CustomStringConvertible
+	
+	public var description: String {
+		return id
+	}
+}
+
+// MARK: -
+
+public func ==<Value>(a: ParameterMap<Value>, b: ParameterMap<Value>) -> Bool {
+	return a === b
 }
 
 // MARK: -

@@ -1,7 +1,7 @@
 import KMSXmlProcessor
 
 /// 选项组，用于存放一系列可选的产品状态。
-public final class OptionGroup {
+public final class OptionGroup : CustomStringConvertible, Equatable {
 	/// ID。
 	public internal(set) var id: String = ""
 	
@@ -22,6 +22,18 @@ public final class OptionGroup {
 	///
 	/// 键为特定的选项组合，值为在这种选项组合下本组内默认选项ID。
 	public internal(set) var defaultOptionIdMap: OptionSetMap<String>?
+	
+	// MARK: Conform - CustomStringConvertible
+	
+	public var description: String {
+		return id
+	}
+}
+
+// MARK: -
+
+public func ==(a: OptionGroup, b: OptionGroup) -> Bool {
+	return a === b
 }
 
 // MARK: -
