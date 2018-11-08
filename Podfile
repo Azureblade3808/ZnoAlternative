@@ -63,7 +63,6 @@ target 'ui' do
 	inhibit_all_warnings!
 	
 	pod 'KMSOrientationPatch'
-	pod 'ReactiveCocoa'
 	
 	target 'ui tests' do
 		inherit! :complete

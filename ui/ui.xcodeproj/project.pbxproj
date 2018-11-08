@@ -15,9 +15,7 @@
 		5E10F29CA368B100F91653DA1DFF6BA4 /* DummyViewSpec.swift in Sources */ = {isa = PBXBuildFile; fileRef = 088A5E1BCCFEEAFD7C09C4778FFC554F /* DummyViewSpec.swift */; };
 		61B2A4DB8458F67E4C1B5C7D7A2C9D90 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C7529F795197F5F921445DF81E25B6C7 /* ViewController.swift */; };
 		62EA8C247528EFD6348B0D810B27A3DC /* Pods_ui_ui_tests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 3F98C57485C80CC02BD37EA1D590DEDC /* Pods_ui_ui_tests.framework */; };
-		865C4E992EBF0D13835B6FA1511C5CB7 /* NSLayoutConstraintExtensionSpec.swift in Sources */ = {isa = PBXBuildFile; fileRef = 37B78DC5554D22FDA31B93C3B7B03AA1 /* NSLayoutConstraintExtensionSpec.swift */; };
 		8A97F6576064DD5F43BF583185DF6DFB /* UIViewExtensionSpec.swift in Sources */ = {isa = PBXBuildFile; fileRef = 325788023A086F45F0428FBB49116E9C /* UIViewExtensionSpec.swift */; };
-		8F23AB45F47D534AD3AB4A41BF31425B /* NSLayoutConstraint+MutableMultiplier.swift in Sources */ = {isa = PBXBuildFile; fileRef = 54C01191982D033D29DE9F10696A3E60 /* NSLayoutConstraint+MutableMultiplier.swift */; };
 		A2BB1EFD3F125F0889D7D82C30BC421F /* AnnotionView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1E6BBFFB4580A7862E16E8B9D3B55DD2 /* AnnotionView.swift */; };
 		A717E6EC4E4916C3B6AEC35785DC9ABC /* NavigationControllerSpec.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5CD4CF5CC3B4128050403094C9F7F48A /* NavigationControllerSpec.swift */; };
 		A995D2654EED281F83F9CEA0A2409FB1 /* Pods_ui.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = F5EBFC2F18F4B09C691739A38D5E40E1 /* Pods_ui.framework */; };
@@ -39,10 +37,8 @@
 		088A5E1BCCFEEAFD7C09C4778FFC554F /* DummyViewSpec.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DummyViewSpec.swift; sourceTree = "<group>"; };
 		1E6BBFFB4580A7862E16E8B9D3B55DD2 /* AnnotionView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AnnotionView.swift; sourceTree = "<group>"; };
 		325788023A086F45F0428FBB49116E9C /* UIViewExtensionSpec.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UIViewExtensionSpec.swift; sourceTree = "<group>"; };
-		37B78DC5554D22FDA31B93C3B7B03AA1 /* NSLayoutConstraintExtensionSpec.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NSLayoutConstraintExtensionSpec.swift; sourceTree = "<group>"; };
 		3F98C57485C80CC02BD37EA1D590DEDC /* Pods_ui_ui_tests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_ui_ui_tests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		474C1BA663B38B4DCC50874EF53F3632 /* Pods-ui-ui tests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-ui-ui tests.debug.xcconfig"; path = "../Pods/Target Support Files/Pods-ui-ui tests/Pods-ui-ui tests.debug.xcconfig"; sourceTree = "<group>"; };
-		54C01191982D033D29DE9F10696A3E60 /* NSLayoutConstraint+MutableMultiplier.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "NSLayoutConstraint+MutableMultiplier.swift"; sourceTree = "<group>"; };
 		5CD4CF5CC3B4128050403094C9F7F48A /* NavigationControllerSpec.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NavigationControllerSpec.swift; sourceTree = "<group>"; };
 		682E951EC5262FACBEEF971AD78F0FEA /* Pods-ui.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-ui.release.xcconfig"; path = "../Pods/Target Support Files/Pods-ui/Pods-ui.release.xcconfig"; sourceTree = "<group>"; };
 		AEAD01C32A49FBCF66E2AD0E76F0E0A2 /* ui tests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = "ui tests.xctest"; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -128,7 +124,6 @@
 		68B84F8C6A55CD2075DB58B356E761F4 /* extensions */ = {
 			isa = PBXGroup;
 			children = (
-				54C01191982D033D29DE9F10696A3E60 /* NSLayoutConstraint+MutableMultiplier.swift */,
 				D2049A06E2E359061601242D642079A1 /* UIView+InterfaceBuilderSupport.swift */,
 			);
 			path = extensions;
@@ -137,7 +132,6 @@
 		9C8B6F6EAA956AD5A2C34CFBDF90EFEF /* extensions */ = {
 			isa = PBXGroup;
 			children = (
-				37B78DC5554D22FDA31B93C3B7B03AA1 /* NSLayoutConstraintExtensionSpec.swift */,
 				325788023A086F45F0428FBB49116E9C /* UIViewExtensionSpec.swift */,
 			);
 			path = extensions;
@@ -315,24 +309,6 @@
 /* End PBXResourcesBuildPhase section */
 
 /* Begin PBXShellScriptBuildPhase section */
-		4A4829C318D071D8D754F3AF14852894 /* [CP] Check Pods Manifest.lock */ = {
-			isa = PBXShellScriptBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			inputPaths = (
-				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
-				"${PODS_ROOT}/Manifest.lock",
-			);
-			name = "[CP] Check Pods Manifest.lock";
-			outputPaths = (
-				"$(DERIVED_FILE_DIR)/Pods-ui-ui tests-checkManifestLockResult.txt",
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-			shellPath = /bin/sh;
-			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
-			showEnvVarsInLog = 0;
-		};
 		48E1FAE391CB9C7F7797A0BC82498626 /* [CP] Embed Pods Frameworks */ = {
 			isa = PBXShellScriptBuildPhase;
 			buildActionMask = 2147483647;
@@ -361,6 +337,24 @@
 			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-ui-ui tests/Pods-ui-ui tests-frameworks.sh\"\n";
 			showEnvVarsInLog = 0;
 		};
+		4A4829C318D071D8D754F3AF14852894 /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
+				"${PODS_ROOT}/Manifest.lock",
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputPaths = (
+				"$(DERIVED_FILE_DIR)/Pods-ui-ui tests-checkManifestLockResult.txt",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
+			showEnvVarsInLog = 0;
+		};
 		E6B5ACB0B984F50AD00636D4B79B5140 /* [CP] Check Pods Manifest.lock */ = {
 			isa = PBXShellScriptBuildPhase;
 			buildActionMask = 2147483647;
@@ -387,7 +381,6 @@
 			buildActionMask = 2147483647;
 			files = (
 				5E10F29CA368B100F91653DA1DFF6BA4 /* DummyViewSpec.swift in Sources */,
-				865C4E992EBF0D13835B6FA1511C5CB7 /* NSLayoutConstraintExtensionSpec.swift in Sources */,
 				A717E6EC4E4916C3B6AEC35785DC9ABC /* NavigationControllerSpec.swift in Sources */,
 				8A97F6576064DD5F43BF583185DF6DFB /* UIViewExtensionSpec.swift in Sources */,
 				5016E8467E129BA67660DF9C6088148E /* ViewControllerSpec.swift in Sources */,
@@ -401,7 +394,6 @@
 				A2BB1EFD3F125F0889D7D82C30BC421F /* AnnotionView.swift in Sources */,
 				4C91448319D47832BF9E7EA9C2D4E15C /* Application.swift in Sources */,
 				C94660E41D2944FC4E6688BCB980C3C2 /* DummyView.swift in Sources */,
-				8F23AB45F47D534AD3AB4A41BF31425B /* NSLayoutConstraint+MutableMultiplier.swift in Sources */,
 				5CB159274BA386E1E961CE10BDA35255 /* NavigationController.swift in Sources */,
 				208EE6352C4987C43DDD2DD7171278F8 /* UIView+InterfaceBuilderSupport.swift in Sources */,
 				61B2A4DB8458F67E4C1B5C7D7A2C9D90 /* ViewController.swift in Sources */,
