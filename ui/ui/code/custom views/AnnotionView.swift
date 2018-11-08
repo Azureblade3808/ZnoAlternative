@@ -22,6 +22,7 @@
 
 import UIKit
 
+/// A view that supports displaying arrows around it.
 @IBDesignable
 public class AnnotionView : UIView {
 	// MARK: Input
