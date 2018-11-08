@@ -19,7 +19,7 @@ end
 target 'data' do
 	project 'data/data'
 	
-	platform :ios, '11.0'
+	platform :ios, '9.0'
 	
 	use_frameworks!
 	inhibit_all_warnings!
@@ -37,7 +37,7 @@ end
 target 'product spec' do
 	project 'product spec/product spec'
 	
-	platform :ios, '11.0'
+	platform :ios, '9.0'
 	
 	use_frameworks!
 	inhibit_all_warnings!

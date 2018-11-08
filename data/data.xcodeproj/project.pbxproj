@@ -70,6 +70,15 @@
 			path = "data tests";
 			sourceTree = "<group>";
 		};
+		4A7EB823309AE543CD88C02F8C836D27 /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				AC30CF1F02207A85EA80D4551A55849E /* Pods_data.framework */,
+				199AE720B5C33A830976FEBA97C77372 /* Pods_data_data_tests.framework */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
 		69EE99129E81FE616E46D76062C20129 /* Pods */ = {
 			isa = PBXGroup;
 			children = (
@@ -80,15 +89,6 @@
 			);
 			name = Pods;
 			path = ../Pods;
-			sourceTree = "<group>";
-		};
-		4A7EB823309AE543CD88C02F8C836D27 /* Frameworks */ = {
-			isa = PBXGroup;
-			children = (
-				AC30CF1F02207A85EA80D4551A55849E /* Pods_data.framework */,
-				199AE720B5C33A830976FEBA97C77372 /* Pods_data_data_tests.framework */,
-			);
-			name = Frameworks;
 			sourceTree = "<group>";
 		};
 		7B3651C5E82959734910257BDE468677 /* code */ = {
@@ -254,8 +254,8 @@
 			);
 			inputPaths = (
 				"${PODS_ROOT}/Target Support Files/Pods-data-data tests/Pods-data-data tests-frameworks.sh",
-				"${BUILT_PRODUCTS_DIR}/Nimble/Nimble.framework",
-				"${BUILT_PRODUCTS_DIR}/Quick/Quick.framework",
+				"${BUILT_PRODUCTS_DIR}/Nimble-iOS9.0/Nimble.framework",
+				"${BUILT_PRODUCTS_DIR}/Quick-iOS9.0/Quick.framework",
 			);
 			name = "[CP] Embed Pods Frameworks";
 			outputFileListPaths = (
@@ -359,7 +359,7 @@
 				DYLIB_INSTALL_NAME_BASE = "@rpath";
 				INFOPLIST_FILE = data/Info.plist;
 				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
-				IPHONEOS_DEPLOYMENT_TARGET = 11.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 9.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
@@ -488,7 +488,7 @@
 				DYLIB_INSTALL_NAME_BASE = "@rpath";
 				INFOPLIST_FILE = data/Info.plist;
 				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
-				IPHONEOS_DEPLOYMENT_TARGET = 11.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 9.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
