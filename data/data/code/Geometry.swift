@@ -1,8 +1,13 @@
 import Foundation
 
+/// 二维偏移。
+///
+/// 可以用来表示一段距离，也可以用来表示一个具体的点（由原点出发的偏移量）。
 public struct Offset : Hashable {
+	/// X轴分量。
 	public var x: Double
 	
+	/// Y轴分量。
 	public var y: Double
 	
 	public init(x: Double, y: Double) {
@@ -10,18 +15,22 @@ public struct Offset : Hashable {
 		self.y = y
 	}
 	
+	/// 该偏移划过的面积。
 	public var area: Double {
 		return x * y
 	}
 	
+	/// 该偏移的直线距离。
 	public var distance: Double {
 		return sqrt(x * x + y * y)
 	}
 	
+	/// 横纵比（X/Y）。
 	public var aspectRatio: Double {
 		return x / y
 	}
 	
+	/// 纵横比（Y/X）。
 	public var inversedAspectRatio: Double {
 		return y / x
 	}
@@ -35,13 +44,18 @@ extension Offset {
 
 // MARK: -
 
+/// 包边。
 public struct Padding : Hashable {
+	/// 左端长度。
 	public var left: Double
 	
+	/// 上端长度。
 	public var top: Double
 	
+	/// 右端长度。
 	public var right: Double
 	
+	/// 下端长度。
 	public var bottom: Double
 	
 	public init(left: Double, top: Double, right: Double, bottom: Double) {
@@ -60,9 +74,12 @@ extension Padding {
 
 // MARK: -
 
+/// 矩形范围。
 public struct Rectangle : Hashable {
+	/// 中心点。
 	public var center: Offset
 	
+	/// 尺寸。
 	public var size: Offset
 	
 	public init(center: Offset, size: Offset) {
@@ -85,19 +102,23 @@ public struct Rectangle : Hashable {
 		self.size = Offset(x: rightX - leftX, y: bottomY - topY)
 	}
 	
+	/// 左端的X坐标。
 	public var leftX: Double {
 		return center.x - size.x / 2
 	}
 	
-	public var topX: Double {
+	/// 上端的Y坐标。
+	public var topY: Double {
 		return center.y - size.y / 2
 	}
 	
+	/// 右端的X坐标。
 	public var rightX: Double {
 		return center.x + size.x / 2
 	}
 	
-	public var bottomX: Double {
+	/// 下端的Y坐标。
+	public var bottomY: Double {
 		return center.y + size.y / 2
 	}
 }
