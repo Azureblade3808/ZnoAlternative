@@ -5,40 +5,16 @@ import data
 
 /// 产品规格手册。
 public class Manual {
+	// MARK: Metadata
+	
 	/// 版本号。
 	public internal(set) var version: String = ""
+	
+	// MARK: Option Groups
 	
 	/// 选项组的数组。
 	public internal(set) var optionGroups: [OptionGroup] = []
 	
-	/// 布尔值参数表的数组。
-	public internal(set) var booleanMaps: [BooleanMap] = []
-	
-	/// 整数参数表的数组。
-	public internal(set) var integerMaps: [IntegerMap] = []
-	
-	/// 浮点数参数表的数组。
-	public internal(set) var floatMaps: [FloatMap] = []
-	
-	/// 字符串参数表的数组。
-	public internal(set) var stringMaps: [StringMap] = []
-	
-	/// 尺寸参数表的数组。
-	public internal(set) var sizeMaps: [SizeMap] = []
-	
-	/// 边距参数表的数组。
-	public internal(set) var paddingMaps: [PaddingMap] = []
-	
-	/// 颜色参数表的数组。
-	public internal(set) var colorMaps: [ColorMap] = []
-	
-	/// 图片参数表的数组。
-	public internal(set) var imageMaps: [ImageMap] = []
-}
-
-// MARK: -
-
-extension Manual {
 	/// 由所有选项组的ID组成的数组。
 	public var optionGroupIds: [String] {
 		return optionGroups.map { $0.id }
@@ -54,6 +30,11 @@ extension Manual {
 		return optionGroups.first { $0.id == id }
 	}
 	
+	// MARK: Boolean Maps
+	
+	/// 布尔值参数表的数组。
+	public internal(set) var booleanMaps: [BooleanMap] = []
+	
 	public var booleanMapIds: [String] {
 		return booleanMaps.map { $0.id }
 	}
@@ -65,6 +46,11 @@ extension Manual {
 	public func booleanValue(for tuple: (id: String, optionSet: [Option])) -> Bool? {
 		return booleanMap(for: tuple.id)?.value(for: tuple.optionSet)
 	}
+	
+	// MARK: Integer Maps
+	
+	/// 整数参数表的数组。
+	public internal(set) var integerMaps: [IntegerMap] = []
 	
 	public var integerMapIds: [String] {
 		return integerMaps.map { $0.id }
@@ -78,6 +64,11 @@ extension Manual {
 		return integerMap(for: tuple.id)?.value(for: tuple.optionSet)
 	}
 	
+	// MARK: Float Maps
+	
+	/// 浮点数参数表的数组。
+	public internal(set) var floatMaps: [FloatMap] = []
+	
 	public var floatMapIds: [String] {
 		return floatMaps.map { $0.id }
 	}
@@ -89,6 +80,11 @@ extension Manual {
 	public func floatValue(for tuple: (id: String, optionSet: [Option])) -> Double? {
 		return floatMap(for: tuple.id)?.value(for: tuple.optionSet)
 	}
+	
+	// MARK: String Maps
+	
+	/// 字符串参数表的数组。
+	public internal(set) var stringMaps: [StringMap] = []
 	
 	public var stringMapIds: [String] {
 		return stringMaps.map { $0.id }
@@ -102,6 +98,11 @@ extension Manual {
 		return stringMap(for: tuple.id)?.value(for: tuple.optionSet)
 	}
 	
+	// MARK: Size Maps
+	
+	/// 尺寸参数表的数组。
+	public internal(set) var sizeMaps: [SizeMap] = []
+	
 	public var sizeMapIds: [String] {
 		return sizeMaps.map { $0.id }
 	}
@@ -113,6 +114,11 @@ extension Manual {
 	public func sizeValue(for tuple: (id: String, optionSet: [Option])) -> Offset? {
 		return sizeMap(for: tuple.id)?.value(for: tuple.optionSet)
 	}
+	
+	// MARK: Padding Maps
+	
+	/// 边距参数表的数组。
+	public internal(set) var paddingMaps: [PaddingMap] = []
 	
 	public var paddingMapIds: [String] {
 		return paddingMaps.map { $0.id }
@@ -126,6 +132,11 @@ extension Manual {
 		return paddingMap(for: tuple.id)?.value(for: tuple.optionSet)
 	}
 	
+	// MARK: Color Maps
+	
+	/// 颜色参数表的数组。
+	public internal(set) var colorMaps: [ColorMap] = []
+	
 	public var colorMapIds: [String] {
 		return colorMaps.map { $0.id }
 	}
@@ -137,6 +148,11 @@ extension Manual {
 	public func colorValue(for tuple: (id: String, optionSet: [Option])) -> Color? {
 		return colorMap(for: tuple.id)?.value(for: tuple.optionSet)
 	}
+	
+	// MARK: Image Maps
+	
+	/// 图片参数表的数组。
+	public internal(set) var imageMaps: [ImageMap] = []
 	
 	public var imageMapIds: [String] {
 		return imageMaps.map { $0.id }
