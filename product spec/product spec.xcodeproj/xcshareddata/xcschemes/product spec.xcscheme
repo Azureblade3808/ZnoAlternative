@@ -14,7 +14,7 @@
                <EnvironmentBuildable>
                   <BuildableReference
                      BuildableIdentifier = "primary"
-                     BlueprintIdentifier = "49057D572133CFA800792781"
+                     BlueprintIdentifier = "D1C0B80CF416E23EA8797B99DFFD3D5C"
                      BuildableName = "product_spec.framework"
                      BlueprintName = "product spec"
                      ReferencedContainer = "container:product spec.xcodeproj">
@@ -32,7 +32,7 @@
             buildForAnalyzing = "YES">
             <BuildableReference
                BuildableIdentifier = "primary"
-               BlueprintIdentifier = "49057D572133CFA800792781"
+               BlueprintIdentifier = "D1C0B80CF416E23EA8797B99DFFD3D5C"
                BuildableName = "product_spec.framework"
                BlueprintName = "product spec"
                ReferencedContainer = "container:product spec.xcodeproj">
@@ -51,7 +51,7 @@
             skipped = "NO">
             <BuildableReference
                BuildableIdentifier = "primary"
-               BlueprintIdentifier = "49057D602133CFA800792781"
+               BlueprintIdentifier = "7113A3B92DF2F9798B462364500217AE"
                BuildableName = "product spec tests.xctest"
                BlueprintName = "product spec tests"
                ReferencedContainer = "container:product spec.xcodeproj">
@@ -61,7 +61,7 @@
       <MacroExpansion>
          <BuildableReference
             BuildableIdentifier = "primary"
-            BlueprintIdentifier = "49057D572133CFA800792781"
+            BlueprintIdentifier = "D1C0B80CF416E23EA8797B99DFFD3D5C"
             BuildableName = "product_spec.framework"
             BlueprintName = "product spec"
             ReferencedContainer = "container:product spec.xcodeproj">
@@ -83,7 +83,7 @@
       <MacroExpansion>
          <BuildableReference
             BuildableIdentifier = "primary"
-            BlueprintIdentifier = "49057D572133CFA800792781"
+            BlueprintIdentifier = "D1C0B80CF416E23EA8797B99DFFD3D5C"
             BuildableName = "product_spec.framework"
             BlueprintName = "product spec"
             ReferencedContainer = "container:product spec.xcodeproj">
@@ -101,7 +101,7 @@
       <MacroExpansion>
          <BuildableReference
             BuildableIdentifier = "primary"
-            BlueprintIdentifier = "49057D572133CFA800792781"
+            BlueprintIdentifier = "D1C0B80CF416E23EA8797B99DFFD3D5C"
             BuildableName = "product_spec.framework"
             BlueprintName = "product spec"
             ReferencedContainer = "container:product spec.xcodeproj">
