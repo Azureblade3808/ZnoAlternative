@@ -239,9 +239,9 @@
 			inputPaths = (
 				"${PODS_ROOT}/Target Support Files/Pods-app/Pods-app-frameworks.sh",
 				"${BUILT_PRODUCTS_DIR}/KMSOrientationPatch/KMSOrientationPatch.framework",
-				"${BUILT_PRODUCTS_DIR}/ReactiveCocoa/ReactiveCocoa.framework",
-				"${BUILT_PRODUCTS_DIR}/ReactiveSwift/ReactiveSwift.framework",
-				"${BUILT_PRODUCTS_DIR}/Result/Result.framework",
+				"${BUILT_PRODUCTS_DIR}/ReactiveCocoa-iOS11.0/ReactiveCocoa.framework",
+				"${BUILT_PRODUCTS_DIR}/ReactiveSwift-iOS11.0/ReactiveSwift.framework",
+				"${BUILT_PRODUCTS_DIR}/Result-iOS11.0/Result.framework",
 			);
 			name = "[CP] Embed Pods Frameworks";
 			outputPaths = (

@@ -43,6 +43,8 @@ target 'product spec' do
 	inhibit_all_warnings!
 	
 	pod 'KMSXmlProcessor'
+	pod 'ReactiveCocoa'
+	pod 'ReactiveSwift'
 	
 	target 'product spec tests' do
 		inherit! :complete
