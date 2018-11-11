@@ -32,6 +32,28 @@ target 'data' do
 	end
 end
 
+# project 'product config'
+
+target 'product config' do
+	project 'product config/product config'
+	
+	platform :ios, '9.0'
+	
+	use_frameworks!
+	inhibit_all_warnings!
+	
+	pod 'ReactiveCocoa'
+	pod 'ReactiveSwift'
+	
+	target 'product config tests' do
+		inherit! :complete
+		
+		pod 'KMSXmlProcessor'
+		pod 'Nimble'
+		pod 'Quick'
+	end
+end
+
 # project 'product spec'
 
 target 'product spec' do
@@ -43,8 +65,6 @@ target 'product spec' do
 	inhibit_all_warnings!
 	
 	pod 'KMSXmlProcessor'
-	pod 'ReactiveCocoa'
-	pod 'ReactiveSwift'
 	
 	target 'product spec tests' do
 		inherit! :complete

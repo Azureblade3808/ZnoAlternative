@@ -1,0 +1,125 @@
+<?xml version="1.0" encoding="utf-8"?>
+<spec version="1.0">
+	<option-group id="product" cpid="product">
+		<option id="LayflatBook" cpid="LF">
+			<title>Layflat Book</title>
+		</option>
+		
+		<option id="PressBook" cpid="PS">
+			<title>Press Book</title>
+		</option>
+	</option-group>
+	
+	<option-group id="cover">
+		<option id="HardCover" title="Hard Cover" />
+		<option id="SoftCover" title="Soft Cover" />
+		<option id="PaperCover" title="Paper Cover" />
+		<option id="Leatherette" title="Leatherette" />
+		
+		<white-list-map>
+			<entry key="product: LayflatBook" value="HardCover PaperCover Leatherette" />
+			<entry key="product: PressBook" value="HardCover SoftCover Leatherette" />
+		</white-list-map>
+	</option-group>
+	
+	<option-group id="size" cpid="size">
+		<option id="6X6" cpid="6X6" title="6x6" />
+		<option id="8X8" cpid="8X8" title="8x8" />
+		<option id="12X12" cpid="12X12" title="12x12" />
+		<option id="7X5" cpid="5X7" title="7x5" />
+		<option id="5X7" cpid="7X5" title="5x7" />
+		
+		<black-list-map>
+			<entry key="product: LayflatBook cover: [HardCover Leatherette]" value="5X7 7X5" />
+			
+			<entry key="product: PressBook cover: SoftCover" value="12X12" />
+		</black-list-map>
+	</option-group>
+
+	<option-group id="productCover" cpid="cover">
+		<option id="LayflatBookHardCover" cpid="LFHC" title="Hard Cover" />
+		<option id="LayflatBookPaperCover" cpid="LFPAC" title="Paper Cover" />
+		<option id="LayflatBookLeatherette" cpid="LFLC" title="Leatherette" />
+		
+		<option id="PressBookHardCover" cpid="PSHC" title="Hard Cover" />
+		<option id="PressBookSoftCover" cpid="PSSC" title="Soft Cover" />
+		<option id="PressBookLeatherette" cpid="PSLC" title="Leatherette" />
+		
+		<white-list-map>
+			<entry key="product: LayflatBook cover: HardCover" value="LayflatBookHardCover" />
+			<entry key="product: LayflatBook cover: PaperCover" value="LayflatBookPaperCover" />
+			<entry key="product: LayflatBook cover: Leatherette" value="LayflatBookLeatherette" />
+			
+			<entry key="product: PressBook cover: HardCover" value="PressBookHardCover" />
+			<entry key="product: PressBook cover: SoftCover" value="PressBookSoftCover" />
+			<entry key="product: PressBook cover: Leatherette" value="PressBookLeatherette" />
+		</white-list-map>
+	</option-group>
+	
+	<option-group id="cameo">
+		<option id="Off" title="Off" />
+		<option id="On" title="On" />
+		
+		<white-list-map>
+			<entry key="product: LayflatBook cover: Leatherette size: 6X6" value="Off" />
+			<entry key="product: PressBook cover: Leatherette" value="On" />
+			<entry key="cover: Leatherette" value="On Off" />
+			
+			<entry value="Off" />
+		</white-list-map>
+	</option-group>
+	
+	<option-group id="cameoSize" cpid="cameo">
+		<option id="None" cpid="none" title="None" />
+		<option id="Small" cpid="S" title="Small" />
+		<option id="Medium" cpid="M" title="Medium" />
+		<option id="Large" cpid="L" title="Large" />
+		
+		<white-list-map>
+			<entry key="cameo: Off" value="None" />
+			
+			<entry key="product: PressBook cameo: On" value="Medium" />
+			<entry key="cameo: On" value="Small Medium Large" />
+		</white-list-map>
+	</option-group>
+	
+	<parameter-boolean id="isPressBook">
+		<entry key="product: PressBook" value="true" />
+		
+		<entry value="false" />
+	</parameter-boolean>
+	
+	<parameter-integer id="dpi">
+		<entry value="300" />
+	</parameter-integer>
+	
+	<parameter-integer id="minimalNumberOfSpreads">
+		<entry key="product: PressBook" value="15" />
+		
+		<entry value="10" />
+	</parameter-integer>
+	
+	<parameter-integer id="maximumNumberOfSpreads">
+		<entry value="50" />
+	</parameter-integer>
+	
+	<parameter-string id="orientation">
+		<entry key="size: [6X6 8X8 12X12]" value="Square" />
+		<entry key="size: 7X5" value="Landscape" />
+		<entry key="size: 5X7" value="Portrait" />
+	</parameter-string>
+	
+	<parameter-size id="baseSizeInMillimeter">
+		<entry key="size: 6X6" width="152.400" height="152.400" />
+		<entry key="size: 8X8" width="203.200" height="203.200" />
+		<entry key="size: 12X12" width="304.800" height="304.800" />
+		<entry key="size: 7X5" width="177.800" height="127.000" />
+		<entry key="size: 5X7" width="127.000" height="177.800" />
+	</parameter-size>
+	
+	<parameter-padding id="coverBleedWidthsInMillimeter">
+		<entry key="cover: Leatherette" left="5" top="5" right="5" bottom="5" />
+		
+		<entry left="2" top="2" right="2" bottom="2" />
+	</parameter-padding>
+</spec>

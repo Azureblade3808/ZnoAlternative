@@ -7,7 +7,7 @@ internal class ManualSpec : QuickSpec {
 	override
 	internal func spec() {
 		describe("`Manual`") {
-			let manual = Manual(named: "sample_spec", in: Bundle(for: type(of: self)))
+			let manual = Manual(named: "sample_spec", in: Bundle(for: ManualSpec.self))
 			
 			let productGroup = manual.optionGroup(for: "product")!
 			let productOption_LayflatBook = productGroup.option(for: "LayflatBook")!

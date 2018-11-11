@@ -13,26 +13,17 @@ public struct OptionSetRule {
 extension OptionSetRule {
 	/// 检测是否匹配指定选项组合。
 	///
-	/// - note:
-	/// 如果提供的选项组合内某个选项的组ID没有在内部表中出现，当启用严格匹配时，匹配失败；否则，该选项被忽略。
-	///
 	/// - parameters:
 	/// 	- optionSet: 选项组合。
-	/// 	- strictly: 是否启用严格匹配。缺省为`false`。
 	///
 	/// - returns: 是否匹配。
-	public func matches(_ optionSet: [Option], strictly: Bool = false) -> Bool {
-		for option in optionSet {
-			if let matchingOptionIds = innerMap[option.groupId] {
-				if !matchingOptionIds.contains(option.id) {
-					return false
-				}
+	public func matches(_ optionSet: [Option]) -> Bool {
+		for (groupId, matchingOptionIds) in innerMap {
+			if let option = optionSet.first(where: { $0.groupId == groupId }), matchingOptionIds.contains(option.id) {
+				continue
 			}
-			else {
-				if strictly {
-					return false
-				}
-			}
+			
+			return false
 		}
 		
 		return true
