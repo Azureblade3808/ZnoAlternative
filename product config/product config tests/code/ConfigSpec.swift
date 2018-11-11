@@ -16,7 +16,9 @@ internal class ConfigSpec : QuickSpec {
 		let coverOption_HardCover = coverGroup.option(for: "HardCover")!
 		
 		let sizeGroup = manual.optionGroup(for: "size")!
+		let sizeOption_6X6 = sizeGroup.option(for: "6X6")!
 		let sizeOption_8X8 = sizeGroup.option(for: "8X8")!
+		let sizeOption_12X12 = sizeGroup.option(for: "12X12")!
 		let sizeOption_5X7 = sizeGroup.option(for: "5X7")!
 		let sizeOption_7X5 = sizeGroup.option(for: "7X5")!
 		
@@ -107,7 +109,13 @@ internal class ConfigSpec : QuickSpec {
 				var availableSizeOptions: [Option] = []
 				config.reactive.availableOptions(for: sizeGroup.id).producer.startWithValues { availableSizeOptions = $0 }
 				
-				expect(config.availableOptions(for: sizeGroup.id)) == sizeGroup.options
+				expect(config.availableOptions(for: sizeGroup.id)) == [
+					sizeOption_6X6,
+					sizeOption_8X8,
+					sizeOption_12X12,
+					sizeOption_7X5,
+					sizeOption_5X7,
+				]
 				
 				expect(availableSizeOptions) == config.availableOptions(for: sizeGroup.id)
 				
@@ -117,11 +125,35 @@ internal class ConfigSpec : QuickSpec {
 					}
 				)
 				
-				expect(config.availableOptions(for: sizeGroup.id)).notTo(contain(sizeOption_5X7))
-				expect(config.availableOptions(for: sizeGroup.id)).notTo(contain(sizeOption_7X5))
+				expect(config.availableOptions(for: sizeGroup.id)) == [
+					sizeOption_6X6,
+					sizeOption_8X8,
+					sizeOption_12X12,
+				]
 				
 				expect(availableSizeOptions) == config.availableOptions(for: sizeGroup.id)
 			}
+			
+			it("`defaultOption` should change according to `spec` and be observable") {
+				var defaultSizeOption: Option? = nil
+				config.reactive.defaultOption(for: sizeGroup.id).producer.startWithValues { defaultSizeOption = $0 }
+				
+				expect(config.defaultOption(for: sizeGroup.id)) == sizeOption_6X6
+				
+				expect(defaultSizeOption).to(equal(config.defaultOption(for: sizeGroup.id)))
+				
+				config.spec = Dictionary(
+					uniqueKeysWithValues: [productOption_LayflatBook, coverOption_HardCover].map { option in
+						return (option.groupId, option.id)
+					}
+				)
+				
+				expect(config.defaultOption(for: sizeGroup.id)) == sizeOption_8X8
+				
+				expect(defaultSizeOption).to(equal(config.defaultOption(for: sizeGroup.id)))
+			}
+			
+			// TODO: ...
 		}
 	}
 }

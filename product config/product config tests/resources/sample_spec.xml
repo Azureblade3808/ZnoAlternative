@@ -34,8 +34,12 @@
 			
 			<entry key="product: PressBook cover: SoftCover" value="12X12" />
 		</black-list-map>
+		
+		<default-option-map>
+			<entry key="product: LayflatBook" value="8X8" />
+		</default-option-map>
 	</option-group>
-
+	
 	<option-group id="productCover" cpid="cover">
 		<option id="LayflatBookHardCover" cpid="LFHC" title="Hard Cover" />
 		<option id="LayflatBookPaperCover" cpid="LFPAC" title="Paper Cover" />
