@@ -9,14 +9,20 @@ open class Config : Equatable, ReactiveExtensionsProvider {
 	/// 参考的规格手册。
 	public let manual: Manual
 	
+	public init(manual: Manual) {
+		self.manual = manual
+	}
+	
+	public convenience init(copying another: Config) {
+		self.init(manual: another.manual)
+		
+		specProperty.value = another.specProperty.value
+	}
+	
 	/// 规格配置表的RAC可变属性。
 	///
 	/// 表键为选项组ID，表值为该组内已选的选项ID。
 	public let specProperty = MutableProperty<[String : String]>([:])
-	
-	public init(manual: Manual) {
-		self.manual = manual
-	}
 	
 	/// 规格配置表。
 	///
@@ -608,6 +614,10 @@ extension Config {
 		
 		public init(base: Config) {
 			self.base = base
+		}
+		
+		public convenience init(copying another: Readonly) {
+			self.init(base: Config(copying: another.base))
 		}
 		
 		public var manual: Manual {

@@ -35,6 +35,13 @@ internal class ConfigSpec : QuickSpec {
 				expect(config.readwrite.spec) == config.spec
 			}
 			
+			it("should be copyable") {
+				let copy = Config(copying: config)
+				
+				expect(copy.manual == config.manual).to(beTrue())
+				expect(copy.spec == config.spec).to(beTrue())
+			}
+			
 			it("`spec` should be observable") {
 				var spec: [String : String]? = nil
 				config.reactive.spec.producer.startWithValues { spec = $0 }
