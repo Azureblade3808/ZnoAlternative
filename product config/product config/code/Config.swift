@@ -159,7 +159,7 @@ open class Config : Equatable, ReactiveExtensionsProvider {
 		if true {
 			var stringValuePropertiesByMapId: [String : Property<String?>] = [:]
 			
-			for mapId in manual.booleanMapIds {
+			for mapId in manual.stringMapIds {
 				stringValuePropertiesByMapId[mapId] = optionsProperty.map { options in
 					return manual.stringValue(for: (mapId, options))
 				}
@@ -222,7 +222,7 @@ open class Config : Equatable, ReactiveExtensionsProvider {
 		else { fatalError() }
 		
 		_isValidProperty = conflictedOptionsProperty.map { conflictedOptions in
-			return !conflictedOptions.isEmpty
+			return conflictedOptions.isEmpty
 		}
 	}
 	
