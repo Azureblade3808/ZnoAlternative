@@ -4,7 +4,7 @@ import KMSXmlProcessor
 import data
 
 /// 产品规格手册。
-public class Manual {
+open class Manual: Equatable {
 	// MARK: Metadata
 	
 	/// 版本号。
