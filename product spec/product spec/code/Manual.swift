@@ -165,6 +165,12 @@ public class Manual {
 	public func imageValue(for tuple: (id: String, optionSet: [Option])) -> Image? {
 		return imageMap(for: tuple.id)?.value(for: tuple.optionSet)
 	}
+	
+	// MARK: Conform - Equatable
+	
+	public static func ==(a: Manual, b: Manual) -> Bool {
+		return a === b
+	}
 }
 
 // MARK: -

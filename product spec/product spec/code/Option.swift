@@ -16,12 +16,12 @@ public final class Option : CustomStringConvertible, Equatable {
 	public var description: String {
 		return "\(groupId).\(id)"
 	}
-}
-
-// MARK: -
-
-public func ==(a: Option, b: Option) -> Bool {
-	return a === b
+	
+	// MARK: Conform - Equatable
+	
+	public static func ==(a: Option, b: Option) -> Bool {
+		return a === b
+	}
 }
 
 // MARK: -
