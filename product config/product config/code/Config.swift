@@ -9,298 +9,507 @@ open class Config : Equatable, ReactiveExtensionsProvider {
 	/// 参考的规格手册。
 	public let manual: Manual
 	
-	/// 【RAC可变属性】规格配置表。
+	/// 规格配置表的RAC可变属性。
 	///
 	/// 表键为选项组ID，表值为该组内已选的选项ID。
 	public let specProperty = MutableProperty<[String : String]>([:])
 	
-	/// 【RAC属性】已选选项的数组。
-	public let optionsProperty: Property<[Option]>
-	
-	/// 表键为选项组ID，表值为【RAC属性】该选项组内已选的选项。
-	public let optionPropertiesByGroupId: [String : Property<Option?>]
-	
-	/// 表键为选项组ID，表值为【RAC属性】该选项组内可用选项数组。
-	public let availableOptionsPropertiesByGroupId: [String : Property<[Option]>]
-	
-	/// 表键为选项组ID，表值为【RAC属性】该选项组内默认选项。
-	public let defaultOptionPropertiesByGroupId: [String : Property<Option?>]
-	
-	/// 【RAC属性】已选选项中冲突选项数组。
-	public let conflictedOptionsProperty: Property<[Option]>
-	
-	/// 表键为布尔型参数表ID，表值为【RAC属性】该参数表内参数值。
-	public let booleanValuePropertiesByMapId: [String : Property<Bool?>]
-	
-	/// 表键为整型参数表ID，表值为【RAC属性】该参数表内参数值。
-	public let integerValuePropertiesByMapId: [String : Property<Int?>]
-	
-	/// 表键为浮点型参数表ID，表值为【RAC属性】该参数表内参数值。
-	public let floatValuePropertiesByMapId: [String : Property<Double?>]
-	
-	/// 表键为字符串型参数表ID，表值为【RAC属性】该参数表内参数值。
-	public let stringValuePropertiesByMapId: [String : Property<String?>]
-	
-	/// 表键为尺寸型参数表ID，表值为【RAC属性】该参数表内参数值。
-	public let sizeValuePropertiesByMapId: [String : Property<Offset?>]
-	
-	/// 表键为包边型参数表ID，表值为【RAC属性】该参数表内参数值。
-	public let paddingValuePropertiesByMapId: [String : Property<Padding?>]
-	
-	/// 表键为颜色型参数表ID，表值为【RAC属性】该参数表内参数值。
-	public let colorValuePropertiesByMapId: [String : Property<Color?>]
-	
-	/// 表键为图片型参数表ID，表值为【RAC属性】该参数表内参数值。
-	public let imageValuePropertiesByMapId: [String : Property<Image?>]
-	
-	/// 是否合法的RAC属性。
-	///
-	/// - note: 在此仅判断是否不存在冲突选项，子类可通过公开覆盖`isValidProperty`属性来增加其余条件。
-	private let _isValidProperty: Property<Bool>
-	
 	public init(manual: Manual) {
 		self.manual = manual
-		
-		optionsProperty = specProperty.map { spec in
-			var options: [Option] = []
-			
-			for group in manual.optionGroups {
-				let groupId = group.id
-				
-				if let optionId = spec[groupId], let option = group.option(for: optionId) {
-					options.append(option)
-				}
-			}
-			
-			return options
-		}
-		
-		if true {
-			var optionPropertiesByGroupId: [String : Property<Option?>] = [:]
-			var availableOptionsPropertiesByGroupId: [String : Property<[Option]>] = [:]
-			var defaultOptionPropertiesByGroupId: [String : Property<Option?>] = [:]
-			
-			for group in manual.optionGroups {
-				let groupId = group.id
-				
-				optionPropertiesByGroupId[groupId] = specProperty.map { spec in
-					if let optionId = spec[groupId], let option = group.option(for: optionId) {
-						return option
-					}
-					else {
-						return nil
-					}
-				}
-				
-				availableOptionsPropertiesByGroupId[groupId] = optionsProperty.map { options in
-					return group.availableOptions(for: options)
-				}
-				
-				defaultOptionPropertiesByGroupId[groupId] = optionsProperty.map { options in
-					return group.defaultOption(for: options)
-				}
-			}
-			
-			self.optionPropertiesByGroupId = optionPropertiesByGroupId
-			self.availableOptionsPropertiesByGroupId = availableOptionsPropertiesByGroupId
-			self.defaultOptionPropertiesByGroupId = defaultOptionPropertiesByGroupId
-		}
-		else { fatalError() }
-		
-		conflictedOptionsProperty = optionsProperty.map { options in
-			return options.filter { option in
-				let group = manual.optionGroup(for: option.groupId)!
-				let availableOptions = group.availableOptions(for: options)
-				let isConflicted = !availableOptions.contains(option)
-				
-				return isConflicted
-			}
-		}
-		
-		if true {
-			var booleanValuePropertiesByMapId: [String : Property<Bool?>] = [:]
-			
-			for mapId in manual.booleanMapIds {
-				booleanValuePropertiesByMapId[mapId] = optionsProperty.map { options in
-					return manual.booleanValue(for: (mapId, options))
-				}
-			}
-			
-			self.booleanValuePropertiesByMapId = booleanValuePropertiesByMapId
-		}
-		else { fatalError() }
-		
-		if true {
-			var integerValuePropertiesByMapId: [String : Property<Int?>] = [:]
-			
-			for mapId in manual.integerMapIds {
-				integerValuePropertiesByMapId[mapId] = optionsProperty.map { options in
-					return manual.integerValue(for: (mapId, options))
-				}
-			}
-			
-			self.integerValuePropertiesByMapId = integerValuePropertiesByMapId
-		}
-		else { fatalError() }
-		
-		if true {
-			var floatValuePropertiesByMapId: [String : Property<Double?>] = [:]
-			
-			for mapId in manual.floatMapIds {
-				floatValuePropertiesByMapId[mapId] = optionsProperty.map { options in
-					return manual.floatValue(for: (mapId, options))
-				}
-			}
-			
-			self.floatValuePropertiesByMapId = floatValuePropertiesByMapId
-		}
-		else { fatalError() }
-		
-		if true {
-			var stringValuePropertiesByMapId: [String : Property<String?>] = [:]
-			
-			for mapId in manual.stringMapIds {
-				stringValuePropertiesByMapId[mapId] = optionsProperty.map { options in
-					return manual.stringValue(for: (mapId, options))
-				}
-			}
-			
-			self.stringValuePropertiesByMapId = stringValuePropertiesByMapId
-		}
-		else { fatalError() }
-		
-		if true {
-			var sizeValuePropertiesByMapId: [String : Property<Offset?>] = [:]
-			
-			for mapId in manual.sizeMapIds {
-				sizeValuePropertiesByMapId[mapId] = optionsProperty.map { options in
-					return manual.sizeValue(for: (mapId, options))
-				}
-			}
-			
-			self.sizeValuePropertiesByMapId = sizeValuePropertiesByMapId
-		}
-		else { fatalError() }
-		
-		if true {
-			var paddingValuePropertiesByMapId: [String : Property<Padding?>] = [:]
-			
-			for mapId in manual.paddingMapIds {
-				paddingValuePropertiesByMapId[mapId] = optionsProperty.map { options in
-					return manual.paddingValue(for: (mapId, options))
-				}
-			}
-			
-			self.paddingValuePropertiesByMapId = paddingValuePropertiesByMapId
-		}
-		else { fatalError() }
-		
-		if true {
-			var colorValuePropertiesByMapId: [String : Property<Color?>] = [:]
-			
-			for mapId in manual.colorMapIds {
-				colorValuePropertiesByMapId[mapId] = optionsProperty.map { options in
-					return manual.colorValue(for: (mapId, options))
-				}
-			}
-			
-			self.colorValuePropertiesByMapId = colorValuePropertiesByMapId
-		}
-		else { fatalError() }
-		
-		if true {
-			var imageValuePropertiesByMapId: [String : Property<Image?>] = [:]
-			
-			for mapId in manual.imageMapIds {
-				imageValuePropertiesByMapId[mapId] = optionsProperty.map { options in
-					return manual.imageValue(for: (mapId, options))
-				}
-			}
-			
-			self.imageValuePropertiesByMapId = imageValuePropertiesByMapId
-		}
-		else { fatalError() }
-		
-		_isValidProperty = conflictedOptionsProperty.map { conflictedOptions in
-			return conflictedOptions.isEmpty
-		}
 	}
 	
-	/// 【RAC属性】是否合法。
-	open var isValidProperty: Property<Bool> {
-		return _isValidProperty
-	}
-	
+	/// 规格配置表。
+	///
+	/// 表键为选项组ID，表值为该组内已选的选项ID。
 	public var spec: [String : String] {
 		get { return specProperty.value }
 		
 		set { specProperty.value = newValue }
 	}
 	
+	private weak var weakOptionsProperty: Property<[Option]>?
+	
+	/// 已选选项的数组的RAC属性。
+	public var optionsProperty: Property<[Option]> {
+		if let optionsProperty = weakOptionsProperty {
+			return optionsProperty
+		}
+		else {
+			let groups = manual.optionGroups
+			
+			let optionsProperty: Property<[Option]> = specProperty.map { spec in
+				var options: [Option] = []
+				
+				for group in groups {
+					let groupId = group.id
+					
+					if let optionId = spec[groupId], let option = group.option(for: optionId) {
+						options.append(option)
+					}
+				}
+				
+				return options
+			}
+			weakOptionsProperty = optionsProperty
+			
+			return optionsProperty
+		}
+	}
+	
+	/// 已选选项的数组。
 	public var options: [Option] {
 		get { return optionsProperty.value }
 		
-		set { spec = Dictionary(uniqueKeysWithValues: options.map { ($0.groupId, $0.id) }) }
+		set { spec = Dictionary(uniqueKeysWithValues: newValue.map { ($0.groupId, $0.id) }) }
 	}
 	
+	private var weakOptionPropertiesByGroupId: [String : WeakReference<Property<Option?>>] = [:]
+	
+	/// 返回指定选项组的已选选项的RAC属性。
+	///
+	/// - parameters:
+	/// 	- groupId: 某个由`manual`提供的合法的选项组ID。
+	///
+	/// - returns: 对应的已选选项的RAC属性。
+	public func optionProperty(for groupId: String) -> Property<Option?> {
+		if let optionProperty = weakOptionPropertiesByGroupId[groupId]?.value {
+			return optionProperty
+		}
+		else {
+			let group = manual.optionGroup(for: groupId)!
+			
+			let optionProperty: Property<Option?> = specProperty.map { spec in
+				if let optionId = spec[groupId], let option = group.option(for: optionId) {
+					return option
+				}
+				else {
+					return nil
+				}
+			}
+			weakOptionPropertiesByGroupId[groupId] = WeakReference(optionProperty)
+			
+			return optionProperty
+		}
+	}
+	
+	/// 返回指定选项组的已选选项。
+	///
+	/// - parameters:
+	/// 	- groupId: 某个由`manual`提供的合法的选项组ID。
+	///
+	/// - returns: 对应的已选选项。
 	public func option(for groupId: String) -> Option? {
-		return optionPropertiesByGroupId[groupId]!.value
+		return optionProperty(for: groupId).value
 	}
 	
+	/// 为制定选项组设置已选选项。
+	///
+	/// - parameters:
+	/// 	- option: 选项。
+	/// 	- groupId: 选项组ID。
 	public func setOption(_ option: Option?, for groupId: String) {
 		precondition(option == nil || option!.groupId == groupId)
 		
 		spec[groupId] = option?.id
 	}
 	
+	/// 启用指定选项，即将该选项设置为其选项组的已选选项。
+	///
+	/// - parameters:
+	/// 	- option: 选项。
 	public func adoptOption(_ option: Option) {
 		spec[option.groupId] = option.id
 	}
 	
+	private var weakAvailableOptionsPropertiesByGroupId: [String : WeakReference<Property<[Option]>>] = [:]
+	
+	/// 返回当前选项配置下，指定选项组的可用选项的数组的RAC属性。
+	///
+	/// - parameters:
+	/// 	- groupId: 某个由`manual`提供的合法的选项组ID。
+	///
+	/// - returns: 对应的可用选项的数组的RAC属性。
+	public func availableOptionsProperty(for groupId: String) -> Property<[Option]> {
+		if let availableOptionsProperty = weakAvailableOptionsPropertiesByGroupId[groupId]?.value {
+			return availableOptionsProperty
+		}
+		else {
+			let group = manual.optionGroup(for: groupId)!
+			
+			let availableOptionsProperty = optionsProperty.map { options in
+				return group.availableOptions(for: options)
+			}
+			weakAvailableOptionsPropertiesByGroupId[groupId] = WeakReference(availableOptionsProperty)
+			
+			return availableOptionsProperty
+		}
+	}
+	
+	/// 返回当前选项配置下，指定选项组的可用选项的数组。
+	///
+	/// - parameters:
+	/// 	- groupId: 某个由`manual`提供的合法的选项组ID。
+	///
+	/// - returns: 对应的可用选项的数组。
 	public func availableOptions(for groupId: String) -> [Option] {
-		return availableOptionsPropertiesByGroupId[groupId]!.value
+		return availableOptionsProperty(for: groupId).value
 	}
 	
+	private var weakDefaultOptionPropertiesByGroupId: [String : WeakReference<Property<Option?>>] = [:]
+	
+	/// 返回当前选项配置下，指定选项组的默认选项的RAC属性。
+	///
+	/// - parameters:
+	/// 	- groupId: 某个由`manual`提供的合法的选项组ID。
+	///
+	/// - returns: 对应的默认选项的RAC属性。
+	public func defaultOptionProperty(for groupId: String) -> Property<Option?> {
+		if let defaultOptionProperty = weakDefaultOptionPropertiesByGroupId[groupId]?.value {
+			return defaultOptionProperty
+		}
+		else {
+			let group = manual.optionGroup(for: groupId)!
+			
+			let defaultOptionProperty = optionsProperty.map { options in
+				return group.defaultOption(for: options)
+			}
+			weakDefaultOptionPropertiesByGroupId[groupId] = WeakReference(defaultOptionProperty)
+			
+			return defaultOptionProperty
+		}
+	}
+	
+	/// 返回当前选项配置下，指定选项组的默认选项。
+	///
+	/// - parameters:
+	/// 	- groupId: 某个由`manual`提供的合法的选项组ID。
+	///
+	/// - returns: 对应的默认选项。
 	public func defaultOption(for groupId: String) -> Option? {
-		return defaultOptionPropertiesByGroupId[groupId]!.value
+		return defaultOptionProperty(for: groupId).value
 	}
 	
+	private weak var weakConflictedOptionsProperty: Property<[Option]>?
+	
+	/// 已选选项中冲突选项的数组的RAC属性。
+	public var conflictedOptionsProperty: Property<[Option]> {
+		if let conflictedOptionsProperty = weakConflictedOptionsProperty {
+			return conflictedOptionsProperty
+		}
+		else {
+			let manual = self.manual
+			
+			let conflictedOptionsProperty = optionsProperty.map { optionSet in
+				return optionSet.filter { option in
+					let group = manual.optionGroup(for: option.groupId)!
+					let availableOptions = group.availableOptions(for: optionSet)
+					let isConflicted = !availableOptions.contains(option)
+					
+					return isConflicted
+				}
+			}
+			weakConflictedOptionsProperty = conflictedOptionsProperty
+			
+			return conflictedOptionsProperty
+		}
+	}
+	
+	/// 已选选项中冲突选项的数组。
 	public var conflictedOptions: [Option] {
 		return conflictedOptionsProperty.value
 	}
 	
+	private var weakBooleanValuePropertiesByMapId: [String : WeakReference<Property<Bool?>>] = [:]
+	
+	/// 返回指定ID的布尔型参数在当前选项配置下的值的RAC属性。
+	///
+	/// - parameters:
+	/// 	- mapId: 参数表ID。
+	///
+	/// - returns: 对应的值的RAC属性。
+	public func booleanValueProperty(for mapId: String) -> Property<Bool?> {
+		if let booleanValueProperty = weakBooleanValuePropertiesByMapId[mapId]?.value {
+			return booleanValueProperty
+		}
+		else {
+			let manual = self.manual
+			
+			let booleanValueProperty = optionsProperty.map { options in
+				return manual.booleanValue(for: (mapId, options))
+			}
+			weakBooleanValuePropertiesByMapId[mapId] = WeakReference(booleanValueProperty)
+			
+			return booleanValueProperty
+		}
+	}
+	
+	/// 返回指定ID的布尔型参数在当前选项配置下的值。
+	///
+	/// - parameters:
+	/// 	- mapId: 参数表ID。
+	///
+	/// - returns: 对应的值。
 	public func booleanValue(for mapId: String) -> Bool? {
-		return booleanValuePropertiesByMapId[mapId]!.value
+		return booleanValueProperty(for: mapId).value
 	}
 	
+	private var weakIntegerValuePropertiesByMapId: [String : WeakReference<Property<Int?>>] = [:]
+	
+	/// 返回指定ID的整数型参数在当前选项配置下的值的RAC属性。
+	///
+	/// - parameters:
+	/// 	- mapId: 参数表ID。
+	///
+	/// - returns: 对应的值的RAC属性。
+	public func integerValueProperty(for mapId: String) -> Property<Int?> {
+		if let integerValueProperty = weakIntegerValuePropertiesByMapId[mapId]?.value {
+			return integerValueProperty
+		}
+		else {
+			let manual = self.manual
+			
+			let integerValueProperty = optionsProperty.map { options in
+				return manual.integerValue(for: (mapId, options))
+			}
+			weakIntegerValuePropertiesByMapId[mapId] = WeakReference(integerValueProperty)
+			
+			return integerValueProperty
+		}
+	}
+	
+	/// 返回指定ID的整数型参数在当前选项配置下的值。
+	///
+	/// - parameters:
+	/// 	- mapId: 参数表ID。
+	///
+	/// - returns: 对应的值。
 	public func integerValue(for mapId: String) -> Int? {
-		return integerValuePropertiesByMapId[mapId]!.value
+		return integerValueProperty(for: mapId).value
 	}
 	
+	private var weakFloatValuePropertiesByMapId: [String : WeakReference<Property<Double?>>] = [:]
+	
+	/// 返回指定ID的浮点数型参数在当前选项配置下的值的RAC属性。
+	///
+	/// - parameters:
+	/// 	- mapId: 参数表ID。
+	///
+	/// - returns: 对应的值的RAC属性。
+	public func floatValueProperty(for mapId: String) -> Property<Double?> {
+		if let floatValueProperty = weakFloatValuePropertiesByMapId[mapId]?.value {
+			return floatValueProperty
+		}
+		else {
+			let manual = self.manual
+			
+			let floatValueProperty = optionsProperty.map { options in
+				return manual.floatValue(for: (mapId, options))
+			}
+			weakFloatValuePropertiesByMapId[mapId] = WeakReference(floatValueProperty)
+			
+			return floatValueProperty
+		}
+	}
+	
+	/// 返回指定ID的浮点数型参数在当前选项配置下的值。
+	///
+	/// - parameters:
+	/// 	- mapId: 参数表ID。
+	///
+	/// - returns: 对应的值。
 	public func floatValue(for mapId: String) -> Double? {
-		return floatValuePropertiesByMapId[mapId]!.value
+		return floatValueProperty(for: mapId).value
 	}
 	
+	private var weakStringValuePropertiesByMapId: [String : WeakReference<Property<String?>>] = [:]
+	
+	/// 返回指定ID的字符串型参数在当前选项配置下的值的RAC属性。
+	///
+	/// - parameters:
+	/// 	- mapId: 参数表ID。
+	///
+	/// - returns: 对应的值的RAC属性。
+	public func stringValueProperty(for mapId: String) -> Property<String?> {
+		if let stringValueProperty = weakStringValuePropertiesByMapId[mapId]?.value {
+			return stringValueProperty
+		}
+		else {
+			let manual = self.manual
+			
+			let stringValueProperty = optionsProperty.map { options in
+				return manual.stringValue(for: (mapId, options))
+			}
+			weakStringValuePropertiesByMapId[mapId] = WeakReference(stringValueProperty)
+			
+			return stringValueProperty
+		}
+	}
+	
+	/// 返回指定ID的字符串型参数在当前选项配置下的值。
+	///
+	/// - parameters:
+	/// 	- mapId: 参数表ID。
+	///
+	/// - returns: 对应的值。
 	public func stringValue(for mapId: String) -> String? {
-		return stringValuePropertiesByMapId[mapId]!.value
+		return stringValueProperty(for: mapId).value
 	}
 	
+	private var weakSizeValuePropertiesByMapId: [String : WeakReference<Property<Offset?>>] = [:]
+	
+	/// 返回指定ID的尺寸型参数在当前选项配置下的值的RAC属性。
+	///
+	/// - parameters:
+	/// 	- mapId: 参数表ID。
+	///
+	/// - returns: 对应的值的RAC属性。
+	public func sizeValueProperty(for mapId: String) -> Property<Offset?> {
+		if let sizeValueProperty = weakSizeValuePropertiesByMapId[mapId]?.value {
+			return sizeValueProperty
+		}
+		else {
+			let manual = self.manual
+			
+			let sizeValueProperty = optionsProperty.map { options in
+				return manual.sizeValue(for: (mapId, options))
+			}
+			weakSizeValuePropertiesByMapId[mapId] = WeakReference(sizeValueProperty)
+			
+			return sizeValueProperty
+		}
+	}
+	
+	/// 返回指定ID的尺寸型参数在当前选项配置下的值。
+	///
+	/// - parameters:
+	/// 	- mapId: 参数表ID。
+	///
+	/// - returns: 对应的值。
 	public func sizeValue(for mapId: String) -> Offset? {
-		return sizeValuePropertiesByMapId[mapId]!.value
+		return sizeValueProperty(for: mapId).value
 	}
 	
+	private var weakPaddingValuePropertiesByMapId: [String : WeakReference<Property<Padding?>>] = [:]
+	
+	/// 返回指定ID的包边型参数在当前选项配置下的值的RAC属性。
+	///
+	/// - parameters:
+	/// 	- mapId: 参数表ID。
+	///
+	/// - returns: 对应的值的RAC属性。
+	public func paddingValueProperty(for mapId: String) -> Property<Padding?> {
+		if let paddingValueProperty = weakPaddingValuePropertiesByMapId[mapId]?.value {
+			return paddingValueProperty
+		}
+		else {
+			let manual = self.manual
+			
+			let paddingValueProperty = optionsProperty.map { options in
+				return manual.paddingValue(for: (mapId, options))
+			}
+			weakPaddingValuePropertiesByMapId[mapId] = WeakReference(paddingValueProperty)
+			
+			return paddingValueProperty
+		}
+	}
+	
+	/// 返回指定ID的包边型参数在当前选项配置下的值。
+	///
+	/// - parameters:
+	/// 	- mapId: 参数表ID。
+	///
+	/// - returns: 对应的值。
 	public func paddingValue(for mapId: String) -> Padding? {
-		return paddingValuePropertiesByMapId[mapId]!.value
+		return paddingValueProperty(for: mapId).value
 	}
 	
+	private var weakColorValuePropertiesByMapId: [String : WeakReference<Property<Color?>>] = [:]
+	
+	/// 返回指定ID的颜色型参数在当前选项配置下的值的RAC属性。
+	///
+	/// - parameters:
+	/// 	- mapId: 参数表ID。
+	///
+	/// - returns: 对应的值的RAC属性。
+	public func colorValueProperty(for mapId: String) -> Property<Color?> {
+		if let colorValueProperty = weakColorValuePropertiesByMapId[mapId]?.value {
+			return colorValueProperty
+		}
+		else {
+			let manual = self.manual
+			
+			let colorValueProperty = optionsProperty.map { options in
+				return manual.colorValue(for: (mapId, options))
+			}
+			weakColorValuePropertiesByMapId[mapId] = WeakReference(colorValueProperty)
+			
+			return colorValueProperty
+		}
+	}
+	
+	/// 返回指定ID的颜色型参数在当前选项配置下的值。
+	///
+	/// - parameters:
+	/// 	- mapId: 参数表ID。
+	///
+	/// - returns: 对应的值。
 	public func colorValue(for mapId: String) -> Color? {
-		return colorValuePropertiesByMapId[mapId]!.value
+		return colorValueProperty(for: mapId).value
 	}
 	
+	private var weakImageValuePropertiesByMapId: [String : WeakReference<Property<Image?>>] = [:]
+	
+	/// 返回指定ID的图片型参数在当前选项配置下的值的RAC属性。
+	///
+	/// - parameters:
+	/// 	- mapId: 参数表ID。
+	///
+	/// - returns: 对应的值的RAC属性。
+	public func imageValueProperty(for mapId: String) -> Property<Image?> {
+		if let imageValueProperty = weakImageValuePropertiesByMapId[mapId]?.value {
+			return imageValueProperty
+		}
+		else {
+			let manual = self.manual
+			
+			let imageValueProperty = optionsProperty.map { options in
+				return manual.imageValue(for: (mapId, options))
+			}
+			weakImageValuePropertiesByMapId[mapId] = WeakReference(imageValueProperty)
+			
+			return imageValueProperty
+		}
+	}
+	
+	/// 返回指定ID的图片型参数在当前选项配置下的值。
+	///
+	/// - parameters:
+	/// 	- mapId: 参数表ID。
+	///
+	/// - returns: 对应的值。
 	public func imageValue(for mapId: String) -> Image? {
-		return imageValuePropertiesByMapId[mapId]!.value
+		return imageValueProperty(for: mapId).value
 	}
 	
+	private weak var weakIsValidProperty: Property<Bool>?
+	
+	/// 是否合法的RAC属性。
+	open var isValidProperty: Property<Bool> {
+		if let isValidProperty = weakIsValidProperty {
+			return isValidProperty
+		}
+		else {
+			let isValidProperty = conflictedOptionsProperty.map { conflictedOptions in
+				return conflictedOptions.isEmpty
+			}
+			weakIsValidProperty = isValidProperty
+			
+			return isValidProperty
+		}
+		
+	}
+	
+	/// 是否合法。
 	public var isValid: Bool {
 		return isValidProperty.value
 	}
@@ -339,15 +548,15 @@ extension Reactive where Base : Config {
 	}
 	
 	public func option(for groupId: String) -> Property<Option?> {
-		return base.optionPropertiesByGroupId[groupId]!
+		return base.optionProperty(for: groupId)
 	}
 	
 	public func availableOptions(for groupId: String) -> Property<[Option]> {
-		return base.availableOptionsPropertiesByGroupId[groupId]!
+		return base.availableOptionsProperty(for: groupId)
 	}
 	
 	public func defaultOption(for groupId: String) -> Property<Option?> {
-		return base.defaultOptionPropertiesByGroupId[groupId]!
+		return base.defaultOptionProperty(for: groupId)
 	}
 	
 	public var conflictedOptions: Property<[Option]> {
@@ -355,35 +564,35 @@ extension Reactive where Base : Config {
 	}
 	
 	public func booleanValue(for mapId: String) -> Property<Bool?> {
-		return base.booleanValuePropertiesByMapId[mapId]!
+		return base.booleanValueProperty(for: mapId)
 	}
 	
 	public func integerValue(for mapId: String) -> Property<Int?> {
-		return base.integerValuePropertiesByMapId[mapId]!
+		return base.integerValueProperty(for: mapId)
 	}
 	
 	public func floatValue(for mapId: String) -> Property<Double?> {
-		return base.floatValuePropertiesByMapId[mapId]!
+		return base.floatValueProperty(for: mapId)
 	}
 	
 	public func stringValue(for mapId: String) -> Property<String?> {
-		return base.stringValuePropertiesByMapId[mapId]!
+		return base.stringValueProperty(for: mapId)
 	}
 	
 	public func sizeValue(for mapId: String) -> Property<Offset?> {
-		return base.sizeValuePropertiesByMapId[mapId]!
+		return base.sizeValueProperty(for: mapId)
 	}
 	
 	public func paddingValue(for mapId: String) -> Property<Padding?> {
-		return base.paddingValuePropertiesByMapId[mapId]!
+		return base.paddingValueProperty(for: mapId)
 	}
 	
 	public func colorValue(for mapId: String) -> Property<Color?> {
-		return base.colorValuePropertiesByMapId[mapId]!
+		return base.colorValueProperty(for: mapId)
 	}
 	
 	public func imageValue(for mapId: String) -> Property<Image?> {
-		return base.imageValuePropertiesByMapId[mapId]!
+		return base.imageValueProperty(for: mapId)
 	}
 	
 	public var isValid: Property<Bool> {

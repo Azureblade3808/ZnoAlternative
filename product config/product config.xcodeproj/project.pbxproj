@@ -9,6 +9,7 @@
 /* Begin PBXBuildFile section */
 		474AEA613679DE8B8EF3F9374AF63790 /* Pods_product_config_product_config_tests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = AA14BFDA5AB0CF1D7D8DDD5759D0E200 /* Pods_product_config_product_config_tests.framework */; };
 		7A6613CA4286CC343BEA28026D96D246 /* product_config.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 2CAAC47AC1BD92A8908FB7A41CB7AD01 /* product_config.framework */; };
+		7CF2B0E34A7CDBC47084EF61FB5412F4 /* WeakReference.swift in Sources */ = {isa = PBXBuildFile; fileRef = 374CA200D492486B4448D2172C2706F9 /* WeakReference.swift */; };
 		80B9A6D2D48BD1B8183BF7069BF0F89E /* ConfigSpec.swift in Sources */ = {isa = PBXBuildFile; fileRef = 41E1ABF6F56D0D2F7C42589DF79FD71C /* ConfigSpec.swift */; };
 		8BDD2AD0D106E46C886C9F7E9115E28C /* sample_spec.xml in Resources */ = {isa = PBXBuildFile; fileRef = 010A0D8662E34FCF4E7C59D2EA858942 /* sample_spec.xml */; };
 		C28B51F09AE4CEEF13EF5E8964231652 /* Config.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8F80C049DF9F87865357616C8DE2F499 /* Config.swift */; };
@@ -30,6 +31,7 @@
 		242DFEDADAD5B3A56319BC4D14CB1C54 /* product config tests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = "product config tests.xctest"; sourceTree = BUILT_PRODUCTS_DIR; };
 		2563058F532455C8FB3BD7D759BF27E2 /* Pods-product config.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-product config.debug.xcconfig"; path = "Target Support Files/Pods-product config/Pods-product config.debug.xcconfig"; sourceTree = "<group>"; };
 		2CAAC47AC1BD92A8908FB7A41CB7AD01 /* product_config.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = product_config.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		374CA200D492486B4448D2172C2706F9 /* WeakReference.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WeakReference.swift; sourceTree = "<group>"; };
 		41E1ABF6F56D0D2F7C42589DF79FD71C /* ConfigSpec.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ConfigSpec.swift; sourceTree = "<group>"; };
 		4EAE3B28B9B3D364E935252DBED3CFDA /* Pods_product_config.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_product_config.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		63459C195D6873CDD172EB815FD75A95 /* Pods-product config-product config tests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-product config-product config tests.release.xcconfig"; path = "Target Support Files/Pods-product config-product config tests/Pods-product config-product config tests.release.xcconfig"; sourceTree = "<group>"; };
@@ -80,6 +82,14 @@
 			path = code;
 			sourceTree = "<group>";
 		};
+		2D7BBE59DAB4487D28352C568C7F3BF5 /* utilities */ = {
+			isa = PBXGroup;
+			children = (
+				374CA200D492486B4448D2172C2706F9 /* WeakReference.swift */,
+			);
+			path = utilities;
+			sourceTree = "<group>";
+		};
 		598613B4AB5F646329A6B276DC958611 = {
 			isa = PBXGroup;
 			children = (
@@ -104,6 +114,7 @@
 			isa = PBXGroup;
 			children = (
 				4782B3C5C86D0164C9F934221564434F /* code */,
+				2D7BBE59DAB4487D28352C568C7F3BF5 /* utilities */,
 			);
 			path = "product config";
 			sourceTree = "<group>";
@@ -343,6 +354,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				C28B51F09AE4CEEF13EF5E8964231652 /* Config.swift in Sources */,
+				7CF2B0E34A7CDBC47084EF61FB5412F4 /* WeakReference.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
